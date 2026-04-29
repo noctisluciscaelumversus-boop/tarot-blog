@@ -46,8 +46,10 @@
     }
     .article-item a:hover { background: rgba(201,168,76,0.06); }
     .article-item a:hover .article-subtitle { color: var(--deep-blue); }
-    .article-date-tag { flex-shrink: 0; font-size: 0.75rem; color: #b0997e; letter-spacing: 0.05em; min-width: 80px; }
+    .article-date-tag { flex-shrink: 0; font-size: 0.75rem; color: #b0997e; letter-spacing: 0.05em; min-width: 80px; padding-top: 0.2rem; }
+    .article-info { display: flex; flex-direction: column; gap: 0.3rem; }
     .article-subtitle { font-size: 0.95rem; font-weight: 400; color: var(--text-mid); line-height: 1.7; }
+    .article-cards { font-size: 0.72rem; color: #b0997e; letter-spacing: 0.05em; }
 
     .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
 
@@ -95,19 +97,28 @@
         <li class="article-item">
           <a href="article_kareshi_0429.html">
             <span class="article-date-tag">2026/4/29</span>
-            <span class="article-subtitle">静かに進む心の整理と新しい感情</span>
+            <div class="article-info">
+              <span class="article-subtitle">静かに進む心の整理と新しい感情</span>
+              <span class="article-cards">ソードの6・カップのエース・カップの4・カップのクイーン逆</span>
+            </div>
           </a>
         </li>
         <li class="article-item">
           <a href="article_kareshi_0428.html">
             <span class="article-date-tag">2026/4/28</span>
-            <span class="article-subtitle">揺れる本音と止まったままの関係</span>
+            <div class="article-info">
+              <span class="article-subtitle">揺れる本音と止まったままの関係</span>
+              <span class="article-cards">隠者逆・ソードの2逆・戦車逆・死神逆</span>
+            </div>
           </a>
         </li>
         <li class="article-item">
           <a href="article_kareshi.html">
             <span class="article-date-tag">2026/4/26</span>
-            <span class="article-subtitle">気持ちはあるのに動けない理由</span>
+            <div class="article-info">
+              <span class="article-subtitle">気持ちはあるのに動けない理由</span>
+              <span class="article-cards">節制・カップのナイト逆・ソードの6</span>
+            </div>
           </a>
         </li>
       </ul>
