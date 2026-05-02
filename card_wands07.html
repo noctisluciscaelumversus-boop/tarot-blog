@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ワンドの7｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/Wands07.png" alt="ワンドの7"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ワンドの7</div>
+          <div class="card-name-en">Seven of Wands</div>
+          <div class="card-summary">防衛・優位・孤軍奮闘を表すカード。<br>岩山の上に立つ人物が、下から突き上げられる6本のワンドに一人で応戦する。<br>「有利な立場にいるが、守るために必死に戦っている状態」がこのカードの核心です。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">優位な立場</span><span class="keyword">防衛・現状維持</span><span class="keyword">競争・ライバル</span><span class="keyword">信念を持って戦う</span><span class="keyword">勇敢に立ち向かう</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Five</div><div class="flow-label">競争・対立</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Six</div><div class="flow-label">勝利・評価</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Seven</div><div class="flow-label">防衛・維持</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Eight</div><div class="flow-label">急展開・流れ</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🏔️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">高い場所に立つ人物（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">有利な立場</span><span class="symbol-tag">下からの攻撃が届かない位置</span><span class="symbol-tag">すでに優位性を持っている</span></div>
+              <div class="symbol-desc">岩山の上に立つ人物は、下から来る攻撃が届きにくい有利な位置にいます。これはすでに何かを手に入れ、優位性を持っている状態を象徴しています。立場として優位であることがこのカードの前提です。</div>
+              <div class="symbol-point">→ 「有利な立場・優位性を持っている」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🧍</div>
+            <div class="symbol-body">
+              <div class="symbol-name">一人で戦っている姿</div>
+              <div class="symbol-meaning"><span class="symbol-tag">孤軍奮闘</span><span class="symbol-tag">仲間がいない</span><span class="symbol-tag">自分の力で守る必要がある</span></div>
+              <div class="symbol-desc">周囲に仲間はいません。一人でライバルたちに立ち向かっています。孤独な戦いですが、それだけに自分の力と信念だけが頼りになります。</div>
+              <div class="symbol-point">→ 「孤軍奮闘・自分の力で守る」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🪄</div>
+            <div class="symbol-body">
+              <div class="symbol-name">6本のワンド（ライバルたち）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">複数の敵・競争相手</span><span class="symbol-tag">次々と現れるライバル</span><span class="symbol-tag">プレッシャーが多い状態</span></div>
+              <div class="symbol-desc">下から突き上げられる6本のワンドは、複数のライバルや課題を象徴しています。次々と現れる競争相手に対し、絶えず対応し続けなければならない状況です。</div>
+              <div class="symbol-point">→ 「次々と現れるライバル・課題」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🛡️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">守る姿勢（重要ポイント）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">攻めではなく防御</span><span class="symbol-tag">今の立場・成果を守る戦い</span><span class="symbol-tag">取りに行くのではなく維持が目的</span></div>
+              <div class="symbol-desc">人物は攻撃ではなく、防御の姿勢を取っています。目的は「勝つこと」ではなく「守ること」。手に入れた成功・立場・関係を維持するための戦いです。</div>
+              <div class="symbol-point">→ 「攻めではなく、守ることが目的」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">😤</div>
+            <div class="symbol-body">
+              <div class="symbol-name">焦りのある表情・不揃いの靴</div>
+              <div class="symbol-meaning"><span class="symbol-tag">余裕がない</span><span class="symbol-tag">急いで対応している</span><span class="symbol-tag">有利でも楽ではない</span></div>
+              <div class="symbol-desc">表情には余裕がなく、足元を見ると靴が不揃いです。急いで応戦に出てきた様子が読み取れます。立場は有利でも、必死に守っている状態——楽な戦いではないことを示しています。</div>
+              <div class="symbol-point">→ 「有利でも楽ではない・必死に守っている」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🎨</div>
+            <div class="symbol-body">
+              <div class="symbol-name">服の色（緑・黄色・オレンジ）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">緑＝生命力</span><span class="symbol-tag">黄色＝希望</span><span class="symbol-tag">オレンジ＝活力・行動力</span></div>
+              <div class="symbol-desc">緑（生命力）・黄色（希望）・オレンジ（活力）の組み合わせは、強いエネルギーと信念を示しています。厳しい状況にあっても、戦い抜く力と意志がある状態です。</div>
+              <div class="symbol-point">→ 「戦い抜く強いエネルギーと信念がある」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Wands / ワンドのスート</div>
+            <div class="meta-tags"><span class="meta-tag">情熱・行動</span><span class="meta-tag">エネルギー</span><span class="meta-tag">創造</span></div>
+            <p class="meta-note">情熱と行動のスート。7では「そのエネルギーを守りに使う」段階として現れます。攻めではなく維持の戦いです。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Seven / 7の意味</div>
+            <div class="meta-tags"><span class="meta-tag">混乱・試練</span><span class="meta-tag">均衡の崩れ</span><span class="meta-tag">競争の激化</span></div>
+            <p class="meta-note">7は試練と混乱の数。6の成功・評価のあと、それを維持するための戦いが始まります。プレッシャーの中での対応力が問われます。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「守りきれるかどうかのカード」。守るべきものを明確にし、自分らしさを貫くことが鍵。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">守るべきものは何か？何を維持しようとしているのか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">ライバルの存在を認識しているか？油断していないか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">奇策を使おうとしていないか？自分らしさを貫けているか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">目的は「勝つこと」ではなく「守ること」。奇策は不要で、自分らしさを貫くことが重要です。恋愛でライバルがいる場合も、無理に変える必要はありません。高い位置に立っているという優位性を忘れないようにしましょう。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">優位な立場</span><span class="position-kw">防衛・現状維持</span><span class="position-kw">競争・ライバル</span><span class="position-kw">信念を持って戦う</span><span class="position-kw">忙しさ</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>ライバルがいても優位な立場。自分らしさを貫くことで守れる。必死に対応している状態</td></tr>
+              <tr><td class="cat">人間関係</td><td>複数の人間関係・役割に対応に追われる。信念を持って立ち向かうことが必要な状況</td></tr>
+              <tr><td class="cat">仕事</td><td>競争相手が多く忙しい。しかし立場は有利。プレッシャーの中でも自分を貫いて守り切る</td></tr>
+              <tr><td class="cat">自己成長</td><td>課題や試練が次々と来る。それでも高い立場（経験・実力）があるので乗り越えられる</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">不利になる</span><span class="position-kw">立場の逆転</span><span class="position-kw">追い込まれる</span><span class="position-kw">自信喪失</span><span class="position-kw">下克上</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>ライバルに逆転される、立場が弱くなる。自信を失い、守ることができない状態に</td></tr>
+              <tr><td class="cat">人間関係</td><td>格下と思っていた相手に追い上げられる。下克上的な展開が起きている</td></tr>
+              <tr><td class="cat">仕事</td><td>優位だった立場が崩れる。競争に負ける、または戦意喪失して守りを放棄してしまう</td></tr>
+              <tr><td class="cat">自己成長</td><td>プレッシャーに耐えられず崩れる。信念を失い、自分らしさを保てなくなっている</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ワンドの7は「優位な立場にいるが、守るために必死に戦っている状態」を表すカードです。高い位置は有利ですが、楽ではありません。不揃いの靴が物語るように、必死に応戦している状況です。</p>
+          <p>ワンドの6（勝利・評価）→ワンドの7（防衛・維持）という流れは、「手に入れた成功を守る段階」を示しています。ここで維持する力が試されます。</p>
+          <p>このカードが出たら、守るべきものを明確にし、自分らしさを貫くことが最善の戦略です。奇策は必要ありません。自分の高い立場をしっかり認識して戦い続けることが、守り切るための鍵になります。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
