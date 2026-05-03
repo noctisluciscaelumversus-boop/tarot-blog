@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペンタクルの9｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/Pentacles09.png" alt="ペンタクルの9"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ペンタクルの9</div>
+          <div class="card-name-en">Nine of Pentacles</div>
+          <div class="card-summary">物質的な豊かさ・成功・充実・守られた環境を表すカード。<br>自分の手で豊かさをつかんだり、支援や庇護を受けて安定した場所にいられることを示します。<br>お金・仕事・生活の充実・華やかさ・女性としての成功という意味が特に強いカードです。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">豊かさ・充実</span><span class="keyword">庇護・支援</span><span class="keyword">女性としての成功</span><span class="keyword">華やかな暮らし</span><span class="keyword">達成・出世</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Seven</div><div class="flow-label">成果を見つめる</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Eight</div><div class="flow-label">修行・技術を磨く</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Nine</div><div class="flow-label">豊かさ・充実・守られた環境</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Ten</div><div class="flow-label">家族・財産の完成</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">👸</div>
+            <div class="symbol-body">
+              <div class="symbol-name">ドレスの女性（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">豊かさを得た女性</span><span class="symbol-tag">女性としての成功</span><span class="symbol-tag">美しさ・華やかさ</span></div>
+              <div class="symbol-desc">右手でペンタクルとブドウに触れる女性は、物質的な豊かさを自らの手でつかんだことを表します。黄色系の服は幸福・豊かさ・華やかさを象徴。服の花模様は大アルカナ「女帝」にも描かれるヴィーナス／金星のマークとされ、愛・美・女性性を表します。豊かさを得た女性・女性としての成功・美しさや華やかさを手にした存在として読めます。</div>
+              <div class="symbol-point">→ 「自らの手で豊かさをつかんだ、成功した女性の姿」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🐦</div>
+            <div class="symbol-body">
+              <div class="symbol-name">手の上に乗る小鳥</div>
+              <div class="symbol-meaning"><span class="symbol-tag">自由はあるが今の場所に留まる</span><span class="symbol-tag">自分を律して豊かさを保つ</span></div>
+              <div class="symbol-desc">小鳥には2つの解釈があります。①いつでも好きな場所へ飛んでいけるけれど、居心地のいいこの場所を自ら離れないという解釈。②よく訓練されて主人の指示に従う鳥という解釈。どちらも女性自身の心境を表し、自由はあるが今の安定した環境に留まっている、または自分を律して今の豊かさを保っているという意味になります。</div>
+              <div class="symbol-point">→ 「自由と安定のはざまで、今の場所に留まる選択」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🍇</div>
+            <div class="symbol-body">
+              <div class="symbol-name">実り豊かなブドウ畑</div>
+              <div class="symbol-meaning"><span class="symbol-tag">充実・満足・成功・裕福</span><span class="symbol-tag">物質的・精神的な豊かさ</span></div>
+              <div class="symbol-desc">たくさんのブドウが実った畑は、充実・満足・成功・裕福・豊かさを表します。ペンタクルだけでなくブドウも描かれることで、このカードは豊かさの象徴が特に強くなっています。努力や支援によって物質的にも精神的にも満たされた状態です。</div>
+              <div class="symbol-point">→ 「物質的にも精神的にも満たされた、充実した状態」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🐌</div>
+            <div class="symbol-body">
+              <div class="symbol-name">足元のカタツムリ</div>
+              <div class="symbol-meaning"><span class="symbol-tag">自立・自給自足・独立独歩</span><span class="symbol-tag">自分のペースで着実に進む</span></div>
+              <div class="symbol-desc">カタツムリは自立・自給自足・独立独歩・ゆっくり目標へ向かうことを表します。急に成功したというより、自分のペースで進みながら着実に豊かさを手に入れたという意味にもつながります。</div>
+              <div class="symbol-point">→ 「急がず自分のペースで、着実に豊かさをつかんだ」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏰</div>
+            <div class="symbol-body">
+              <div class="symbol-name">遠くの領主の館と山</div>
+              <div class="symbol-meaning"><span class="symbol-tag">守られた場所・庇護</span><span class="symbol-tag">支援や条件の上に成り立つ豊かさ</span></div>
+              <div class="symbol-desc">女性が立つブドウ畑は領主の土地と考えられています。そのため、山へ向かって苦労して進む必要がなく、守られた場所にいる・庇護を受けていると解釈できます。一方で、金銭的な援助によってその場所に留められているとも読めます。豊かさや安全はあるが、完全な自由ではなく支援や条件の上に成り立っている場合もあります。</div>
+              <div class="symbol-point">→ 「守られた環境にいる。ただし、それは条件付きかもしれない」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Pentacles / ペンタクルのスート</div>
+            <div class="meta-tags"><span class="meta-tag">物質的価値・お金</span><span class="meta-tag">仕事・実績・人脈</span><span class="meta-tag">堅実性・合理性</span></div>
+            <p class="meta-note">このカードでは特に金銭面・仕事・生活の豊かさとして強く現れます。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Nine / 9の意味</div>
+            <div class="meta-tags"><span class="meta-tag">充実・完成に近い段階</span><span class="meta-tag">妥協・葛藤</span><span class="meta-tag">達成感と揺らぎ</span></div>
+            <p class="meta-note">数字9の充実・妥協・葛藤と絵柄が合わさり、金銭面・仕事・援助・充実・成功・豊かさを意味します。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「豊かさは手に入っている。それが自力か条件付きかを読み分ける。」</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">物質的・環境的な充実が読み取れるかどうか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">豊かさは自分の力で得たのか、支援・庇護によるものか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">恋愛で出た場合：玉の輿・経済的に安定した相手・守ってくれる存在として読む。</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">アドバイスとして出た場合：今は豊かさや安定を受け取ってよいタイミング、自分の価値を信じて進む、支援を受けながらも自立心を忘れない、という意味になります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">豊かさを手に入れる</span><span class="position-kw">庇護・支援</span><span class="position-kw">スポンサーがつく</span><span class="position-kw">玉の輿</span><span class="position-kw">女性としての成功</span><span class="position-kw">順風満帆</span><span class="position-kw">達成・出世</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>経済的に安定した相手・守ってくれる存在・玉の輿。華やかな関係、女性としての幸せをつかむ暗示。かなりポジティブ。</td></tr>
+              <tr><td class="cat">人間関係</td><td>支援者・パトロンの登場、安心できる環境に恵まれる。信頼できる庇護者と出会う。</td></tr>
+              <tr><td class="cat">仕事</td><td>成果が認められる・スポンサーがつく・出世する・豊かな生活につながる仕事。女性ならではの強みを活かせる場面。</td></tr>
+              <tr><td class="cat">お金</td><td>収入・資産の充実、援助・支援が入る。物質的にも環境的にも恵まれた状態。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">金銭目当てのつながり</span><span class="position-kw">浪費・贅沢</span><span class="position-kw">打算・裏切り</span><span class="position-kw">不誠実</span><span class="position-kw">借りを作る</span><span class="position-kw">借金</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>愛情よりお金や条件が優先される関係。打算的な恋愛、金銭目当ての相手。支援の裏に条件がある。</td></tr>
+              <tr><td class="cat">人間関係</td><td>見せかけの豊かさ・裏切り・不誠実な関係。借りを作ることで関係が成り立っている。</td></tr>
+              <tr><td class="cat">仕事</td><td>利益優先・不誠実な取引・支援の裏に条件がある。自力ではなく人に依存した成功。</td></tr>
+              <tr><td class="cat">お金</td><td>浪費・贅沢・借金。豊かさを手に入れたとしても、それが条件付きで自力ではないことを示す。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ペンタクルの9は、物質的な豊かさを手に入れ、守られた環境で充実しているカードです。ペンタクルのスートの中でも特に豊かさの象徴が強く、女性にとっての成功や幸せをつかむカードとして読まれます。</p>
+          <p>正位置なら、豊かさ・庇護・スポンサー・玉の輿・華やかな暮らし・達成・出世。逆位置なら、金銭目当て・浪費・打算・裏切り・不誠実・借金。</p>
+          <p>一言でまとめるなら、「豊かさと安心を手に入れる一方で、その豊かさが自力なのか、条件付きなのかも問われるカード」です。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
