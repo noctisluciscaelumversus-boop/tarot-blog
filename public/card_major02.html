@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>女教皇｜大アルカナ解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/02-TheHighPriestess.png" alt="女教皇"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Major Arcana ✦ 大アルカナ</div>
+          <div class="card-name-ja">女教皇</div>
+          <div class="card-name-en">The High Priestess</div>
+          <div class="card-summary">知性・理性・受容性・秘密・潜在意識を表します。<br>すぐに行動するのではなく、立ち止まって考え、知識を深め、物事の本質を見極める存在。<br>象徴が多く意味の幅が広いため、周囲のカードや相談内容をよく見ることが大切です。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">知性・理性</span><span class="keyword">受け入れる・観察</span><span class="keyword">隠れた真実</span><span class="keyword">純粋・聡明</span><span class="keyword">精神的なつながり</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">I</div><div class="flow-label">魔術師</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">II</div><div class="flow-label">女教皇</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">III</div><div class="flow-label">女帝</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">IV</div><div class="flow-label">皇帝</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🌙</div>
+            <div class="symbol-body">
+              <div class="symbol-name">月の冠・足元の三日月（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">月の女神・処女性</span><span class="symbol-tag">精神・潜在意識・本音</span></div>
+              <div class="symbol-desc">月は精神・潜在意識・心理の象徴。女教皇はローマの女教皇ヨハンナ、イシス、聖母マリアと関連づけられ、共通するテーマは処女性・純粋さ・神秘性・受容性・秘密です。</div>
+              <div class="symbol-point">→ 「精神・潜在意識・神秘性」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">📜</div>
+            <div class="symbol-body">
+              <div class="symbol-name">手に持つ「TORA」</div>
+              <div class="symbol-meaning"><span class="symbol-tag">知識・理性・原則</span><span class="symbol-tag">高次の知識は簡単に明かされない</span></div>
+              <div class="symbol-desc">知識・理性・論理的判断の象徴。一部が隠れていることから、高次の知識や真実は簡単には明かされないことも示しています。</div>
+              <div class="symbol-point">→ 「理性・論理・高次の真実」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">✝️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">胸の十字架</div>
+              <div class="symbol-meaning"><span class="symbol-tag">男性性と女性性の交わり</span><span class="symbol-tag">能動性と受動性の統合</span></div>
+              <div class="symbol-desc">縦軸と横軸、男性性と女性性、能動性と受動性の交わりを表します。片側だけでなく両方を見ることで、新しく生まれるものがあるという意味です。</div>
+              <div class="symbol-point">→ 「対立するものの調和」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏛️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">左右の黒と白の柱</div>
+              <div class="symbol-meaning"><span class="symbol-tag">受動性と能動性</span><span class="symbol-tag">陰と陽・闇と光</span></div>
+              <div class="symbol-desc">どちらか一方だけではなく、両面を見て調和させることが大切です。女教皇はその中間に座っています。</div>
+              <div class="symbol-point">→ 「二面性・バランス」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌴</div>
+            <div class="symbol-body">
+              <div class="symbol-name">背後の垂れ幕（ナツメヤシとザクロ）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">生命の樹・宇宙の叡智</span><span class="symbol-tag">幕の向こうへ進むには知識が必要</span></div>
+              <div class="symbol-desc">高度な知識・技術を表します。女教皇が前に座っているため、幕の向こう側へ進むには知識や理解を深める必要があります。幕の向こうに見える景色は、質問者の願望・不安・潜在意識を表します。</div>
+              <div class="symbol-point">→ 「知識によって開かれる世界」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">💙 青い服・座っている姿</div>
+            <div class="dual-item-text">青は水のイメージと結びつき、精神面や潜在意識を示します。座っている姿は、行動よりも思考を優先するカードであることを表します。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">🤫 秘密について</div>
+            <div class="dual-item-text">ここでいう「秘密」は、嘘をついて騙す意味ではありません。言う必要がないことまで言わない、内側に大切なものを秘めておくという意味です。</div>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② 数字「2」の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Two / 2の意味</div>
+            <div class="meta-tags"><span class="meta-tag">2つで1つ</span><span class="meta-tag">組み合わせ・調和</span><span class="meta-tag">バランス</span></div>
+            <p class="meta-note">男性と女性、正義と悪、顕在意識と潜在意識。2つの要素がどう関係しているかを見る数字。対立するのか、協調するのかは、占う内容や周囲のカード次第です。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Major Arcana / 大アルカナ</div>
+            <div class="meta-tags"><span class="meta-tag">魂の旅</span><span class="meta-tag">人生の大きなテーマ</span><span class="meta-tag">22枚の物語</span></div>
+            <p class="meta-note">愚者が旅に出て、魔術師に可能性の使い方を学んだあと、女教皇は「知識を深め、理解を広げる」段階を示します。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：意味の幅がとても広いカード。周囲のカード・相談内容・スプレッドの位置をよく見て、どの象徴が強く出ているかを丁寧に読む。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">今は行動よりも考え・学ぶ段階か？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">表面だけでなく、潜在意識や本音に目を向けているか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">2つの側面（陰と陽・能動と受動）をどちらも見ているか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">ワンオラクルで読む場合は、相談者の状況や背景をよく確認することが大切です。単独では読みが定まりにくいカードです。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">知性・理性</span><span class="position-kw">純粋・聡明</span><span class="position-kw">隠れた真実</span><span class="position-kw">精神的なつながり</span><span class="position-kw">調和</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>2人だけの秘密の恋、純粋で誠実な恋愛、プラトニックラブ。気持ちは通じ合っても交際にまでは進みにくい。</td></tr>
+              <tr><td class="cat">人間関係</td><td>冷静に相手を観察する、感情に流されず理性的に接する、精神的なつながりを大切にする。</td></tr>
+              <tr><td class="cat">仕事</td><td>研究や開発が進む、論理的に判断する、独自のノウハウはすぐに公開しない、頭を使う仕事が向いている。</td></tr>
+              <tr><td class="cat">自己成長</td><td>知識や技術を求める、理解を深める時期、自分自身に問いかける、一人で考える時間が必要。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">頭でっかち</span><span class="position-kw">閉鎖的・孤立</span><span class="position-kw">神経質・完璧主義</span><span class="position-kw">秘密の漏洩</span><span class="position-kw">冷酷</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>高望みしすぎて相手が見つからない、恋に臆病になり疑い深くなる、関係が冷め切っている、潔癖すぎる恋愛観。</td></tr>
+              <tr><td class="cat">人間関係</td><td>批判的・冷たい態度、人と関わろうとしない、良いところまたは悪いところしか見ない。</td></tr>
+              <tr><td class="cat">仕事</td><td>融通がきかず物事が進まない、個人プレーに走りすぎて失敗する、企業秘密や社内資料の流出に注意。</td></tr>
+              <tr><td class="cat">自己成長</td><td>自分の世界に固執する、精神的な余裕がなくなる、コンプレックスが強まる、真実を見ようとしない。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>女教皇は、すぐに動くカードではなく、考え、学び、受け入れ、真実を見極めるカードです。</p>
+          <p>正位置では、知性・理性・純粋さ・冷静な判断・精神的なつながり・隠れた真実。逆位置では、頭でっかち・閉鎖的・神経質・秘密の漏洩・潔癖すぎる態度・冷たさが強調されます。</p>
+          <p>一言で決めつけるより、周囲のカードや相談内容に合わせて、どの象徴が強く出ているかを丁寧に見ることが大切です。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
