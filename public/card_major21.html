@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界｜大アルカナ解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/21-TheWorld.png" alt="世界"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Major Arcana ✦ 大アルカナ</div>
+          <div class="card-name-ja">世界</div>
+          <div class="card-name-en">The World</div>
+          <div class="card-summary">完成・達成・統合・成就・ハッピーエンド・次のステージを表します。<br>0番の愚者から始まった大アルカナの物語は、21番の世界でひとつの終わりを迎えます。ゴール・到達点・完成形を示す、タロット78枚の中でもとりわけポジティブなカードです。<br>ただし「世界」はひとつのサイクルの完成であり、終わりと同時に次の始まりへの扉でもあります。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">完成・達成</span><span class="keyword">成就・ハッピーエンド</span><span class="keyword">統合</span><span class="keyword">次のステージ</span><span class="keyword">海外・インターナショナル</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">XIX</div><div class="flow-label">太陽</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XX</div><div class="flow-label">審判</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">XXI</div><div class="flow-label">世界</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">0</div><div class="flow-label">愚者へ</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">💃</div>
+            <div class="symbol-body">
+              <div class="symbol-name">両性具有のダンサー（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">男性性と女性性の統合・完全体</span><span class="symbol-tag">過去を振り返りながら次へ</span></div>
+              <div class="symbol-desc">月桂樹の輪の中央で踊る人物は一見女性に見えますが、両性具有とされています。胸には女性の象徴があり、隠された部分に男性の象徴があるとされます。この両性具有は、男性性と女性性が統合された完全体を表します。人はもともと両性具有だったという考えから、完全な調和・完成形・始まりへ帰ることも意味します。ダンサーは過去を表す左側に顔を向けており、到達点からすべてを振り返っている姿です。</div>
+              <div class="symbol-point">→ 「二元性の完全な統合・旅の到達点からの振り返り」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏆</div>
+            <div class="symbol-body">
+              <div class="symbol-name">両手のバトン（2本のワンド）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">1番魔術師のワンドと同一視</span><span class="symbol-tag">二元性の調和・融合</span></div>
+              <div class="symbol-desc">ダンサーが持つ2本のバトンは1番の魔術師が持つワンドと同一視されます。進化と退化、能動性と受動性、男性性と女性性など、相反するものの調和と融合を意味します。タロット全体に繰り返し登場する二元性の調和というテーマが、完成を意味する世界のカードで特に強く示されています。</div>
+              <div class="symbol-point">→ 「あらゆる二元性の最終的な調和と融合」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🦁</div>
+            <div class="symbol-body">
+              <div class="symbol-name">四隅のテトラモルフ（人・鷲・獅子・牡牛）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">運命の輪にも登場・完全体の姿</span><span class="symbol-tag">四大元素：火・水・風・土</span></div>
+              <div class="symbol-desc">四隅の4つの生き物はテトラモルフと呼ばれ、運命の輪にも登場しました。運命の輪では書物を読んで知識を蓄える成長途中の姿でしたが、世界では知識を蓄えた完全体の姿として描かれています。獅子＝火・ワンド、鷲＝水・カップ、人または天使＝風・ソード、牡牛＝土・ペンタクルとして、万物を構成する象徴です。</div>
+              <div class="symbol-point">→ 「万物の完成形・すべての元素の統合」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌿</div>
+            <div class="symbol-body">
+              <div class="symbol-name">月桂樹の輪・レムニスケート</div>
+              <div class="symbol-meaning"><span class="symbol-tag">輪の形＝0（愚者・始まりの数字）</span><span class="symbol-tag">レムニスケート：無限・終わりと始まりの循環</span></div>
+              <div class="symbol-desc">ダンサーを囲む月桂樹の輪は0の形をしています。0は0番の愚者の数字であり、大アルカナの始まりの数字です。月桂樹の上下には無限を表すレムニスケートが描かれています。世界のカードは到達点であると同時に、愚者の0＝始まりも意味しています。ひとつの物語の終わりが次の物語の始まりであり、終わりと始まりは無限に続くことを示しています。</div>
+              <div class="symbol-point">→ 「完成は始まり・終わりと始まりの無限の循環」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">⚠️ 完成の先にある注意点</div>
+            <div class="dual-item-text">世界は完成を意味するため、今以上の成長や伸びしろは望みにくい状態でもあります。さらに成長したいなら、新しいことへの挑戦が必要です。今の状況を受け入れ、新しい取り組みへ向かうことで、0番の愚者へ戻り、新しい旅が始まります。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">🔄 吊るされた男との対比</div>
+            <div class="dual-item-text">12番の吊るされた男は「視点を変える」がキーワードです。世界という到達点に立ったとき、次へ進むためのヒントは、吊るされた男の視点転換にあります。完成の後、逆さになってでも新しい角度から見ることで次の旅が始まります。</div>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② 数字「21」の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Twenty-one / 21の意味</div>
+            <div class="meta-tags"><span class="meta-tag">2＋1＝3（三位一体の完全体）</span><span class="meta-tag">7×3（霊的完全さの三位一体）</span><span class="meta-tag">10＋10＋1（完成＋完成＋始まり）</span></div>
+            <p class="meta-note">2＋1＝3として二元性の調和に新たな誕生が加わった三位一体の完全体。7×3として霊的な数字7が三位一体として重なりより完全な形に。10＋10＋1として完成が2つ融合し1が加わる——終わりと始まり、そして次のスタートを意味します。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Major Arcana / 大アルカナ</div>
+            <div class="meta-tags"><span class="meta-tag">魂の旅の完成</span><span class="meta-tag">22枚の物語の終着点</span><span class="meta-tag">そして0番へ戻る</span></div>
+            <p class="meta-note">0番の愚者から始まった魂の旅がついに完成します。ただし月桂樹の輪は0の形。世界は終着点であると同時に、愚者という新しい始まりへの入口でもあります。旅は終わらず、無限に続いていきます。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：ほとんどの場合において喜ばしい結果を表すカード。ただし「完成」は「今以上の伸びしろが少ない状態」でもある。成長を続けたいなら次の旅へ踏み出すサインと読む。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">正位置でほぼ迷わずポジティブに読める数少ないカードのひとつ。</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">「世界」＝海外・インターナショナルという読み方も有効。</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">逆位置では「完成していない・もう一歩」として、諦めずに続ける励ましにもなる。</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">円満退社・定年退職のように、ひとつの区切りを迎える意味でも読めます。終わり方が穏やかで充実しているという点がポイントです。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">ハッピーエンド</span><span class="position-kw">完成・達成</span><span class="position-kw">成就・統合</span><span class="position-kw">次のステージ</span><span class="position-kw">結婚・海外</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>心身ともに結ばれる、結婚へ向かって関係が進む、理想的なパートナーとの出会い、長い交際がひとつの完成形へ。</td></tr>
+              <tr><td class="cat">人間関係</td><td>チームや集団の目標が達成される、縁が完成する・ひとつの区切りを迎える、海外・異文化との縁が生まれる。</td></tr>
+              <tr><td class="cat">仕事</td><td>目標・目的の達成、大成功、努力が実を結び願いが叶う、活躍の場を次のステージに移す、貿易・旅行・海外と縁のある仕事が吉、円満退社・定年退職。</td></tr>
+              <tr><td class="cat">自己成長</td><td>ひとつのサイクルの完成・充実した区切り、初心に帰る、次の旅へ踏み出す準備が整う、努力が実る・満足できる結果が出る。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">未完成・不完全燃焼</span><span class="position-kw">停滞・中途半端</span><span class="position-kw">目標に届かない</span><span class="position-kw">もう一歩</span><span class="position-kw">妥協・挫折</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>何もできないまま恋が終わる、理想を求めすぎて無駄に終わる、出会いのない環境が続く、関係が完結しないまま停滞する。</td></tr>
+              <tr><td class="cat">人間関係</td><td>中途半端なままの関係が続く、縁が結ばれないまま終わる、グループや集団の目標が達成できない。</td></tr>
+              <tr><td class="cat">仕事</td><td>意欲が湧かず惰性で仕事をこなす、プロジェクトが失敗に終わる、納得のいく仕事ができない、仕事を辞められない、転職活動がうまくいかない。</td></tr>
+              <tr><td class="cat">自己成長</td><td>スランプ・限界を感じる、不完全燃焼のまま終わる、努力が必要・もう一歩頑張る必要がある、諦めずに続ける勇気が求められる。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>世界は、ひとつの物語が完成し、次の始まりへ向かうカードです。0番の愚者から始まった大アルカナの旅の最終章——しかし月桂樹の輪は0の形を描き、終わりは次の始まりとつながっています。</p>
+          <p>正位置では、完成・達成・成功・成就・統合・幸福・ハッピーエンド。タロット78枚の中でも特にポジティブな結果を示します。</p>
+          <p>逆位置では、未完成・停滞・不完全燃焼・中途半端・満足できない結果が強調されます。ただし「まだ完成していない＝もう一歩」というメッセージとして、前に進む励ましとして読むこともできます。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
