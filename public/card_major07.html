@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>戦車｜大アルカナ解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/07-TheChariot.png" alt="戦車"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Major Arcana ✦ 大アルカナ</div>
+          <div class="card-name-ja">戦車</div>
+          <div class="card-name-en">The Chariot</div>
+          <div class="card-summary">努力による勝利・前進・挑戦・自己コントロール・新しいステージへの移行を表します。<br>運よく勝つカードではなく、不安や迷いがあっても自分の意志でそれを乗り越え、自分の力で勝利をつかみに行くカードです。<br>魔術師から恋人たちまでの要素を内包した、大アルカナの中でも特にパワーの強い1枚です。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">努力による勝利</span><span class="keyword">前進・挑戦</span><span class="keyword">自己コントロール</span><span class="keyword">障害を乗り越える</span><span class="keyword">新しいステージ</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">V</div><div class="flow-label">法王</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">VI</div><div class="flow-label">恋人</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">VII</div><div class="flow-label">戦車</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">VIII</div><div class="flow-label">力</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🦁</div>
+            <div class="symbol-body">
+              <div class="symbol-name">白と黒のスフィンクス（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">能動性と受動性・相反する力</span><span class="symbol-tag">強い意志で2頭を制御する</span></div>
+              <div class="symbol-desc">女教皇の白黒の柱と同じく、能動性と受動性・肯定と否定・相反する力を表します。この2頭を前に進ませるには若者自身の強い意志が必要。勝利は運ではなく、強い意志と努力で勝ち取るものと示しています。</div>
+              <div class="symbol-point">→ 「相反する力を意志でコントロールする」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🪄</div>
+            <div class="symbol-body">
+              <div class="symbol-name">右手のワンド</div>
+              <div class="symbol-meaning"><span class="symbol-tag">魔術師との関連</span><span class="symbol-tag">天の力を自分の意志とタイミングで使う</span></div>
+              <div class="symbol-desc">魔術師が持っていたものと同じワンドですが、天へ掲げるのではなく手元で持っています。天から受け取った力を、自分の意志とタイミングで使うことを意味します。</div>
+              <div class="symbol-point">→ 「天の力を自分の意志で制御する」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌙</div>
+            <div class="symbol-body">
+              <div class="symbol-name">両肩の月の顔（ウリムとトミム）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">光と完全</span><span class="symbol-tag">自信の奥の不安定さ・心の揺れ</span></div>
+              <div class="symbol-desc">聖書の「ウリムとトミム」と関連し、光と完全を表します。一方で女教皇との関連から、自信の奥にある不安定さや心の揺れも示します。強さと不安が同居するカードです。</div>
+              <div class="symbol-point">→ 「強さの中に潜む不安・人間らしさ」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">⭐</div>
+            <div class="symbol-body">
+              <div class="symbol-name">天蓋の星々・胸の四角形</div>
+              <div class="symbol-meaning"><span class="symbol-tag">女帝の冠と同じ・天の影響</span><span class="symbol-tag">皇帝との関連・支配・活力</span></div>
+              <div class="symbol-desc">天蓋の星は女帝の冠の星と同じく宇宙エネルギーを受け取っていることを示します。胸の四角形は皇帝と関連し、支配・活力・現実を動かす力を表します。</div>
+              <div class="symbol-point">→ 「宇宙と現実、両面からのエネルギー」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🔄</div>
+            <div class="symbol-body">
+              <div class="symbol-name">戦車中央のリンガとヨニ（羽の生えたシンボル）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">男性性と女性性の結合</span><span class="symbol-tag">恋人たちとの関連・相反する力のコントロール</span></div>
+              <div class="symbol-desc">性的シンボルであるリンガ（男性性）とヨニ（女性性）の結合を表します。恋人たちのカードとも関連し、相反する2つの力をコントロールすることで飛躍できることを意味します。</div>
+              <div class="symbol-point">→ 「対立する力の統合から生まれる飛躍」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">🏙️ 背景の街・背後の川</div>
+            <div class="dual-item-text">街は今まで育った環境。そこから離れて進むことが新しい未来へ向かうことを意味します。川は境界線で、川を越えた戦車は不安定な意識を抜けて地に足がついた状態とも読めます。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">🔗 0〜6番との連鎖</div>
+            <div class="dual-item-text">魔術師のワンド、女教皇の白黒・月、女帝の星、皇帝の四角形、法王のウリムとトミム、恋人たちのリンガとヨニ。戦車はこれまでのカードの要素を内包した集大成です。</div>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② 数字「7」の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Seven / 7の意味</div>
+            <div class="meta-tags"><span class="meta-tag">完全さ・完璧さ</span><span class="meta-tag">霊的な力・強いパワー</span><span class="meta-tag">ラッキーセブン</span></div>
+            <p class="meta-note">聖書では7は完全さを示す数字。第七天・七大天使・七大惑星・七つの大罪など霊的なものに多く使われます。日本でも七福神・ラッキーセブンのように幸運の数字として扱われる、大アルカナの中でも力の強い数字です。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Major Arcana / 大アルカナ</div>
+            <div class="meta-tags"><span class="meta-tag">魂の旅</span><span class="meta-tag">人生の大きなテーマ</span><span class="meta-tag">22枚の物語</span></div>
+            <p class="meta-note">0〜6番の旅で得た全ての力・知識・選択を携えて、いよいよ自分の意志で前へ進む段階。これまでの積み重ねが勝利を可能にします。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：不安や葛藤を抱えながらも、自分の意志で相反する力をコントロールして前に進む。正位置なら、あとは前に進むだけ。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">不安や迷いを自分の意志でコントロールできているか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">勝利に向かって進む準備・覚悟はあるか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">スピード感を意識して動いているか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">逆位置は、車が動かない状態、またはコントロールが利かず暴走している状態としてイメージすると読みやすいです。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">努力による勝利</span><span class="position-kw">物事が進展する</span><span class="position-kw">障害を乗り越える</span><span class="position-kw">新しいステージ到達</span><span class="position-kw">善は急げ</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>自分からリードする、混乱を乗り越えて恋が成就する、新しい出会いを求めるなら行動を起こす。</td></tr>
+              <tr><td class="cat">人間関係</td><td>積極的に動くことで関係が動く、不安な気持ちを乗り越えて一歩踏み出す。</td></tr>
+              <tr><td class="cat">仕事</td><td>ライバルとの戦いに勝つ、スピードを意識した業務改革、新規開拓の成功、車・乗り物に関係する仕事との縁。</td></tr>
+              <tr><td class="cat">自己成長</td><td>体力・気力が充実する、挑戦する、現状を越えた新しいステージに到達する、不安や心配ごとを克服する。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">前に進めない</span><span class="position-kw">勢い任せで失敗</span><span class="position-kw">自信喪失</span><span class="position-kw">暴走・強引</span><span class="position-kw">交通トラブル</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>自分本位な行動で相手と喧嘩になる、勇気が出ずに進めない、強引すぎて相手との関係を悪くする。</td></tr>
+              <tr><td class="cat">人間関係</td><td>思考と行動が一致しない、ネガティブになり視野が狭くなる、強引な行動でトラブルを作る。</td></tr>
+              <tr><td class="cat">仕事</td><td>困難や障害を乗り越えられない、意欲が出ない、焦ってばかりで何も進まない、強引な手段でトラブルを作る。</td></tr>
+              <tr><td class="cat">自己成長</td><td>敗北感や挫折感を味わう、実力や経験不足が目立つ、交通事故や乗り物のトラブルに注意。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>戦車は、不安や葛藤を抱えながらも、自分の意志で前に進み、努力によって勝利をつかむカードです。</p>
+          <p>正位置では、勝利・前進・挑戦・行動力・スピード・新しいステージへの到達。逆位置では、停滞・暴走・自信喪失・敗北・強引さ・コントロール不足が強調されます。</p>
+          <p>このカードは「ただ勝てる」というより、自分の中の迷いや相反する力を制御できるかどうかを見るカードとして読むと理解しやすいです。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
