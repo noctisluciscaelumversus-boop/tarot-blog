@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>吊るされた男｜大アルカナ解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/12-TheHangedMan.png" alt="吊るされた男"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Major Arcana ✦ 大アルカナ</div>
+          <div class="card-name-ja">吊るされた男</div>
+          <div class="card-name-en">The Hanged Man</div>
+          <div class="card-summary">視点の転換・一時停止・内省・自己犠牲・悟り・待つことの意味を表します。<br>身動きが取れない状況の中で、逆さまに吊るされた男は苦しそうな表情を見せず、むしろ穏やかな悟りの表情を浮かべています。<br>一見すると不自由で辛そうなカードですが、この停滞の時間こそが大きな気づきと成長をもたらす、非常にポジティブなカードです。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">視点の転換</span><span class="keyword">一時停止・待つ</span><span class="keyword">内省・悟り</span><span class="keyword">自己犠牲</span><span class="keyword">停滞の中の成長</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">X</div><div class="flow-label">運命の輪</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XI</div><div class="flow-label">正義</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">XII</div><div class="flow-label">吊るされた男</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XIII</div><div class="flow-label">死神</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🙂</div>
+            <div class="symbol-body">
+              <div class="symbol-name">穏やかな表情（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">苦しみではなく悟り</span><span class="symbol-tag">自らの意志による停止</span></div>
+              <div class="symbol-desc">逆さまに吊るされているにもかかわらず、男は苦しそうな顔をしていません。穏やかで落ち着いた表情は、これが外から強制された苦しみではなく、自らの意志で選んだ一時停止であることを示します。状況を受け入れ、内側から悟りを得ている状態です。</div>
+              <div class="symbol-point">→ 「自ら選んだ静止・内なる平和」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">✨</div>
+            <div class="symbol-body">
+              <div class="symbol-name">頭の周りの黄金の光輪</div>
+              <div class="symbol-meaning"><span class="symbol-tag">悟り・啓示</span><span class="symbol-tag">内側から輝く知恵</span></div>
+              <div class="symbol-desc">男の頭を囲む黄金色の光は、聖人や悟りを開いた者の象徴。逆さになったことで得られた新しい視野・気づきが、精神的な光として表れています。停滞の時間が無駄ではなく、内側を照らす知恵に変わることを意味します。</div>
+              <div class="symbol-point">→ 「停滞から生まれる精神的な輝き・悟り」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🦵</div>
+            <div class="symbol-body">
+              <div class="symbol-name">片足だけを縛られた姿・もう一方の足は曲げている</div>
+              <div class="symbol-meaning"><span class="symbol-tag">一部は自由・完全な束縛ではない</span><span class="symbol-tag">自己選択の余地</span></div>
+              <div class="symbol-desc">片足だけが縛られており、もう一方の足は自由に曲げられています。これは完全な束縛ではなく、ある部分では自由が残っていることを示します。また曲げた足が「4の字」のような形を作り、数字4＝安定・土台の意味にも通じます。</div>
+              <div class="symbol-point">→ 「選択の余地がある停止・完全な無力ではない」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌳</div>
+            <div class="symbol-body">
+              <div class="symbol-name">T字型の木・生きた葉をつけた枝</div>
+              <div class="symbol-meaning"><span class="symbol-tag">生命・まだ生きている</span><span class="symbol-tag">十字架・犠牲の象徴</span></div>
+              <div class="symbol-desc">男を支える木はT字型で、キリストの十字架を連想させます。さらに木には生きた葉が繁っており、「死」ではなく「生きたまま止まっている」状態であることを強調します。自己犠牲の中にも生命力が宿っています。</div>
+              <div class="symbol-point">→ 「犠牲と生命力の共存」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">🔄 「逆さ」の意味</div>
+            <div class="dual-item-text">逆さまに吊るされることで、通常とは異なる視点から世界を見ることができます。今まで当たり前だと思っていた考え方を手放し、まったく別の角度から物事を捉え直す機会が与えられています。これがこのカードの核心です。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">⏸️ 動かないことの価値</div>
+            <div class="dual-item-text">現代社会では「行動すること」が美徳とされますが、吊るされた男は「動かないこと」「待つこと」にも大きな価値があることを示します。今すぐ動くよりも、立ち止まって内省することが最善の時期があります。</div>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② 数字「12」の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Twelve / 12の意味</div>
+            <div class="meta-tags"><span class="meta-tag">1＋2＝3（女帝との関連）</span><span class="meta-tag">完成のひとつ手前</span><span class="meta-tag">試練と成長</span></div>
+            <p class="meta-note">1＋2＝3として女帝に通じる創造性・豊かさの意味を持ちます。また12は1年の月の数、時計の12時（完成直前）など「完成のひとつ手前」を意味し、大きな変容の前の準備期間とも読めます。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Major Arcana / 大アルカナ</div>
+            <div class="meta-tags"><span class="meta-tag">魂の旅</span><span class="meta-tag">人生の大きなテーマ</span><span class="meta-tag">22枚の物語</span></div>
+            <p class="meta-note">正義で「判断を下す」段階を経て、今度は一切の行動を止めて内省に入る段階。次に来る「死神」＝変容の前の、静寂と準備の時間として位置づけられます。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「止まること」と「逆さの視点」がテーマ。停滞・足踏みをネガティブに読まず、「今は動かない時期・内省の時」というポジティブな読み方が重要。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">今の停滞は、次の大きな変化への準備期間ではないか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">視点を変えてみたら、全く違う解決策が見えてくるかもしれない。</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">焦って動くよりも、あえて待つ選択が正解の場合がある。</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">逆位置では「無駄な犠牲」「変わることへの抵抗」として読むことが多いです。苦しいのに現状にしがみついている、という状態を示す場合があります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">視点の転換</span><span class="position-kw">一時停止・待つ</span><span class="position-kw">内省・悟り</span><span class="position-kw">自己犠牲</span><span class="position-kw">停滞の中の成長</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>今は進展しない時期・お互いに立ち止まって考える必要がある、片思いの場合は少し距離を置くことで相手の気持ちが変わる可能性も。</td></tr>
+              <tr><td class="cat">人間関係</td><td>相手の立場になって考えてみる、今まで見えていなかった相手の本音が理解できる、自分の考えを一度手放してみる。</td></tr>
+              <tr><td class="cat">仕事</td><td>今は無理に動かず様子を見る時期、プロジェクトが一時停止・保留中、あえて待つことで好機を得る、リサーチ・勉強の期間。</td></tr>
+              <tr><td class="cat">自己成長</td><td>価値観の転換・新しいものの見方の獲得、内省・瞑想・自己分析の時期、過去の常識を手放す、精神的な成長。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">無駄な犠牲</span><span class="position-kw">変化への抵抗</span><span class="position-kw">執着</span><span class="position-kw">出口が見えない</span><span class="position-kw">自己嫌悪</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>いつまでも片思いのままで動けない、相手のために自分を犠牲にしすぎている、関係が停滞したまま変化できない。</td></tr>
+              <tr><td class="cat">人間関係</td><td>自己犠牲が報われない、自分だけが損をしている感覚、変わろうとしない相手や状況に縛られている。</td></tr>
+              <tr><td class="cat">仕事</td><td>無駄な待機時間・意味のない停滞、仕事のために私生活を犠牲にしすぎ、なかなか決断できずに機会を逃す。</td></tr>
+              <tr><td class="cat">自己成長</td><td>現状維持への執着、変化を恐れて一歩踏み出せない、過去の価値観を手放せず成長が止まっている。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>吊るされた男は、一見すると苦しそうで不自由なカードに見えますが、実は「自ら選んだ停止・内省の時間」という非常にポジティブな意味を持つカードです。</p>
+          <p>正位置では、視点の転換・一時停止・待つこと・内省・自己犠牲・悟りを意味します。今動かないことが最善の選択であり、立ち止まることで大きな気づきを得られる時期を示しています。</p>
+          <p>逆位置では、無駄な犠牲・変化への抵抗・執着・停滞からの出口が見えない状態を示します。「止まること」に意味がなくなっているサインかもしれません。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
