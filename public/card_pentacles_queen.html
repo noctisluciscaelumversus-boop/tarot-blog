@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペンタクルのクイーン｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/Pentacles13.png" alt="ペンタクルのクイーン"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ペンタクルのクイーン</div>
+          <div class="card-name-en">Queen of Pentacles</div>
+          <div class="card-summary">豊かさ・包容力・堅実さ・本質を見抜く力を表すカード。<br>実際の成果や成功、現実的な豊かさを手にしながら、なぜ成功したのか・どうすれば成果を出せるのかという本質まで深く考える人物を示します。<br>安全で豊かな場所にいるカードですが、不自由はないのに心が晴れない状態として読むこともあります。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">成功・豊かさ</span><span class="keyword">本質を考える</span><span class="keyword">包容力</span><span class="keyword">堅実さ</span><span class="keyword">生産性</span><span class="keyword">女性実業家</span><span class="keyword">安全な場所</span><span class="keyword">裕福・不自由なし</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Knight</div><div class="flow-label">立ち止まり・先を見据える</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Queen</div><div class="flow-label">豊かさ・本質を見抜く</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">King</div><div class="flow-label">成功・実力者・所有</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">👑</div>
+            <div class="symbol-body">
+              <div class="symbol-name">ペンタクルを見つめる女王（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">成功・豊かさを手にした人物</span><span class="symbol-tag">哲学的思考・深い学識</span><span class="symbol-tag">本質・原理を考える</span><span class="symbol-tag">物憂げな表情：満たされているのに心が揺れる</span></div>
+              <div class="symbol-desc">女王は膝の上に乗せたペンタクルをじっと見つめていますが、その目はどこか物憂げです。ウェイトの解説によれば、この女王は哲学的な思考を好み、深い学識を持つ人物です。そのため、単にお金や成果を眺めているのではなく、なぜ成功したのか・どうすれば成果が出せるのか・成功の要因は何かという本質を見抜こうとしています。豊かさを手にしながらも静かに深く考え続ける姿が、このカードの核心です。</div>
+              <div class="symbol-point">→ 「豊かさを手にしながら、その価値の本質を静かに見つめる」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🪑</div>
+            <div class="symbol-body">
+              <div class="symbol-name">山羊・牛の装飾がある玉座</div>
+              <div class="symbol-meaning"><span class="symbol-tag">山羊・牛：地属性・ペンタクルの土属性</span><span class="symbol-tag">守られた・近づきにくい地位</span><span class="symbol-tag">誘惑・価値あるものを手に入れる手段（逆位置での読み方も）</span></div>
+              <div class="symbol-desc">玉座には山羊と牛の装飾が施されており、いずれも占星術の地属性に関係する象徴でペンタクルの土属性を表します。バラの蔓が玉座を囲んでいることから、守られている・近づきにくいという意味もあります。もうひとつの装飾を悪魔的・邪なものとして読むなら、誘惑・良くないものに手を染める・価値あるものを卑怯な方法で手に入れるという解釈もできます（特に逆位置で）。</div>
+              <div class="symbol-point">→ 「地属性の豊かさと、守られた地位・近づきにくさ」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">👗</div>
+            <div class="symbol-body">
+              <div class="symbol-name">白・赤・緑・黄色の衣装</div>
+              <div class="symbol-meaning"><span class="symbol-tag">白：純粋・女性性・受動性</span><span class="symbol-tag">赤：情熱・男性性・能動性</span><span class="symbol-tag">緑：生命力・若々しさ・生産性</span><span class="symbol-tag">黄色：幸福・成功・地位・名誉</span></div>
+              <div class="symbol-desc">女王の服装に使われる白と赤は純粋と情熱、女性性と男性性の対比を表します。緑のマントは生命力・若々しさ・生産性を、黄色の冠は幸福・成功・地位・名誉を示します。受動的でありながら能動的な側面も持ち、単なる守りの人物ではないことを示しています。</div>
+              <div class="symbol-point">→ 「受動的な深さと、能動的な生産性を兼ね備えた人物」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌿</div>
+            <div class="symbol-body">
+              <div class="symbol-name">自然豊かな庭園・うさぎ</div>
+              <div class="symbol-meaning"><span class="symbol-tag">草花・川・山・バラの蔓：豊かさ・安全・守られた環境</span><span class="symbol-tag">遠くの山：問題から離れた安全な場所</span><span class="symbol-tag">うさぎ：多産・繁殖力・生命力・妊娠・出産の暗示</span></div>
+              <div class="symbol-desc">周囲の草花・川・山・バラの蔓は豊かさ・安全・守られた環境を表します。遠くに山が見えることから、問題がある場所から離れた安全な場所にいるとも読めます。カードの右下に描かれたうさぎは多産・繁殖力・生命力の象徴で、人によっては妊婦・妊娠・出産に結びつけて読むこともあります。</div>
+              <div class="symbol-point">→ 「安全で守られた豊かな環境と、生産性・生命力」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Pentacles / ペンタクルのスート</div>
+            <div class="meta-tags"><span class="meta-tag">物質・お金・財産</span><span class="meta-tag">仕事・実績・人脈</span><span class="meta-tag">現実的な価値</span></div>
+            <p class="meta-note">ペンタクルの現実性・堅実さとクイーンの内向性・包容力が合わさり、「豊かさを手にしながらその本質を深く考える」エネルギーになります。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Queen / クイーンの意味</div>
+            <div class="meta-tags"><span class="meta-tag">創造性・感情・受容</span><span class="meta-tag">既婚女性・大人の女性</span><span class="meta-tag">内向性・女性性</span></div>
+            <p class="meta-note">クイーンは既婚女性・大人の女性を表しますが、女性的な男性・受け身な人・内向的な人にも当てはまります。行動的に外へ出るより、内側で考え・育て・守る性質です。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「豊かさや成功を持ちながら、その本質を静かに見つめている状態として読む。」</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">現実的な成功や豊かさを手にしている・安全な場所にいる文脈か？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">表面的な満足ではなく、なぜ・どうすればという本質を考えている状況か？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">包容力・生産性・女性的な成功として読める文脈か？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">人物として出た場合：包容力があり現実的な成功を手にした女性・女性実業家・キャリアウーマンを指します。経理・実務・経営に優れた人物として読むこともできます。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">成功・豊かさ</span><span class="position-kw">本質を考える</span><span class="position-kw">包容力</span><span class="position-kw">堅実さ</span><span class="position-kw">生産性</span><span class="position-kw">女性実業家</span><span class="position-kw">安全・豪華</span><span class="position-kw">裕福・不自由なし</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>包容力があり相手を支える。安定した関係を望む。満たされているのに心が揺れることもある。相手の本質を見極めようとしている。</td></tr>
+              <tr><td class="cat">人間関係</td><td>豊かさや成功を手にした人物。内向的だが包容力があり周囲を守る。成功の本質を深く考える賢さを持つ。</td></tr>
+              <tr><td class="cat">仕事</td><td>成果を手にする・堅実な判断・女性実業家・キャリアウーマン。経理・実務・経営における成功。成功の要因を深く分析できる。</td></tr>
+              <tr><td class="cat">お金</td><td>豊かさ・裕福・不自由がない状態。財産を着実に運用・管理できる。生産性の高い資産形成。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">疑い深い</span><span class="position-kw">優柔不断</span><span class="position-kw">閉塞感</span><span class="position-kw">利己心</span><span class="position-kw">執着</span><span class="position-kw">不安・恐れ</span><span class="position-kw">世間知らず</span><span class="position-kw">現実性の喪失</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>疑い深くなる・相手を信じられない。考えすぎて動けない。豊かさや安定が逆に閉塞感になる。執着・逃げられない感覚。</td></tr>
+              <tr><td class="cat">人間関係</td><td>優柔不断で周囲を困らせる。利己心・自分の内側にこもる。空気が重い・難しいと感じさせる人物。</td></tr>
+              <tr><td class="cat">仕事</td><td>堅実さがなくなる・外側ばかりに目が向く。無責任・世間知らず。後ろめたさなく悪事に手を染める可能性（玉座の装飾の暗示）。</td></tr>
+              <tr><td class="cat">お金</td><td>現実感を失う・財産への執着・不安や恐れからお金を管理できない。現実的な価値を見失う。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ペンタクルのクイーンは、豊かな現実を手にしながらその価値の本質を静かに見つめるカードです。表面的な満足ではなく、なぜ成功したのか・どうすれば成果を出せるのかを深く考える哲学的な知性を持っています。</p>
+          <p>正位置なら、成功・豊かさ・包容力・堅実さ・生産性・女性実業家・安全な場所。逆位置なら、疑い深さ・優柔不断・閉塞感・不安・執着・現実性の喪失。</p>
+          <p>一言でまとめるなら、「豊かな現実を手にしながら、その価値の本質を静かに見つめるカード」です。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
