@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>太陽｜大アルカナ解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/19-TheSun.png" alt="太陽"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Major Arcana ✦ 大アルカナ</div>
+          <div class="card-name-ja">太陽</div>
+          <div class="card-name-en">The Sun</div>
+          <div class="card-summary">祝福・幸福・成功・生命力・誕生・自己表現・明るい状況を表します。<br>タロットの中でも特にポジティブなカードで、未来や結果の位置に出ると大変嬉しいカードです。<br>ただし太陽の成功は永続的な完成というより、新しい始まりへの祝福としての意味合いが強くあります。また、太陽の光はすべてを照らすため、隠し事や秘密にも光が当たるカードでもあります。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">祝福・幸福</span><span class="keyword">成功・誕生</span><span class="keyword">生命力・エネルギー</span><span class="keyword">自己表現・開放感</span><span class="keyword">明るい未来</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">XVII</div><div class="flow-label">星</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XVIII</div><div class="flow-label">月</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">XIX</div><div class="flow-label">太陽</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XX</div><div class="flow-label">審判</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">☀️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">大きな太陽（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">生命力・エネルギー・祝福</span><span class="symbol-tag">直線と波形の光：二元性（男性性と女性性）</span></div>
+              <div class="symbol-desc">頭上に輝く大きな太陽は生命力・エネルギー・祝福を表します。太陽から伸びるまっすぐな光と波打つ光は二元性を表し、男性性と女性性、能動性と受動性、光と闇のような相反するエネルギーです。この2つを調和させバランスを取ることが成功や喜びを得る方法を示しています。また太陽の光はすべてを照らし白日のもとにさらすため、秘密や隠し事にも光が当たります。</div>
+              <div class="symbol-point">→ 「生命力・祝福・二元性の調和、すべてを照らす光」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">👶</div>
+            <div class="symbol-body">
+              <div class="symbol-name">裸の子供と赤い旗・赤い羽根</div>
+              <div class="symbol-meaning"><span class="symbol-tag">裸：純粋さ・隠し事のない状態</span><span class="symbol-tag">赤い旗：勝利・祝福　赤い羽根：自由</span></div>
+              <div class="symbol-desc">裸の子供は隠し事のない純粋さ・あふれる生命力を表します。手足を大きく伸ばした姿から開放感・元気・素直な自己表現が読み取れます。赤い旗は勝利・祝福を表します。頭の赤い羽根は愚者・死神にも登場した自由の象徴です。この子供は愚者の若者や死神の骸骨が変化した姿——死と再生を経て新しい生命力を持って生まれ変わった存在とも読めます。</div>
+              <div class="symbol-point">→ 「生まれ変わった純粋な生命力・自由な自己表現」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🐴</div>
+            <div class="symbol-body">
+              <div class="symbol-name">白馬</div>
+              <div class="symbol-meaning"><span class="symbol-tag">死神にも登場：誕生・再生</span><span class="symbol-tag">鞍・手綱なし：意識と無意識の自然な調和</span></div>
+              <div class="symbol-desc">死神のカードにも登場した白馬は誕生・再生を表します。馬に鞍や手綱はなく、子供がどうやって操っているのかは見えません。それでも子供に不安な様子はない。意識と無意識の両方で誕生や再生・勝利・祝福のエネルギーを自然に扱えている状態です。</div>
+              <div class="symbol-point">→ 「意識・無意識の両方で祝福を受け取れる状態」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌻</div>
+            <div class="symbol-body">
+              <div class="symbol-name">灰色の壁と4本のひまわり</div>
+              <div class="symbol-meaning"><span class="symbol-tag">壁：過去の世界との境界線</span><span class="symbol-tag">ひまわり：子供へエネルギーを送る4元素</span></div>
+              <div class="symbol-desc">灰色の壁は境界線で、壁の向こうは子供が立ち去った過去の世界。壁の手前の子供は新しい出発・新しい誕生へ向かっています。壁の上の4本のひまわりは地・水・火・風の四元素を表し、太陽ではなく子供の方を向いて咲いています。ひまわりが子供にエネルギーを送っている姿であり、子供の髪もひまわりのように描かれています。</div>
+              <div class="symbol-point">→ 「過去を越えた新しい誕生・四元素の祝福」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">🌟 「今この時点での祝福」として読む</div>
+            <div class="dual-item-text">太陽の成功は21番の世界が表す永続的な完成ではなく、生まれてくる赤ちゃんへの祝福のようなものです。新しい始まりへの喜びと祝福として読むのが自然です。その赤ちゃんがその後どう育つかまでは太陽のカードだけでは示しません。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">☀️ 隠し事への注意点</div>
+            <div class="dual-item-text">ポジティブなカードですが、太陽の光はすべてを照らします。秘密の交際や水面下で進めていたものが表面化する可能性があります。正位置・逆位置どちらでも「隠し事が明るみに出る」という側面には注意が必要です。</div>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② 数字「19」の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Nineteen / 19の意味</div>
+            <div class="meta-tags"><span class="meta-tag">1＋9＝10（顕在化・物質的完成）</span><span class="meta-tag">9番隠者＋1番魔術師＝創造の誕生</span><span class="meta-tag">4本＋6本のひまわり＝10</span></div>
+            <p class="meta-note">1＋9＝10として、顕在化した物質的な完成体を表す数字と結びつきます。壁上の4本のひまわりと子供の頭の6つのひまわり的な髪を合わせると10。また9番の隠者が内側に向けていたエネルギーと1番の魔術師の創造の力が融合し新しいものが誕生するという読み方も。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Major Arcana / 大アルカナ</div>
+            <div class="meta-tags"><span class="meta-tag">魂の旅</span><span class="meta-tag">人生の大きなテーマ</span><span class="meta-tag">22枚の物語</span></div>
+            <p class="meta-note">月の不安という最後の闇を越えた後、ついに太陽の祝福が訪れます。次の審判（浄化・振り返り）、そして世界（完成）へ向かう前の、喜びと生命力に満ちた再誕の段階です。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：基本的には祝福・成功・幸福・誕生として読める非常にポジティブなカード。ただし「永続的な完成」ではなく「今この時点での喜び・新しい始まりへの祝福」として読む。正位置・逆位置どちらも「隠し事が明るみに出る」点に注意。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">素直に表へ出ること・オープンに進むことが吉のカード。</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">太陽の光はすべてを照らす。隠し事はいずれ表に出る。</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">逆位置はエネルギーの停滞・幼さが出る。調子に乗りすぎない。</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">太ロットの中でも最もポジティブなカードの一枚。素直な自己表現と明るい行動が最善の結果を生みます。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">祝福・幸福</span><span class="position-kw">成功・誕生</span><span class="position-kw">生命力・元気</span><span class="position-kw">自己表現</span><span class="position-kw">人気・開放感</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>理想の相手との出会い、祝福される恋愛や結婚、素直な気持ちを打ち明けると吉、オープンな交際が吉。（ただし秘密の関係が表面化するリスクも）</td></tr>
+              <tr><td class="cat">人間関係</td><td>自然体で臨むと良い縁が生まれる、人気者になる時期、周囲からの祝福を受けられる、明るいエネルギーが人を引き寄せる。</td></tr>
+              <tr><td class="cat">仕事</td><td>やりがいのある仕事に出会える、起業・独立が吉、子供・娯楽・レジャー・農業関係に縁がある、努力が日の当たる場所で認められる。</td></tr>
+              <tr><td class="cat">自己成長</td><td>行動的になり良い結果が出る、元気・満足・喜びに満ちた時期、純粋な自己表現で力を発揮できる、誕生・新しい出発の祝福。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">エネルギー低下</span><span class="position-kw">停滞・陰り</span><span class="position-kw">秘密の露見</span><span class="position-kw">幼さ・無責任</span><span class="position-kw">楽観的すぎる</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>時間やお金の浪費が激しい交際、浮気・不倫・三角関係がバレる、オープンにできない関係、子供っぽい相手に疲れる。</td></tr>
+              <tr><td class="cat">人間関係</td><td>自己中心的な態度が人間関係を壊す、調子に乗りすぎて周囲との関係に陰りが出る、軽薄な印象を与える。</td></tr>
+              <tr><td class="cat">仕事</td><td>管理不足・危機感が足りない、浅はかなやり方で失敗する、調子に乗りすぎてトラブルを招く、気力や意欲の低下。</td></tr>
+              <tr><td class="cat">自己成長</td><td>計画の中止・見通しが暗い、楽観的すぎて現実を直視できない、甘えや幼さが成長を妨げる、エネルギー停滞・疲労。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>太陽は、新しい始まりを祝福し、成功や喜びをもたらすカードです。タロットの中でも最もポジティブな存在の一枚。月の不安を越えた先に輝く、生命力と喜びの光です。</p>
+          <p>正位置では、祝福・幸福・成功・誕生・生命力・自己表現・明るい未来。今この時点での喜びと新しい始まりへの祝福として読むのが自然です。</p>
+          <p>逆位置では、エネルギーの低下・停滞・幼さ・無責任・失敗・秘密の露見が強調されます。太陽の光は良いものも悪いものも照らします。素直に表へ出て、隠し事をせず明るい方向へ進むことが大切です。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
