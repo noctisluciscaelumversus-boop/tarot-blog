@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペンタクルの3｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav><a href="index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="cards/Pentacles03.png" alt="ペンタクルの3"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ペンタクルの3</div>
+          <div class="card-name-en">Three of Pentacles</div>
+          <div class="card-summary">技術・専門性・チームワーク・計画的な共同作業を表すカード。<br>一人で進めるというより、それぞれの役割を持った人たちが協力し、ひとつの目的に向かって形にしていく意味があります。<br>仕事・プロジェクト・専門職・実績・評価など、現実的で実務的なカードです。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">技術・専門性</span><span class="keyword">チームワーク</span><span class="keyword">共同作業</span><span class="keyword">実績・名誉</span><span class="keyword">計画的・建設的</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Ace</div><div class="flow-label">始まり・根源</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Two</div><div class="flow-label">揺れ・バランス調整</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Three</div><div class="flow-label">協力・成長・実績</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Four</div><div class="flow-label">安定・維持</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🔨</div>
+            <div class="symbol-body">
+              <div class="symbol-name">彫刻家（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">仕事・技術・専門職</span><span class="symbol-tag">職人芸・プロの技</span><span class="symbol-tag">一段高いレベルの専門性</span></div>
+              <div class="symbol-desc">教会の中で作業する彫刻家は、仕事・作業・技術・芸術・専門職・職人芸・プロの技を表します。他の2人より少し高い位置に立っており、普通より一段高いレベルの技術や専門性を持つ人物として読めます。リーディングでは多くの場合、相談者をこの彫刻家に見立てて読みます。</div>
+              <div class="symbol-point">→ 「専門的な技術を持つ人物・職人としての自分」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">👘</div>
+            <div class="symbol-body">
+              <div class="symbol-name">グレーの服・青いズボン・黄色の前掛け</div>
+              <div class="symbol-meaning"><span class="symbol-tag">中立・自然体</span><span class="symbol-tag">指示に沿って淡々と作業する</span><span class="symbol-tag">仕事への喜び・やりがい</span></div>
+              <div class="symbol-desc">グレーは中立・ニュートラル・自然体を表し、与えられた設計図に沿って淡々と作業を進める姿として解釈できます。一方で黄色の前掛けは希望・喜び・幸せ、青は変化や感情を表すため、ただ作業しているだけでなくこの仕事に喜びややりがいを感じているとも読めます。</div>
+              <div class="symbol-point">→ 「淡々とプロとして仕事をしながらも、喜びを感じている」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">📜</div>
+            <div class="symbol-body">
+              <div class="symbol-name">設計図を持った修道士</div>
+              <div class="symbol-meaning"><span class="symbol-tag">男性性・能動性</span><span class="symbol-tag">計画・指示</span><span class="symbol-tag">設計通りの完成を望む</span></div>
+              <div class="symbol-desc">設計図を持ち指示を出す修道士は、男性性・能動性・計画・指示のような意味を持ちます。感覚だけで進めるのではなく、計画に沿って建設的に進める姿勢を表しています。</div>
+              <div class="symbol-point">→ 「計画・指示・プロジェクトの方向性を示す存在」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🙏</div>
+            <div class="symbol-body">
+              <div class="symbol-name">完成を心待ちにする修道女</div>
+              <div class="symbol-meaning"><span class="symbol-tag">女性性・受動性</span><span class="symbol-tag">依頼者・クライアント</span><span class="symbol-tag">パトロン・スポンサー</span></div>
+              <div class="symbol-desc">完成を心待ちにしている修道女は、女性性と受動性を表します。解釈によって、設計士・教会建築の費用を出す信者・パトロン・スポンサー・依頼者・クライアントとして見ることもできます。</div>
+              <div class="symbol-point">→ 「完成を期待する依頼者・支援する存在」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🪙</div>
+            <div class="symbol-body">
+              <div class="symbol-name">グレーのペンタクル</div>
+              <div class="symbol-meaning"><span class="symbol-tag">金銭的報酬より名誉・実績・技術を重視</span><span class="symbol-tag">専門性の証明</span></div>
+              <div class="symbol-desc">通常は黄色で描かれることが多いペンタクルが、このカードではグレーです。金銭的な報酬そのものよりも、プロジェクト・技術・名誉・実績・専門性の方が重視されていることを表します。報酬は少なくても名誉ある仕事、技術が注目される仕事、職人として名前が売れる仕事として読めます。</div>
+              <div class="symbol-point">→ 「お金よりも、名誉・技術・実績が価値を持つ」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">⛪</div>
+            <div class="symbol-body">
+              <div class="symbol-name">暗い教会の内部</div>
+              <div class="symbol-meaning"><span class="symbol-tag">秘密・専門的すぎて分からない領域</span><span class="symbol-tag">職人だけが持つ高度な技術</span></div>
+              <div class="symbol-desc">教会の中は暗く、奥がよく見えません。秘密・理解できないもの・見えない部分・専門的すぎて分からない領域を表します。職人だけが持つ高度な技術、専門家にしか分からない知識、プロジェクトの秘匿性などとして読めます。</div>
+              <div class="symbol-point">→ 「専門家にしか分からない技術や知識がある」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Pentacles / ペンタクルのスート</div>
+            <div class="meta-tags"><span class="meta-tag">物質的価値・お金</span><span class="meta-tag">仕事・実績</span><span class="meta-tag">人脈・現実的価値</span><span class="meta-tag">堅実性・合理性</span></div>
+            <p class="meta-note">目に見える成果や現実的な豊かさを扱う、最も地に足のついたスートです。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Three / 3の意味</div>
+            <div class="meta-tags"><span class="meta-tag">表現・成長</span><span class="meta-tag">結束・三位一体</span><span class="meta-tag">協力・共同</span></div>
+            <p class="meta-note">数字3は表現・成長・結束を表します。ペンタクルの3では、技術・専門性・チームワーク・計画・名誉・熟練などの意味として現れます。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「相談者を彫刻家に見立てて読む。自分の専門性を活かして、チームで成果を作っているかどうか。」</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">自分の技術や専門性を活かせる状況か？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">周囲との連携・チームワークは取れているか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">計画に沿って建設的に進んでいるか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">アドバイスとして出た場合：自分のスキルや専門性を活かすタイミング、周囲と協力して進める、計画をしっかり立てて取り組むことが大切、という意味になります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">仕事上の技術</span><span class="position-kw">専門性・職人芸</span><span class="position-kw">チームワーク</span><span class="position-kw">共同作業</span><span class="position-kw">実績・名誉</span><span class="position-kw">計画的・建設的</span><span class="position-kw">取引・プロジェクト</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>2人だけでなく周囲の協力や現実的な話し合いが必要な関係。共同作業を通して絆が深まる。計画的に関係を育てる。</td></tr>
+              <tr><td class="cat">人間関係</td><td>信頼できるチームや仲間が集まる、同じ目的を持つ人との出会い。役割分担がうまくいく関係。</td></tr>
+              <tr><td class="cat">仕事</td><td>チームで進む案件、専門スキルの発揮、実績づくり。評価や名誉につながる仕事、報酬よりも参加することに意味がある場合も。</td></tr>
+              <tr><td class="cat">自己成長</td><td>専門性を高める時期、熟練に向けた学び。技術の習得と実践でキャリアが積み上がる。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">技術不足</span><span class="position-kw">計画の失敗</span><span class="position-kw">信用を失う</span><span class="position-kw">チームワークの不和</span><span class="position-kw">中途半端・未完成</span><span class="position-kw">報酬を優先する</span><span class="position-kw">技術の出し惜しみ</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>計画がうまくいかない、周囲との協力が取れない。関係が中途半端なまま進まない状態。</td></tr>
+              <tr><td class="cat">人間関係</td><td>チームワークの不和、まとまりのなさ、役割が合っていない。信用を損なう言動が出やすい。</td></tr>
+              <tr><td class="cat">仕事</td><td>技術不足が目立つ、計画の失敗、契約の延期。技術・知識の出し惜しみ、平凡・普通の仕上がりになる。</td></tr>
+              <tr><td class="cat">自己成長</td><td>技量に合わない役割を担っている、未完成のまま出してしまう。実力以上のことに手を出して信用を失う。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ペンタクルの3は、専門的な技術を使い、周囲と協力しながら計画的に成果を作っていくカードです。彫刻家・修道士・修道女の3人が教会を作り上げるように、それぞれの役割を持った人たちが力を合わせることで、初めて実現する成果を表しています。</p>
+          <p>正位置なら、技術・専門性・チームワーク・共同作業・実績・名誉。逆位置なら、技術不足・計画の失敗・信用低下・まとまりのなさ・未完成。</p>
+          <p>一言でまとめるなら、「自分の専門性を活かし、仲間と協力して現実的な成果を作るカード」です。</p>
+        </div>
+      </div>
+      <a href="cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
