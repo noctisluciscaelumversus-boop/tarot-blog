@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ワンドの10｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/Wands10.png" alt="ワンドの10"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ワンドの10</div>
+          <div class="card-name-en">Ten of Wands</div>
+          <div class="card-summary">負担・限界・責任を表すカード。<br>10本のワンドを抱えてうつむきながら歩く男性、遠くに街が見える。<br>「自分で抱え込みすぎて限界に近いが、それでも進もうとしている状態」がこのカードの核心です。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">重圧・プレッシャー</span><span class="keyword">責任過多</span><span class="keyword">限界・疲労</span><span class="keyword">抱え込みすぎ</span><span class="keyword">苦労して進む</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Eight</div><div class="flow-label">急展開・流れ</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Nine</div><div class="flow-label">警戒・準備</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Ten</div><div class="flow-label">限界・負担</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">📦</div>
+            <div class="symbol-body">
+              <div class="symbol-name">ワンドを抱えすぎている姿（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">キャパオーバー</span><span class="symbol-tag">負担・責任を抱えすぎ</span><span class="symbol-tag">両手いっぱいに抱えている</span></div>
+              <div class="symbol-desc">10本のワンドを両手いっぱいに抱えて歩く姿は、キャパシティを超えた負担と責任を象徴しています。一本でも落としそうなほど——それでも手放そうとしない、抱え込みすぎた状態です。</div>
+              <div class="symbol-point">→ 「キャパオーバー・負担・責任を抱えすぎ」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🙈</div>
+            <div class="symbol-body">
+              <div class="symbol-name">視界が遮られている状態</div>
+              <div class="symbol-meaning"><span class="symbol-tag">前が見えていない</span><span class="symbol-tag">正しい方向が分からない</span><span class="symbol-tag">無理に進んでいる可能性</span></div>
+              <div class="symbol-desc">ワンドが多すぎて前が見えていません。方向感覚を失っている状態、正しい方向に進んでいるかどうかも分からないまま無理に前進しています。視野が狭まっている危険なサインです。</div>
+              <div class="symbol-point">→ 「前が見えていない・正しい方向が分からない」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">😔</div>
+            <div class="symbol-body">
+              <div class="symbol-name">うつむきながら進む姿</div>
+              <div class="symbol-meaning"><span class="symbol-tag">余裕がない</span><span class="symbol-tag">処理しきれていない</span><span class="symbol-tag">精神的にも疲労状態</span></div>
+              <div class="symbol-desc">頭を下げてうつむきながら歩く姿は、余裕のなさと精神的な疲弊を表しています。物理的な重さだけでなく、精神的にも限界に近づいていることを示しています。</div>
+              <div class="symbol-point">→ 「余裕がない・精神的にも疲弊している」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏘️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">遠くの街（ゴール）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">目的地・目標</span><span class="symbol-tag">目指す場所はある</span><span class="symbol-tag">そこまでが苦しい道のり</span></div>
+              <div class="symbol-desc">遠くに見える街は、目標・目的地の存在を示しています。ゴールは確かにある。しかしそこに辿り着くまでの道のりが苦しく重い状態です。</div>
+              <div class="symbol-point">→ 「目指す場所はあるが、そこまでが苦しい」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🤔</div>
+            <div class="symbol-body">
+              <div class="symbol-name">自分の意思で抱えている（重要ポイント）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">誰かに強制されたわけではない</span><span class="symbol-tag">自分で抱え込んでいる</span><span class="symbol-tag">責任感・おせっかい・やりすぎ</span></div>
+              <div class="symbol-desc">誰かに強制されているわけではありません。自分の意志で抱え込んでいる状態——責任感の強さ、良かれと思ってのやりすぎ、手放せない執着。原因は外ではなく自分の中にあります。</div>
+              <div class="symbol-point">→ 「自分で抱え込んでいる・手放す選択もある」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🔥</div>
+            <div class="symbol-body">
+              <div class="symbol-name">抱え込む＝情熱の暴走</div>
+              <div class="symbol-meaning"><span class="symbol-tag">ワンド＝情熱</span><span class="symbol-tag">やりすぎている状態</span><span class="symbol-tag">良かれと思って負担を増やしている</span></div>
+              <div class="symbol-desc">ワンドは情熱を象徴します。10本を一人で抱えるのは、情熱が暴走した結果。やる気や責任感が過剰になり、自分で自分を追い詰めている状態を示しています。</div>
+              <div class="symbol-point">→ 「情熱の暴走・やりすぎている状態」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Wands / ワンドのスート</div>
+            <div class="meta-tags"><span class="meta-tag">情熱・行動</span><span class="meta-tag">エネルギー</span><span class="meta-tag">創造</span></div>
+            <p class="meta-note">情熱と行動のスート。10では「エネルギーを使い切り、限界状態になっている」段階として現れます。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Ten / 10の意味</div>
+            <div class="meta-tags"><span class="meta-tag">完成・限界</span><span class="meta-tag">次の段階</span><span class="meta-tag">一区切り</span></div>
+            <p class="meta-note">10は完成と限界の数。ワンドの旅の終点であり、一区切り。ここで一度すべてを背負い切った状態になります。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「負担を減らせるかどうか」。本当にそこまでやる必要があるか、シンプルにできないかを問う。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">本当にそこまでやる必要があるか？手放せるものはないか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">自分で抱え込みすぎていないか？他者に任せることはできないか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">本来はシンプルでいいのに、考えすぎて難しくしていないか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">プレッシャーだけでなく「抑圧」の意味もあります——自分の気持ちを押さえ込んでいる状態。また、成功・財産を背負っているという読み方もできますが、いずれにしても「背負っている状態」がテーマです。本来はシンプルでいいのに、自分で難しくしているケースも多くあります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">重圧・プレッシャー</span><span class="position-kw">責任過多</span><span class="position-kw">限界・疲労</span><span class="position-kw">抱え込みすぎ</span><span class="position-kw">無理をしている</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>関係のすべてを一人で背負っている、または相手への重い期待・プレッシャーを感じている状態</td></tr>
+              <tr><td class="cat">人間関係</td><td>周囲の期待や役割に押しつぶされそう。自分の気持ちを抑えながら動いている状態</td></tr>
+              <tr><td class="cat">仕事</td><td>仕事量・責任が限界を超えている。無理をしながらもゴールに向かって進んでいる</td></tr>
+              <tr><td class="cat">自己成長</td><td>やるべきことを抱えすぎて前が見えない。シンプルにすることで道が開ける段階</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:1rem;line-height:1.9;">逆位置は「手放す」方向と「押し付けられる」方向の2つに解釈が分かれます。</p>
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">手放す方向の解釈</div>
+            <div class="dual-item-text">限界を超えて投げ出す、負担を手放す、プレッシャーから解放される。重荷を下ろすことで次へ進める。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">押し付けられる方向の解釈</div>
+            <div class="dual-item-text">責任を押し付けられている、やらされている状態。自分の意志ではなく外から課される重圧になっている。</div>
+          </div>
+        </div>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">限界を超える</span><span class="position-kw">投げ出す・放棄</span><span class="position-kw">負担を手放す</span><span class="position-kw">責任を押し付けられる</span><span class="position-kw">無理が効かない</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>重すぎる関係を手放す、または手放せずに限界を迎える。一方が全部背負わされている状態も</td></tr>
+              <tr><td class="cat">人間関係</td><td>役割や期待を押し付けられている、または耐えられなくなり関係を手放す決断をする</td></tr>
+              <tr><td class="cat">仕事</td><td>抱えきれなくなって仕事を手放す・辞める。または無理が祟って動けなくなる状態</td></tr>
+              <tr><td class="cat">自己成長</td><td>限界を超え、すべてを投げ出す。または重荷を下ろすことで新たなスタートへ向かえる</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ワンドの10は「自分で抱え込みすぎて限界に近いが、それでも進もうとしている状態」を表すカードです。視界が塞がれ、うつむきながらも歩き続ける姿——それは強さであると同時に、手放す勇気を問うカードでもあります。</p>
+          <p>ワンドの9（警戒・準備）→ワンドの10（限界・負担）という流れは、「備えた後、すべてを背負いすぎて苦しくなる段階」を示しています。ここで一度、限界に到達します。</p>
+          <p>このカードが出たら、「本当にすべて自分でやる必要があるか」を問いかけてください。本来はシンプルでいいのに、情熱と責任感が自分を追い詰めています。手放すことも、前へ進むための選択のひとつです。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>死神｜大アルカナ解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/13-Death.png" alt="死神"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Major Arcana ✦ 大アルカナ</div>
+          <div class="card-name-ja">死神</div>
+          <div class="card-name-en">Death</div>
+          <div class="card-summary">終わり・区切り・変化・手放し・再生・新しいサイクルの始まりを表します。<br>名前や骸骨の騎士という見た目から恐れられることの多いカードですが、「死」は文字通りの死ではなく、あるものの終わりと、それに続く新しい始まりを意味します。<br>終わりがあるからこそ、新しい始まりが訪れる。変容と再生のカードです。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">終わり・区切り</span><span class="keyword">変化・変容</span><span class="keyword">手放し</span><span class="keyword">再生・新生</span><span class="keyword">新しいサイクル</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">XI</div><div class="flow-label">正義</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XII</div><div class="flow-label">吊るされた男</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">XIII</div><div class="flow-label">死神</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XIV</div><div class="flow-label">節制</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🐴</div>
+            <div class="symbol-body">
+              <div class="symbol-name">白い馬に乗る骸骨の騎士（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">白い馬：純粋さ・力・新しい始まり</span><span class="symbol-tag">骸骨：あらゆる命の平等</span></div>
+              <div class="symbol-desc">白い馬は純粋さと力を象徴し、「死」が誰にでも平等に訪れることを示します。骸骨の騎士は身分や地位に関わらず、すべての人・事柄を変容させる力を持ちます。白という色が「新しい始まり」の可能性をも示しています。</div>
+              <div class="symbol-point">→ 「誰にでも平等に訪れる変容・終わりと始まり」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🚩</div>
+            <div class="symbol-body">
+              <div class="symbol-name">黒い旗に描かれた白いバラ</div>
+              <div class="symbol-meaning"><span class="symbol-tag">黒：終わり・喪失</span><span class="symbol-tag">白いバラ：純粋さ・再生・希望</span></div>
+              <div class="symbol-desc">黒い旗は終わりと喪失を表しますが、その中心に咲く白いバラは純粋さと再生の希望を意味します。「終わり」の中に必ず「新しい始まり」の種が宿っているというメッセージです。</div>
+              <div class="symbol-point">→ 「終わりの中に宿る再生の希望」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">👥</div>
+            <div class="symbol-body">
+              <div class="symbol-name">倒れる王・立つ子供と乙女・祈る司教</div>
+              <div class="symbol-meaning"><span class="symbol-tag">死は地位・年齢を問わず平等</span><span class="symbol-tag">異なる反応・受け入れ方</span></div>
+              <div class="symbol-desc">権力者（王）は倒れ、若者（子供・乙女）は受け入れるように立ち、聖職者（司教）は祈りながら向き合います。変化・終わりは身分に関わらずすべての人に訪れることを示し、それぞれの受け入れ方があることも表しています。</div>
+              <div class="symbol-point">→ 「変化は誰にでも訪れる・受け入れ方は様々」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌅</div>
+            <div class="symbol-body">
+              <div class="symbol-name">地平線に昇る朝日・遠くの2つの塔</div>
+              <div class="symbol-meaning"><span class="symbol-tag">新しい始まり・希望</span><span class="symbol-tag">再生・新しいサイクル</span></div>
+              <div class="symbol-desc">地平線の彼方に昇る太陽は、すべての終わりの後に必ず新しい夜明けが訪れることを示します。太陽のカード（XIX）への橋渡しともなる、希望の象徴です。遠くに見える2本の塔は通り道・門として、新しい世界への入口を意味します。</div>
+              <div class="symbol-point">→ 「終わりの先にある新しい夜明け」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">💀 「死」は比喩である</div>
+            <div class="dual-item-text">死神のカードが出ても、実際の「死」を意味することはほとんどありません。恋愛の終わり、仕事の区切り、ある時代・フェーズの終わり、価値観の死…。何かが終わることで、新しいものが始まる変容のプロセスを表しています。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">🌱 終わりと始まりは同時</div>
+            <div class="dual-item-text">冬が終われば春が来る、夜が明ければ朝になる。死神のカードは「終わり」だけを指すのではなく、その終わりと同時に新しい始まりが生まれることを示しています。手放すことで、新しいものを受け取るスペースができます。</div>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② 数字「13」の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Thirteen / 13の意味</div>
+            <div class="meta-tags"><span class="meta-tag">1＋3＝4（皇帝との関連）</span><span class="meta-tag">変容・死と再生</span><span class="meta-tag">不吉とされるが変化の数</span></div>
+            <p class="meta-note">1＋3＝4として皇帝に通じる「基盤・構造の再建」の意味も含みます。西洋では不吉とされる13ですが、それは「古い秩序の終わり・新しい秩序への移行」を意味する変容の数字です。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Major Arcana / 大アルカナ</div>
+            <div class="meta-tags"><span class="meta-tag">魂の旅</span><span class="meta-tag">人生の大きなテーマ</span><span class="meta-tag">22枚の物語</span></div>
+            <p class="meta-note">吊るされた男で「静止・内省」を経た後、ついに大きな変容の時を迎えます。古いものを手放し、新しいサイクルへと移行する、魂の旅における大きな転換点です。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「終わり」にフォーカスするのではなく「新しい始まりのための終わり」として読むことが大切。怖いカードではなく、変容・再生のカードとして捉える。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">今手放すべきものは何か？手放すことで何が生まれるか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">終わりを恐れず、その先にある新しい可能性に目を向ける。</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">変化は避けられない。ならば積極的に受け入れ、乗り越える準備を。</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">逆位置では「変化への抵抗」「終わりを受け入れられない」が主なテーマです。終わるべきものにしがみついている状態を示す場合があります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">終わり・区切り</span><span class="position-kw">変化・変容</span><span class="position-kw">手放し</span><span class="position-kw">再生</span><span class="position-kw">新しいサイクル</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>恋愛の終わり・別れ、一つの関係フェーズが終わり新しいステージへ、過去の恋を手放すことで新しい出会いが生まれる。</td></tr>
+              <tr><td class="cat">人間関係</td><td>縁の終わり・関係の変容、古い友人関係の自然な終焉、人間関係の整理・断捨離、新しい出会いへの準備。</td></tr>
+              <tr><td class="cat">仕事</td><td>転職・退職・プロジェクトの終了、ある時代の終わりと新しいキャリアの始まり、業務の大きな変化・リストラクチャリング。</td></tr>
+              <tr><td class="cat">自己成長</td><td>過去の自分の死と再生、価値観・信念の大きな転換、古い習慣・思考パターンを手放す、新しい自分として生まれ変わる。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">変化への抵抗</span><span class="position-kw">手放せない</span><span class="position-kw">停滞・行き詰まり</span><span class="position-kw">執着</span><span class="position-kw">変化の遅延</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>終わった恋にいつまでも執着している、別れるべき関係に踏みとどまっている、変化を恐れて新しい一歩を踏み出せない。</td></tr>
+              <tr><td class="cat">人間関係</td><td>有害な関係を断ち切れない、変化することへの強い抵抗感、古い縁に縛られてのびのびできない。</td></tr>
+              <tr><td class="cat">仕事</td><td>変化に抵抗して時代に乗り遅れる、辞めたいのに踏み出せない、惰性で続けている仕事・プロジェクト。</td></tr>
+              <tr><td class="cat">自己成長</td><td>古い自分に固執して成長できない、手放せないことへの執着が足かせになっている、変容を拒んで停滞する。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>死神は、タロットの中でも特に恐れられるカードですが、実際には「死」＝実際の死を意味することはほとんどありません。</p>
+          <p>正位置では、終わり・区切り・変化・手放し・再生・新しいサイクルの始まりを意味します。何かが終わることで、新しいものが生まれる変容のプロセスです。終わりがあるからこそ、新しい始まりが訪れます。</p>
+          <p>逆位置では、変化への抵抗・執着・手放せない・停滞を示します。終わるべきものにしがみついている状態から、一歩踏み出すサインかもしれません。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>

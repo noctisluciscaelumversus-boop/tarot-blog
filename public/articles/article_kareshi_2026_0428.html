@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026/4/28 音信不通の元彼の気持ち｜揺れる本音と止まったままの関係 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .article-category { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .article-title { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 500; line-height: 1.7; color: var(--text-dark); margin-bottom: 0.8rem; }
+    .article-date { font-size: 0.68rem; color: #b0997e; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+
+    .lead { background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem; margin-bottom: 2rem; font-size: 0.95rem; line-height: 2.2; color: var(--text-mid); }
+
+    .toc { background: #fff; border: 1px solid rgba(201,168,76,0.3); padding: 1.5rem 1.8rem; margin-bottom: 2.5rem; }
+    .toc-title { font-family: 'Cinzel Decorative', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .toc a { color: var(--deep-blue); text-decoration: none; }
+    .toc a:hover { color: var(--gold); }
+
+    .article-body { font-size: 0.95rem; line-height: 2.4; color: var(--text-mid); font-weight: 300; }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-size: 1rem; font-weight: 500; color: var(--deep-blue); margin: 2.5rem 0 1rem; padding: 0.7rem 1rem; background: rgba(44,74,110,0.06); border-left: 3px solid var(--deep-blue); }
+
+    .card-list { list-style: none; margin: 1rem 0 1.5rem; }
+    .card-list li { padding: 0.6rem 0.8rem; margin-bottom: 0.5rem; background: #fff; border: 1px solid rgba(201,168,76,0.2); font-size: 0.92rem; font-weight: 500; }
+    .card-list li::before { content: '🃏 '; }
+
+    .card-block { background: #fff; border: 1px solid rgba(201,168,76,0.2); padding: 1.2rem 1.5rem; margin-bottom: 1rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .card-img-wrap { flex-shrink: 0; width: 90px; }
+    .card-img-wrap img { width: 100%; border: 1px solid rgba(201,168,76,0.25); display: block; }
+    .card-img-wrap img.reverse { transform: rotate(180deg); }
+    .card-block-body { flex: 1; min-width: 0; }
+    .card-block h3 { font-size: 0.88rem; font-weight: 500; color: var(--deep-blue); margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .card-block ul { padding-left: 1.2rem; }
+    .card-block ul li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .card-link { display: inline-block; margin-top: 0.8rem; font-size: 0.72rem; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4); }
+    .back-label { display: inline-block; font-size: 0.6rem; color: var(--gold); border: 1px solid var(--gold); padding: 0.1rem 0.4rem; letter-spacing: 0.1em; margin-left: 0.5rem; vertical-align: middle; }
+
+    .summary { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
+    .summary h2 { color: var(--gold-light); font-size: 0.95rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
+    .summary p { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); margin-top: 0.8rem; }
+
+    .divider { display: flex; align-items: center; gap: 1rem; margin: 2rem 0; }
+    .divider-line { flex: 1; height: 1px; background: rgba(201,168,76,0.25); }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .card-block { flex-direction: column; }
+      .card-img-wrap { width: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="#">占い記事</a>
+      <a href="#">雑記</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+      <article>
+        <div class="article-category">元彼の気持ちを占ってみた</div>
+        <h1 class="article-title">2026/4/28 音信不通の元彼の気持ち｜揺れる本音と止まったままの関係</h1>
+        <div class="article-date">April 28, 2026</div>
+
+        <div class="lead">
+          今日は元彼の気持ちをタロットで占ってみました。<br>
+          出たカードはどれも「動きそうで動かない」「気持ちはあるのに進めない」といった、もどかしさを感じる組み合わせ。<br>
+          一見ネガティブにも見えますが、その中には確かに"揺れている感情"が見えています。
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol>
+            <li><a href="#result">今日の元彼の気持ち：カード結果</a></li>
+            <li><a href="#meaning">カードそれぞれの意味</a></li>
+            <li><a href="#reason">気持ちはあるのに動けない理由</a></li>
+            <li><a href="#stopped">なぜ関係が止まったままなのか</a></li>
+            <li><a href="#summary">まとめ</a></li>
+          </ol>
+        </div>
+
+        <div class="article-body">
+
+          <h2 id="result">① 今日の元彼の気持ち：カード結果</h2>
+          <p>本日出たカードはこちらです。</p>
+          <ul class="card-list">
+            <li>隠者（逆位置）</li>
+            <li>ソードの2（逆位置）</li>
+            <li>戦車（逆位置）</li>
+            <li>死神（逆位置）／バックカード</li>
+          </ul>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="meaning">② カードそれぞれの意味</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/09-TheHermit.png" alt="隠者" class="reverse">
+            </div>
+            <div class="card-block-body">
+              <h3>隠者（逆位置）</h3>
+              <ul>
+                <li>孤独</li>
+                <li>不安</li>
+                <li>考えすぎて抜け出せない状態</li>
+              </ul>
+              <a href="../cardguide/card_major09.html" class="card-link">✦ 詳しいカード解説はこちら</a>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/Swords02.png" alt="ソードの2" class="reverse">
+            </div>
+            <div class="card-block-body">
+              <h3>ソードの2（逆位置）</h3>
+              <ul>
+                <li>迷いの限界</li>
+                <li>決断を迫られる</li>
+                <li>心の揺れ</li>
+              </ul>
+              <a href="../cardguide/card_swords02.html" class="card-link">✦ 詳しいカード解説はこちら</a>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/07-TheChariot.png" alt="戦車" class="reverse">
+            </div>
+            <div class="card-block-body">
+              <h3>戦車（逆位置）</h3>
+              <ul>
+                <li>行動できない</li>
+                <li>コントロールできない感情</li>
+                <li>空回り</li>
+              </ul>
+              <a href="../cardguide/card_major07.html" class="card-link">✦ 詳しいカード解説はこちら</a>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/13-Death.png" alt="死神" class="reverse">
+            </div>
+            <div class="card-block-body">
+              <h3>死神（逆位置） <span class="back-label">BACK</span></h3>
+              <ul>
+                <li>変化への抵抗</li>
+                <li>終わりきっていない関係</li>
+                <li>未練</li>
+              </ul>
+              <a href="../cardguide/card_major13.html" class="card-link">✦ 詳しいカード解説はこちら</a>
+            </div>
+          </div>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="reason">③ 気持ちの中で迷いが大きくなっている</h2>
+          <p>隠者の逆位置は、「一人で考えすぎている状態」や「孤独感」を表します。<br>
+          本来は内省や冷静さを意味するカードですが、逆になることで、その思考が堂々巡りになっている印象です。</p>
+          <p>さらにソードの2逆位置が重なることで、「もう迷い続けることができない状態」に入っています。<br>
+          心のどこかでは答えを出さなければいけないと分かっていながら、決めきれずに揺れている様子が見えます。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="stopped">④ なぜ関係が止まったままなのか</h2>
+          <p>戦車の逆位置は、行動力の低下や空回りを意味します。<br>
+          気持ちの中で何かをしようとしても、うまく前に進めない、あるいは自分でブレーキをかけてしまっている状態です。</p>
+          <p>そしてバックカードの死神逆位置が、この状況の根本を示しています。<br>
+          本来なら一区切りつけるべき関係や感情に対して、「まだ終わらせきれていない」「変わることを避けている」気持ちが強く残っています。</p>
+          <p>そのため、<br>
+          ・考えている<br>
+          ・迷っている<br>
+          ・でも動けない<br>
+          という流れが続いているようです。</p>
+          <p>今回のカード全体から見えるのは、「気持ちがないから動かない」のではなく、<br>
+          「気持ちが整理できていないから動けない」という状態です。</p>
+          <p>未練や迷いが残っている一方で、それをどう扱えばいいのか分からない。<br>
+          結果として、何も選ばず、何も動かず、時間だけが過ぎているような感覚です。</p>
+          <p>この状態では、急に大きく関係が進むことは難しく、まずは本人の中での整理が必要になってきます。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <div class="summary" id="summary">
+            <h2>まとめ</h2>
+            <p>今日の元彼の気持ちは、迷いと停滞が強く出ている状態です。<br>
+            考えてはいるものの、答えを出せず、行動にも移せない——そんなもどかしさが感じられます。</p>
+            <p>ただし、死神逆位置が示すように、完全に終わったわけではなく、心のどこかに引っかかりが残っているのも事実です。<br>
+            そのため今は、無理に動きを期待するよりも、「まだ整理の途中なんだ」と捉えることが、状況を冷静に見るヒントになりそうです。</p>
+          </div>
+
+        </div>
+
+        <a href="../index.html" class="back-link">← ホームに戻る</a>
+      </article>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>

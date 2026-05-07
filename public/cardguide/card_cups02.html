@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カップの2｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .card-hero { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: 3rem; }
+    .card-hero-img { flex-shrink: 0; width: 200px; position: relative; z-index: 1; }
+    .card-hero-img img { width: 100%; border: 2px solid rgba(201,168,76,0.3); display: block; transition: transform 0.4s ease, box-shadow 0.4s ease; transform-origin: left top; cursor: zoom-in; }
+    .card-hero-img img:hover { transform: scale(2.2); box-shadow: 0 12px 40px rgba(0,0,0,0.3); z-index: 10; position: relative; }
+    .card-hero-info { flex: 1; }
+    .card-category { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 0.8rem; }
+    .card-name-ja { font-size: 1.6rem; font-weight: 500; color: var(--text-dark); line-height: 1.4; margin-bottom: 0.3rem; }
+    .card-name-en { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 1.5rem; }
+    .card-summary { font-size: 0.92rem; line-height: 2.2; color: var(--text-mid); font-weight: 300; background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1rem 1.2rem; margin-bottom: 1.5rem; }
+    .keyword-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .keyword { font-size: 0.72rem; color: var(--deep-blue); border: 1px solid rgba(44,74,110,0.3); padding: 0.3rem 0.8rem; background: rgba(44,74,110,0.05); }
+
+    .article-body { font-size: 0.95rem; line-height: 2.4; color: var(--text-mid); font-weight: 300; }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-size: 1rem; font-weight: 500; color: var(--deep-blue); margin: 2.5rem 0 1.2rem; padding: 0.7rem 1rem; background: rgba(44,74,110,0.06); border-left: 3px solid var(--deep-blue); }
+
+    .symbol-list { list-style: none; margin-bottom: 1.5rem; }
+    .symbol-item { display: flex; gap: 1rem; padding: 1rem 1.2rem; background: #fff; border: 1px solid rgba(201,168,76,0.2); margin-bottom: 0.5rem; }
+    .symbol-icon { flex-shrink: 0; font-size: 1.1rem; width: 28px; text-align: center; margin-top: 2px; }
+    .symbol-body { flex: 1; }
+    .symbol-name { font-size: 0.85rem; font-weight: 500; color: var(--deep-blue); margin-bottom: 0.4rem; }
+    .symbol-meaning { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.5rem; }
+    .symbol-tag { font-size: 0.68rem; color: var(--text-mid); background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); padding: 0.15rem 0.5rem; }
+    .symbol-desc { font-size: 0.85rem; line-height: 1.9; color: var(--text-mid); font-weight: 300; }
+    .symbol-point { font-size: 0.82rem; color: var(--deep-blue); margin-top: 0.4rem; font-weight: 500; }
+
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .meta-block { background: #fff; border: 1px solid rgba(201,168,76,0.2); padding: 1.2rem; }
+    .meta-block-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.8rem; }
+    .meta-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .meta-tag { font-size: 0.75rem; color: var(--text-mid); background: rgba(44,74,110,0.05); border: 1px solid rgba(44,74,110,0.15); padding: 0.3rem 0.7rem; }
+    .meta-note { font-size: 0.78rem; color: var(--text-mid); margin-top: 0.8rem; line-height: 1.8; }
+
+    .tip-block { background: rgba(44,74,110,0.05); border: 1px solid rgba(44,74,110,0.15); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .tip-title { font-size: 0.85rem; font-weight: 500; color: var(--deep-blue); margin-bottom: 1rem; line-height: 1.8; }
+    .tip-row { display: flex; gap: 1rem; margin-bottom: 0.6rem; align-items: baseline; }
+    .tip-check { flex-shrink: 0; font-size: 0.8rem; color: var(--deep-blue); }
+    .tip-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.8; }
+
+    .position-block { border: 1px solid rgba(201,168,76,0.2); margin-bottom: 1.5rem; }
+    .position-header { padding: 0.8rem 1.2rem; background: var(--deep-blue); }
+    .position-header.reverse { background: #4a3060; }
+    .position-title { font-family: 'Cinzel Decorative', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold-light); margin-bottom: 0.5rem; }
+    .position-keywords { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .position-kw { font-size: 0.7rem; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.3); padding: 0.15rem 0.6rem; }
+    .position-body { background: #fff; }
+    .reading-table { width: 100%; border-collapse: collapse; }
+    .reading-table th { background: rgba(44,74,110,0.06); font-size: 0.75rem; font-weight: 500; color: var(--deep-blue); padding: 0.6rem 1rem; text-align: left; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size: 0.85rem; color: var(--text-mid); padding: 0.8rem 1rem; border-bottom: 1px solid rgba(201,168,76,0.1); line-height: 1.8; vertical-align: top; }
+    .reading-table tr:last-child td { border-bottom: none; }
+    .reading-table .cat { font-weight: 500; color: var(--deep-blue); white-space: nowrap; width: 80px; }
+
+    .message-block { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
+    .message-block h2 { color: var(--gold-light); font-size: 0.9rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
+    .message-block p { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); margin-bottom: 0.8rem; }
+    .message-block p:last-child { margin-bottom: 0; }
+
+    .divider { display: flex; align-items: center; gap: 1rem; margin: 2rem 0; }
+    .divider-line { flex: 1; height: 1px; background: rgba(201,168,76,0.25); }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+      .card-hero { flex-direction: column; align-items: center; }
+      .card-hero-img { width: 160px; }
+      .card-hero-img img:hover { transform: scale(1.8); transform-origin: center top; }
+      .meta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="#">占い記事</a>
+      <a href="#">雑記</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+
+      <div class="card-hero">
+        <div class="card-hero-img">
+          <img src="../cards/Cups02.png" alt="カップの2">
+        </div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">カップの2</div>
+          <div class="card-name-en">Two of Cups</div>
+          <div class="card-summary">
+            心の一致・対等な関係・結びつきを表すカード。<br>
+            お互いの気持ちが通じ合い、バランスの取れた関係が成立している状態を意味します。<br>
+            特徴は「対等」であること。双方が同じ温度で関係を築いている点が重要です。
+          </div>
+          <div class="keyword-wrap">
+            <span class="keyword">相思相愛</span>
+            <span class="keyword">心のつながり</span>
+            <span class="keyword">契約・約束</span>
+            <span class="keyword">パートナーシップ</span>
+            <span class="keyword">対等な関係</span>
+            <span class="keyword">協力関係</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-body">
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🥂</div>
+            <div class="symbol-body">
+              <div class="symbol-name">カップを交わす男女</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">感情の交換</span>
+                <span class="symbol-tag">対等な関係</span>
+              </div>
+              <div class="symbol-desc">女性は受動性、男性は能動性を表しており、正反対の性質であっても価値は同じであることを示しています。立場が違っても気持ちは同じ、互いに尊重し合っている状態です。</div>
+              <div class="symbol-point">→ 対等な感情の交換</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🤝</div>
+            <div class="symbol-body">
+              <div class="symbol-name">カップを交わす行為（契約・約束）</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">契約・約束</span>
+                <span class="symbol-tag">はっきりした意思表示</span>
+              </div>
+              <div class="symbol-desc">カップを交わす行為は契約や約束の象徴です。恋愛では告白・プロポーズ・正式な交際、仕事では契約成立・取引開始を示します。曖昧な関係ではなく、言葉や形での確認が伴う関係です。</div>
+              <div class="symbol-point">→ 言葉で確認された関係</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🦁</div>
+            <div class="symbol-body">
+              <div class="symbol-name">翼のあるライオンとカドケウスの杖</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">本能・情熱（ライオン）</span>
+                <span class="symbol-tag">精神性（翼）</span>
+                <span class="symbol-tag">対立の調和（カドケウス）</span>
+              </div>
+              <div class="symbol-desc">ライオンは本能・情熱、翼は精神性を表し、心と体の両方が満たされている状態を意味します。カドケウスの杖は男女・陰陽など対立するものが交わることで新しい価値が生まれることを示しています。</div>
+              <div class="symbol-point">→ 深い結びつきと協力による発展</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏡</div>
+            <div class="symbol-body">
+              <div class="symbol-name">丘の上の家</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">未来の安定</span>
+                <span class="symbol-tag">関係の成長可能性</span>
+              </div>
+              <div class="symbol-desc">遠くにある家は未来の安定を象徴しています。距離があることから、関係はまだ始まったばかりで成熟には時間が必要であることを示します。</div>
+              <div class="symbol-point">→ この関係は将来発展する可能性がある</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Cups / カップのスート</div>
+            <div class="meta-tags">
+              <span class="meta-tag">愛情</span>
+              <span class="meta-tag">共感</span>
+              <span class="meta-tag">優しさ</span>
+              <span class="meta-tag">幸福</span>
+              <span class="meta-tag">受容</span>
+              <span class="meta-tag">心の動き</span>
+            </div>
+            <p class="meta-note">外側の出来事より「心の状態」を重視するスートです。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Two / 2の意味</div>
+            <div class="meta-tags">
+              <span class="meta-tag">対等</span>
+              <span class="meta-tag">バランス</span>
+              <span class="meta-tag">対話</span>
+              <span class="meta-tag">選択</span>
+              <span class="meta-tag">二者関係</span>
+            </div>
+            <p class="meta-note">2つのものが向き合い、バランスを取り合う数字です。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+
+        <div class="tip-block">
+          <div class="tip-title">このカードを読むときの重要ポイントは2つです。</div>
+          <div class="tip-row">
+            <span class="tip-check">①</span>
+            <span class="tip-text">気持ちは本当に一致しているか</span>
+          </div>
+          <div class="tip-row">
+            <span class="tip-check">②</span>
+            <span class="tip-text">言葉や形で確認されているか</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">カップの2は「良いカード」ですが、曖昧な関係には出にくいのが特徴です。はっきりした意思表示があるかどうかが解釈の分かれ目になります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">相思相愛</span>
+              <span class="position-kw">心のつながり</span>
+              <span class="position-kw">契約・約束</span>
+              <span class="position-kw">パートナーシップ</span>
+              <span class="position-kw">協力関係</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr>
+                <th class="cat">場面</th>
+                <th>リーディング例</th>
+              </tr>
+              <tr>
+                <td class="cat">恋愛</td>
+                <td>お互いに想い合っている、関係が進展する、正式な関係になる</td>
+              </tr>
+              <tr>
+                <td class="cat">人間関係</td>
+                <td>心が通じ合う出会い、信頼関係の構築</td>
+              </tr>
+              <tr>
+                <td class="cat">仕事</td>
+                <td>契約成立、良いパートナーとの出会い、信頼できる協力者</td>
+              </tr>
+              <tr>
+                <td class="cat">自己成長</td>
+                <td>自分と他者の価値観が一致する、心の調和が取れている</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">気持ちの不一致</span>
+              <span class="position-kw">一方通行</span>
+              <span class="position-kw">関係の破綻</span>
+              <span class="position-kw">契約不成立</span>
+              <span class="position-kw">表面的なつながり</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr>
+                <th class="cat">場面</th>
+                <th>リーディング例</th>
+              </tr>
+              <tr>
+                <td class="cat">恋愛</td>
+                <td>好きの温度差、すれ違い、片方だけが想っている状態</td>
+              </tr>
+              <tr>
+                <td class="cat">人間関係</td>
+                <td>表面的なつながりで本質的な関係が築けない、気持ちが噛み合わない</td>
+              </tr>
+              <tr>
+                <td class="cat">仕事</td>
+                <td>契約が成立しない、パートナーシップがうまくいかない</td>
+              </tr>
+              <tr>
+                <td class="cat">自己成長</td>
+                <td>自分の気持ちと行動が一致していない、関係の見直しが必要</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>カップの2は「対等な関係」と「心の結びつき」を象徴するカードです。恋愛でも仕事でも、信頼・協力・約束が揃ったときに現れます。</p>
+          <p>ただし関係はまだ成長途中。これから育てていくことで、より強い絆へと発展していくカードです。</p>
+          <p>このカードが出たら、曖昧にせずはっきり気持ちを伝えることが、関係を深めるカギになります。</p>
+        </div>
+
+      </div>
+
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>

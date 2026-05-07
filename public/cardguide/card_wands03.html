@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ワンドの3｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/Wands03.png" alt="ワンドの3"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ワンドの3</div>
+          <div class="card-name-en">Three of Wands</div>
+          <div class="card-summary">展望・拡大・未来への進展を表すカード。<br>黄金に輝く海を眺める後ろ姿の人物、3隻の船が行く。<br>「動き出したものが広がっていく段階」がこのカードの核心です。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">未来が開ける</span><span class="keyword">展望・発展</span><span class="keyword">成功の兆し</span><span class="keyword">協力者を得る</span><span class="keyword">交流・ビジネス</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">One</div><div class="flow-label">やる気・スタート</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Two</div><div class="flow-label">計画・選択</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Three</div><div class="flow-label">拡大・展開</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Four</div><div class="flow-label">安定・完成</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🌊</div>
+            <div class="symbol-body">
+              <div class="symbol-name">黄金に輝く海（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">希望・繁栄</span><span class="symbol-tag">成功の可能性</span><span class="symbol-tag">チャンスが広がっている</span></div>
+              <div class="symbol-desc">太陽の光を受けて黄金色に輝く海は、希望・繁栄・成功の可能性を象徴しています。目の前にチャンスが広がっている状態。それはまだ遠くにあるが、確かに存在しています。</div>
+              <div class="symbol-point">→ 「目の前にチャンスが広がっている」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">⛵</div>
+            <div class="symbol-body">
+              <div class="symbol-name">3隻の船（本人は乗っていない）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">協力者・仲間の存在</span><span class="symbol-tag">自分の代わりに動く存在</span><span class="symbol-tag">支援・流通・ビジネス</span></div>
+              <div class="symbol-desc">人物は船に乗らず、岸から3隻を見送っています。自分の代わりに動いている協力者・仲間・ビジネスの流れを表しています。支援や交流のネットワークが機能している状態です。</div>
+              <div class="symbol-point">→ 「協力者・仲間が動いている」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌏</div>
+            <div class="symbol-body">
+              <div class="symbol-name">遠くの土地（新しいステージ）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">未来・新しい展開</span><span class="symbol-tag">次の段階へ進む流れ</span></div>
+              <div class="symbol-desc">水平線の先に見える新たな土地は、次のステージを象徴しています。今いる場所を越えた先に、さらなる展開が待っていることを示しています。</div>
+              <div class="symbol-point">→ 「次の段階へ進む流れ」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🚶</div>
+            <div class="symbol-body">
+              <div class="symbol-name">後ろ姿の人物（前を向いている）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">未来志向</span><span class="symbol-tag">すでに動き始めている段階</span></div>
+              <div class="symbol-desc">後ろ姿で描かれているのは、こちら（過去）ではなく前（未来）を向いているから。ワンドの2の「計画段階」とは異なり、すでに動き始めています。前進の意志が明確です。</div>
+              <div class="symbol-point">→ 「計画ではなく、すでに動き始めている」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏜️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">何もない場所に立っている</div>
+              <div class="symbol-meaning"><span class="symbol-tag">まだ実績はない</span><span class="symbol-tag">これから築いていく状態</span></div>
+              <div class="symbol-desc">人物の足元には何もありません。これからの展開を見据えているが、まだ手元には形になったものがない。拡大・発展はこれからという段階を示しています。</div>
+              <div class="symbol-point">→ 「これから築いていく状態」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🎨</div>
+            <div class="symbol-body">
+              <div class="symbol-name">服の色（複合的）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">赤＝情熱</span><span class="symbol-tag">青＝成長・変化</span><span class="symbol-tag">緑＝生命力</span><span class="symbol-tag">黄黒＝希望と不安</span></div>
+              <div class="symbol-desc">赤（情熱）・青（成長・変化）・緑（生命力）・黄色と黒（希望と不安）が複合的に組み合わさっています。前向きなエネルギーの中に、期待と不安が混ざり合った現実的な状態を表しています。</div>
+              <div class="symbol-point">→ 「期待と不安が混ざった状態」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Wands / ワンドのスート</div>
+            <div class="meta-tags"><span class="meta-tag">情熱・行動</span><span class="meta-tag">エネルギー</span><span class="meta-tag">創造</span></div>
+            <p class="meta-note">情熱と行動のスート。3では「そのエネルギーが外へ広がっていく」段階として現れます。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Three / 3の意味</div>
+            <div class="meta-tags"><span class="meta-tag">成長・発展</span><span class="meta-tag">結束</span><span class="meta-tag">協力による拡大</span></div>
+            <p class="meta-note">3は成長と発展の数。2で決めた方向性に向かって、実際に動き出し広がっていく段階です。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「広がりと協力で未来が動くカード」。一人でやっているか、協力があるかがポイント。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">一人でやっているのか？協力者・支援者がいるか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">現実性はあるか？理想だけになっていないか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">流れは拡大しているか？外に向かって広がっているか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">ワンドの2（計画段階）との違いが重要です。3はすでに動き始めています。かなり前向きなカードですが、やや理想寄りで現実性が薄いこともあります。希望が広がる段階として受け取り、協力の有無を確認するとリーディングの精度が上がります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">未来が開ける</span><span class="position-kw">展望・発展</span><span class="position-kw">成功の兆し</span><span class="position-kw">協力者を得る</span><span class="position-kw">リーダーシップ</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>関係が発展していく流れ。相手や縁が動き始めている。遠距離・海外との縁が生まれることも</td></tr>
+              <tr><td class="cat">人間関係</td><td>協力者・支援者が現れる。ネットワークが広がり、新しいつながりが生まれる段階</td></tr>
+              <tr><td class="cat">仕事</td><td>ビジネスが拡大する、新しい取引・プロジェクトが動き出す。リーダーとして動き始める</td></tr>
+              <tr><td class="cat">自己成長</td><td>視野が広がり、次のステージへ向かう流れが生まれる。挑戦・探求が始まっている</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">停滞・成果が出ない</span><span class="position-kw">期待外れ</span><span class="position-kw">気力低下</span><span class="position-kw">慢心・油断</span><span class="position-kw">計画が進まない</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>関係が思うように発展しない、期待外れの展開。相手の動きが止まっている</td></tr>
+              <tr><td class="cat">人間関係</td><td>協力関係が機能しない、支援が得られない。ただし縁自体は残っている場合もある</td></tr>
+              <tr><td class="cat">仕事</td><td>計画がうまく進まない、成果が出ない。慢心や油断が停滞を招いている可能性がある</td></tr>
+              <tr><td class="cat">自己成長</td><td>目標を見失っている、気力が低下している。広がりが止まり内向きになっている状態</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ワンドの3は「協力と拡大によって、未来へ向かって展開していく状態」を表すカードです。黄金に輝く海を見渡す後ろ姿の人物は、すでに動き始めており、協力者が外で動いています。</p>
+          <p>ワンドの2（計画・選択）→ワンドの3（拡大・展開）という流れは、「決めた方向に対して実際に動き始める」段階を示しています。ここで外の世界に流れが出ていきます。</p>
+          <p>かなり前向きなカードですが、やや理想寄りな側面もあります。このカードが出たら、協力者の存在を確認しながら、流れが現実として広がっているかどうかを見ていくことが大切です。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>

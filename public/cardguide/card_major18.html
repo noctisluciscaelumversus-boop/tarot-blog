@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>月｜大アルカナ解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/18-TheMoon.png" alt="月"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Major Arcana ✦ 大アルカナ</div>
+          <div class="card-name-ja">月</div>
+          <div class="card-name-en">The Moon</div>
+          <div class="card-summary">不安・迷い・曖昧さ・先が見えない状況・潜在意識から出てくる恐れを表します。<br>月は神秘的・癒し的なイメージを持たれることもありますが、タロットの月はどちらかというと不安や迷いが強いカードです。<br>ただし完全に悪いカードではありません。カード中央には道が続いており、不安の中にも進むべき道は示されています。不安の正体を見極めれば、未知の世界へ進めるカードです。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">不安・迷い</span><span class="keyword">曖昧さ・先が見えない</span><span class="keyword">潜在意識の恐れ</span><span class="keyword">思い込み・幻想</span><span class="keyword">境界・未知の世界</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">XVI</div><div class="flow-label">塔</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XVII</div><div class="flow-label">星</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">XVIII</div><div class="flow-label">月</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">XIX</div><div class="flow-label">太陽</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🌕</div>
+            <div class="symbol-body">
+              <div class="symbol-name">思い悩む月（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">形がはっきりしない：変化・曖昧・不安定</span><span class="symbol-tag">表情：先が見えない苦悩</span></div>
+              <div class="symbol-desc">月は満月のようにも三日月のようにも見え、日食を表しているとも解釈されます。形がはっきりしないことから、変化・曖昧さ・不安定さを意味します。先のことがわからないから不安や迷いが生まれる。これが月のカードの基本的な読み方です。月を囲む32本の光の線は生命の樹のセフィラーとパスの数、月の下の15個のヨッドは神聖なエネルギー・祝福を示し、必要以上に怯えなくていいことも暗示しています。</div>
+              <div class="symbol-point">→ 「先が見えない不安・しかし道は消えていない」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🦞</div>
+            <div class="symbol-body">
+              <div class="symbol-name">池から這い上がるザリガニ</div>
+              <div class="symbol-meaning"><span class="symbol-tag">潜在意識・深層心理から出てくる不安と恐怖</span><span class="symbol-tag">水面のさざ波：感情の揺れ</span></div>
+              <div class="symbol-desc">池から這い上がるザリガニは、潜在意識から出てくる不安や恐怖を表します。水は潜在意識を表し、その水の中からザリガニが姿を現して月を見上げる姿は、心の奥にあった不安や恐怖が表に出てきて自分でも認識できるようになる状態です。水面のさざ波は顕在化した不安による心の動揺・感情の揺れを表します。</div>
+              <div class="symbol-point">→ 「深層心理の恐れが表面化する」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🐕</div>
+            <div class="symbol-body">
+              <div class="symbol-name">月に吠える犬と狼</div>
+              <div class="symbol-meaning"><span class="symbol-tag">犬：経験・知識による不安感</span><span class="symbol-tag">狼：本能による危険の感知</span></div>
+              <div class="symbol-desc">犬は人に飼いならされた動物で、これまでの経験や学んできた知識を表します。経験・知識として「これは不安だ・危ないかもしれない」と感じている状態です。狼は野生動物で本能的な直感を表します。理屈ではなく本能で危険や恐怖を感じ取っています。犬と狼が両方いることで、経験的にも本能的にも不安を感じていると読めます。</div>
+              <div class="symbol-point">→ 「経験でも本能でも危険を感じている二重の不安」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏛️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">左右の建物と中央に続く道</div>
+              <div class="symbol-meaning"><span class="symbol-tag">建物：二元性・境界線</span><span class="symbol-tag">緑の大地→青の大地：既知から未知の世界へ</span></div>
+              <div class="symbol-desc">左右の建物は二元性・境界線を表します。緑の大地は私たちが知っている世界、青い大地はまだ経験したことのない未知の世界です。重要なのは未知の世界へ続く道がカード中央にはっきり描かれていること。月は不安や迷いを表しますが、進む道そのものは消えていません。不安の正体を見極めれば、未知の世界へ進めるカードです。</div>
+              <div class="symbol-point">→ 「道は続いている・不安を越えれば未知の世界へ」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">👤 人間が描かれていない意味</div>
+            <div class="dual-item-text">月のカードには人間が描かれていません。これは、この不安が自分の力だけではコントロールしにくいところから来ることを示しています。外部からの不安だけでなく、自分の深層心理に眠る感情や恐れも含まれます。不安の多くは想像が作り出すものでもあります。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">🌅 「夜明け前」としての逆位置</div>
+            <div class="dual-item-text">次のカードが太陽であることからも、月が沈み太陽が昇る直前のイメージが重なります。逆位置では不安の解消・迷いが晴れる・夜明け前として、正位置よりポジティブに読まれます。真っ暗な夜の終わりが逆位置の月です。</div>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② 数字「18」の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Eighteen / 18の意味</div>
+            <div class="meta-tags"><span class="meta-tag">1＋8＝9（隠者との関連）</span><span class="meta-tag">真実の探求・内面を見つめる</span><span class="meta-tag">9×2＝18（内と外のバランス）</span></div>
+            <p class="meta-note">1＋8＝9として9番の隠者と関連します。隠者は真実の探求・秘密や謎の探求・内面を見つめるカードです。月も未知の世界へ進むために不安の正体・真実を探ることが必要だと読めます。9×2として内向きと外向きのバランスも示されています。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Major Arcana / 大アルカナ</div>
+            <div class="meta-tags"><span class="meta-tag">魂の旅</span><span class="meta-tag">人生の大きなテーマ</span><span class="meta-tag">22枚の物語</span></div>
+            <p class="meta-note">星の希望を手にした後、今度は夜の闇と不安の中を歩む段階。次に来る「太陽」の完全な祝福の前の最後の試練——暗闇の中でも道は続いているという信頼が問われます。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：不安や迷いの中で「何に不安を感じているのか」をはっきりさせることが大切。不安の原因がわかれば対処できる。道は消えていないので、怖がるだけでなく前を向く。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">自分が何に不安を感じているのか、何に迷っているのかをまず整理する。</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">不安の多くは思い込みや被害妄想が作り出す。現状をきちんと把握することが大切。</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">逆位置は「夜明け前」——不安が解消され、迷いが晴れていく段階として読む。</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">月のカードは「ただ怖がるカード」ではなく、不安の正体を見極めれば道は続いていると教えてくれるカードです。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">理由のわからない不安</span><span class="position-kw">先が見えない</span><span class="position-kw">曖昧・はっきりしない</span><span class="position-kw">思い込み</span><span class="position-kw">隠し事・スキャンダル</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>相手の気持ちや考えがわからない、気持ちが変わりやすく心が安定しない、軽はずみな行動は避けて様子を見る方がよい、既婚者がいる場所でのトラブルに注意。</td></tr>
+              <tr><td class="cat">人間関係</td><td>相手の本音が見えない、誤解やすれ違いが生まれやすい、思い込みによる判断ミスに注意、隠し事やスキャンダルが暗躍している。</td></tr>
+              <tr><td class="cat">仕事</td><td>悲観的な思い込みが強すぎて行動に移せない、先行きがわからない仕事、退職・転職で迷い続ける、自分では解決できないトラブルが発生している。</td></tr>
+              <tr><td class="cat">自己成長</td><td>現実逃避が続いている、答えを出せないまま時間が過ぎる、深層心理の不安が行動を制限している。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">不安の解消</span><span class="position-kw">迷いが晴れる</span><span class="position-kw">真実が見える</span><span class="position-kw">夜明け前</span><span class="position-kw">誤解が解ける</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>新しい出会いに期待を持てる、相手の隠し事や嘘を見抜く、曖昧な関係を終わらせることができる、理想の相手ではなかったことに気づく。</td></tr>
+              <tr><td class="cat">人間関係</td><td>長く続いた誤解が解ける、相手の本音が見えてくる、曖昧だった関係性がはっきりする。</td></tr>
+              <tr><td class="cat">仕事</td><td>滞っていた仕事が動き始める、公私のけじめをつけられる、やる気にあふれて意欲的になる、問題の解決策が見えてくる。</td></tr>
+              <tr><td class="cat">自己成長</td><td>潜在意識の恐れに気づいて向き合える、現実逃避から脱する、直感に従って動き始める、視界が広がり見通しが立つ。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>月は、不安や迷いの中で、見えないものの正体を探るカードです。怖がるだけでなく、不安の正体を見極めれば道はちゃんと続いています。</p>
+          <p>正位置では、曖昧さ・不安・迷い・思い込み・見えない恐れ・先行き不透明な状況。カード中央に道が続いているように、進む道そのものは消えていません。</p>
+          <p>逆位置では、不安の解消・迷いが晴れる・真実が見える・問題解決・夜明け前が強調されます。月が沈めば太陽が昇る——次のカード「太陽」への橋渡しです。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>

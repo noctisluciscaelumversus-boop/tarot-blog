@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペンタクルの5｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/Pentacles05.png" alt="ペンタクルの5"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ペンタクルの5</div>
+          <div class="card-name-en">Five of Pentacles</div>
+          <div class="card-summary">物質的・現実的な困難、貧困、孤立、助けを得られない状態を表すカード。<br>お金・仕事・健康・社会的立場など、現実面での苦しい状況を示します。<br>ただ困っているだけでなく、助けを求められない・助けてくれる場所が見つからない感覚も含みます。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">貧困・困難</span><span class="keyword">孤立・排除</span><span class="keyword">助けを得られない</span><span class="keyword">病気・ケガ</span><span class="keyword">心が荒む</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Three</div><div class="flow-label">協力・成長</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Four</div><div class="flow-label">守る・執着</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Five</div><div class="flow-label">困難・喪失・孤立</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Six</div><div class="flow-label">施し・再分配</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🤕</div>
+            <div class="symbol-body">
+              <div class="symbol-name">首に鈴をつけた男性（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">病気・ケガ・障害</span><span class="symbol-tag">社会からの排除</span><span class="symbol-tag">貧困・苦しみ</span></div>
+              <div class="symbol-desc">首につけた鈴はハンセン病を患っている証として解説されており、病気・ケガ・障害・社会的な排除という意味が読み取れます。現代のリーディングでは、健康上の問題や社会的立場の低下、職を失う、収入が途絶えるなどとして読みます。</div>
+              <div class="symbol-point">→ 「現実的な苦しみを体で受けている人物」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🙇</div>
+            <div class="symbol-body">
+              <div class="symbol-name">金銭的に苦しむ女性</div>
+              <div class="symbol-meaning"><span class="symbol-tag">経済的困難・物乞い</span><span class="symbol-tag">保護を受けられない状況</span></div>
+              <div class="symbol-desc">金銭的に苦しんでいる物乞いの姿として描かれています。2人合わせて、貧困・物質的な苦しみ・現実的な困難を表します。苦しい状況の中で連れ添って歩く姿から、同じ困難を共有している関係として読むのが自然です。</div>
+              <div class="symbol-point">→ 「同じ苦しみを抱えた者どうしが寄り添う」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">⛪</div>
+            <div class="symbol-body">
+              <div class="symbol-name">教会の窓（入り口がない）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">助けに気づいていない</span><span class="symbol-tag">プライドが邪魔して助けを求められない</span><span class="symbol-tag">そもそも助けがない</span></div>
+              <div class="symbol-desc">教会は本来どんな人にも救いの手を差し伸べる場所ですが、2人は中に入ろうとしていません。助けがあることに気づいていない、またはプライドや自尊心が邪魔して助けを求められない状態を表します。絵をよく見ると入り口が描かれていないため、そもそも周囲に助けてくれる人や場所がないという読み方もできます。</div>
+              <div class="symbol-point">→ 「助けがあっても気づけない、または助けそのものがない」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🪟</div>
+            <div class="symbol-body">
+              <div class="symbol-name">窓に描かれた5つのペンタクル</div>
+              <div class="symbol-meaning"><span class="symbol-tag">カバラの生命の樹（上半分）</span><span class="symbol-tag">精神的・物質的な価値</span></div>
+              <div class="symbol-desc">教会の窓の5つのペンタクルは、カバラの生命の樹の上半分の形を表しているとも解説されています。ただし、リーディングではそこまで深く考えなくてもよく、知識のひとつとして押さえておく程度でよいとされています。</div>
+              <div class="symbol-point">→ 「深読みしすぎず、困難の象徴として読む」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">❄️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">雪が降る夜の背景</div>
+              <div class="symbol-meaning"><span class="symbol-tag">過酷な状況・厳しい環境</span><span class="symbol-tag">孤独・心の寒さ</span></div>
+              <div class="symbol-desc">雪が降る夜という背景は、状況の過酷さや心の冷たさ・孤独感を強調しています。外の世界から守られることなく、寒さの中をさまよっているイメージです。</div>
+              <div class="symbol-point">→ 「外からの保護も温もりもない、孤立した状況」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Pentacles / ペンタクルのスート</div>
+            <div class="meta-tags"><span class="meta-tag">物質的価値・お金</span><span class="meta-tag">仕事・実績</span><span class="meta-tag">現実的な状況</span><span class="meta-tag">社会的立場</span></div>
+            <p class="meta-note">このカードでは「価値」というより、現実的な状況そのものとして捉える方が合っています。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Five / 5の意味</div>
+            <div class="meta-tags"><span class="meta-tag">仲間・組織・活動</span><span class="meta-tag">不安定・試練</span><span class="meta-tag">変化・動揺</span></div>
+            <p class="meta-note">数字5は仲間・活動を表しますが、絵柄と合わさることで金銭的問題・社会的立場の低下・助けを得られない困難として読まれます。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「今まさに苦しい状況にある。助けを求められているか、助けの道があるかを読む。」</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">現実的な苦しみ（お金・仕事・健康）がテーマか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">助けを求められない理由は何か（プライド・気づき・環境）？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">恋愛で出た場合、失恋・孤立として読む（2人をパートナーと見ない）。</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">アドバイスとして出た場合：今は苦しい時期だが状況を正直に見つめる必要がある、プライドを捨てて助けを求めることが大切、支援の手がどこかにある可能性を探す、という意味になります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">経済的な問題</span><span class="position-kw">生活が成り立たない</span><span class="position-kw">保護が受けられない</span><span class="position-kw">心が荒む</span><span class="position-kw">拒絶される</span><span class="position-kw">リストラ・病気</span><span class="position-kw">苦しみを共有する関係</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>失恋・孤立・拒絶される。2人の男女は恋人というより苦しみを共有する関係（失恋を慰める友人など）として読む。あまり良い暗示ではない。</td></tr>
+              <tr><td class="cat">人間関係</td><td>孤立・引きこもり、周囲から見放される、アテにできる人がいない。助けを求めたくても求められない状況。</td></tr>
+              <tr><td class="cat">仕事</td><td>リストラ・収入が途絶える・職を失う。保護が受けられない、どうすればいいか考えなければならない段階。</td></tr>
+              <tr><td class="cat">お金</td><td>経済的な問題・生活が成り立たない・資金の底をつく。借金・財産の喪失。心が荒んでいく状態。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">さらなる悪化</span><span class="position-kw">見放される</span><span class="position-kw">混乱・破滅</span><span class="position-kw">自己破産・破綻</span><span class="position-kw">回復の手段が見えない</span><span class="position-kw">どうしていいかわからない</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>孤立がさらに深まる、誰にも頼れない状況。失恋や拒絶からの回復の道が見えない。</td></tr>
+              <tr><td class="cat">人間関係</td><td>完全に見放される、孤立が深刻になる。助けを求める相手も手段もない状態。</td></tr>
+              <tr><td class="cat">仕事</td><td>状況がさらに悪化する・破綻している・立て直し方がわからない。闇に包まれた状況として読む。</td></tr>
+              <tr><td class="cat">お金</td><td>自己破産・財産の完全な喪失・回復の見込みなし。どうしていいかわからない状態にまで追い詰められる。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ペンタクルの5は、現実面での苦しみ・孤立・助けを得られない状況を表すカードです。雪の夜に教会の前を歩く2人の物乞いという絵柄は、過酷な現実と、そこに救いが見えない孤独感を強く示しています。</p>
+          <p>恋愛で出た場合も、2人をパートナーとして読むより、失恋を共有する者どうしや孤立として読むのが自然です。</p>
+          <p>一言でまとめるなら、「現実的な苦しみの中で、助けを求めたくても求められないカード」です。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>

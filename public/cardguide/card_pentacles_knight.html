@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペンタクルのナイト｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/Pentacles12.png" alt="ペンタクルのナイト"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ペンタクルのナイト</div>
+          <div class="card-name-en">Knight of Pentacles</div>
+          <div class="card-summary">立ち止まって考える・先を見据える・堅実に進むカード。<br>ナイトは本来、行動力や能動性を表すコートカードですが、ペンタクルのナイトでは馬が止まっています。勢いよく進むのではなく、今はあえて立ち止まり、現実的に未来を見ることが大切だと示しています。<br>真面目さ・責任感・忍耐強さ・堅実な判断がテーマです。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">立ち止まって考える</span><span class="keyword">先を見据える</span><span class="keyword">現状維持</span><span class="keyword">堅実・真面目</span><span class="keyword">誠実・責任感</span><span class="keyword">先見性・忍耐</span><span class="keyword">資産運用</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Page</div><div class="flow-label">新たな学びの始まり</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Knight</div><div class="flow-label">立ち止まり・先を見据える</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Queen</div><div class="flow-label">豊かさ・本質を見抜く</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">King</div><div class="flow-label">成功・実力者・所有</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🛡️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">青い鎧の騎士（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">青：受動性・変容・冷静な判断</span><span class="symbol-tag">ターニングポイント</span><span class="symbol-tag">未来を見据える視線</span></div>
+              <div class="symbol-desc">ペンタクルのコートカードに出てくる人物は、基本的に赤・緑・黄色を中心に描かれますが、ペンタクルのナイトだけは青い鎧が目立っています。青は受動性・変容・冷静な判断を表し、ターニングポイントとして読むこともできます。また、ペンタクルのペイジが浮かぶペンタクルをじっと見つめていたのに対し、このナイトは手に持ったペンタクルを見ておらず、未来を表す右側をまっすぐ見ています。今持っている価値そのものではなく、それがこの先にもたらすものを見ていると解釈できます。</div>
+              <div class="symbol-point">→ 「目の前の価値より、その先にあるものを見据えている」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🐴</div>
+            <div class="symbol-body">
+              <div class="symbol-name">静止した黒い馬</div>
+              <div class="symbol-meaning"><span class="symbol-tag">馬：行動力</span><span class="symbol-tag">黒：闇・内に秘めたもの</span><span class="symbol-tag">赤い飾り：内側に秘めた情熱</span><span class="symbol-tag">静止：堅実・慎重・あえて止まる</span></div>
+              <div class="symbol-desc">馬は行動力、黒は闇・秘密を表します。馬には赤い飾りがついており、赤は情熱・熱意を意味します。そのため、この馬は表には出していないけれど内側に情熱ややる気を秘めた状態として読めます。ただし馬は動いていません。これは、堅実・慎重・あえて歩みを止めていることを表します。動かないから悪いのではなく、今は軽率に進まず立ち止まることも行動のひとつだと示しています。</div>
+              <div class="symbol-point">→ 「情熱を内に秘めながら、あえて立ち止まる堅実な姿勢」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌾</div>
+            <div class="symbol-body">
+              <div class="symbol-name">耕された畑</div>
+              <div class="symbol-meaning"><span class="symbol-tag">下準備・土台の完成</span><span class="symbol-tag">これからの行動次第で結果が変わる</span><span class="symbol-tag">準備段階・慎重に次を考える時期</span></div>
+              <div class="symbol-desc">背景には耕された畑が描かれています。畑は整えられていますが、まだ植物は育っていません。結果を出すための下準備はできているが、何がどう育つかはこれからの行動次第という意味です。ペンタクルのナイトは、準備はできている、だからこそ次にどう動くかを慎重に考える段階を表します。</div>
+              <div class="symbol-point">→ 「土台は整っている。次の一手を慎重に見極める時」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Pentacles / ペンタクルのスート</div>
+            <div class="meta-tags"><span class="meta-tag">物質・お金・財産</span><span class="meta-tag">仕事・実績・人脈</span><span class="meta-tag">現実的な価値</span></div>
+            <p class="meta-note">ペンタクルの現実的・堅実な性質とナイトの行動力が合わさり、「慎重に未来を見据えて動く」という独特のエネルギーになります。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Knight / ナイトの意味</div>
+            <div class="meta-tags"><span class="meta-tag">活動・行動・状況</span><span class="meta-tag">青年・能動性</span><span class="meta-tag">男性的エネルギー</span></div>
+            <p class="meta-note">ナイトは青年を表しますが、実年齢に限らず、社会に出て活動的な人物を指します。女性でも行動力のある堅実な人物として読めます。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「勢いよく進むのではなく、あえて立ち止まって未来を見極める堅実さとして読む。」</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">今は動くより、立ち止まって状況を見極める時期として読めるか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">真面目・堅実・誠実・責任感のある人物・状況として読めるか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">青い鎧のターニングポイントの意味が文脈に合うか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">アドバイスとして出た場合：今は焦らず、現実的に、着実に進む時期。長期的な視点で計画を立て、堅実に行動することが大切なタイミングを示します。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">立ち止まって考える</span><span class="position-kw">先を見据える</span><span class="position-kw">現状維持</span><span class="position-kw">堅実・真面目</span><span class="position-kw">誠実</span><span class="position-kw">責任感</span><span class="position-kw">先見性</span><span class="position-kw">忍耐強さ</span><span class="position-kw">資産運用</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>すぐに動かず慎重に相手や未来を見ている状態。誠実で真面目な気持ち。じっくり関係を育てたい・先のことを考えている。</td></tr>
+              <tr><td class="cat">人間関係</td><td>真面目で誠実な人物。どっしり構えていて信頼できる。感情に流されず、現実的に関係を見つめる。</td></tr>
+              <tr><td class="cat">仕事</td><td>堅実な判断・責任ある態度・準備を整える時期。長期的な計画や資産運用、着実に積み上げる仕事のやり方。ターニングポイントの暗示も。</td></tr>
+              <tr><td class="cat">お金</td><td>資産運用・長期投資・堅実な財産形成。今すぐ動くより、将来を見据えた慎重な判断が吉。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">動きが遅い</span><span class="position-kw">消極的</span><span class="position-kw">臆病</span><span class="position-kw">融通が利かない</span><span class="position-kw">頭が固い</span><span class="position-kw">怠惰</span><span class="position-kw">責任感が足りない</span><span class="position-kw">悪い転機</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>なかなか前に進まない・自分の内側にこもる。慎重さが行きすぎて関係が停滞する。悪い意味で頑固になっている。</td></tr>
+              <tr><td class="cat">人間関係</td><td>融通が利かない・頭が固い・単調でつまらない人物として映る。我慢が足りない・鈍感な面が出る。</td></tr>
+              <tr><td class="cat">仕事</td><td>停滞・先延ばし・なかなか動けない。責任感が足りない・不注意によるミス。悪いターニングポイント・「あの時こうしておけばよかった」と後悔する転機。</td></tr>
+              <tr><td class="cat">お金</td><td>怠惰による財政の停滞・臆病で投資や行動に踏み出せない。先が見えていない判断をしてしまう。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ペンタクルのナイトは、すぐに動くよりも立ち止まって現実的に未来を見極めるカードです。馬が止まっていることが示すように、動かないことも行動のひとつ。真面目さ・責任感・先見性・忍耐強さがこのカードの核心です。</p>
+          <p>正位置なら、慎重・堅実・責任感・忍耐・現状維持・先見性・資産運用。逆位置なら、停滞・消極性・頑固・融通の利かなさ・怠惰・悪い転機。</p>
+          <p>一言でまとめるなら、「すぐに動くよりも、立ち止まって現実的に未来を見極めるカード」です。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>

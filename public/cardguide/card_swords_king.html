@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ソードのキング｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/Swords14.png" alt="ソードのキング"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ソードのキング</div>
+          <div class="card-name-en">King of Swords</div>
+          <div class="card-summary">判断・決断・権威を表すカード。<br>冷静な判断で物事を決断し、前に進める支配者。<br>決めることから逃げない、論理と理性による最終決断がこのカードの核心です。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">冷静な判断</span><span class="keyword">決断力・指導力</span><span class="keyword">公平・論理的</span><span class="keyword">権威・責任</span><span class="keyword">頼れるリーダー</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Knight</div><div class="flow-label">行動・突進</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Queen</div><div class="flow-label">冷静な理解</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">King</div><div class="flow-label">最終決断・権威</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">完成</div><div class="flow-label">ソードの流れ完結</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">👑</div>
+            <div class="symbol-body">
+              <div class="symbol-name">正面を向いた王（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">真正面から向き合う姿勢</span><span class="symbol-tag">ソードのコートカードで唯一の正面向き</span><span class="symbol-tag">人・物事に正面から対処する</span></div>
+              <div class="symbol-desc">ソードのコートカード（ペイジ・ナイト・クイーン・キング）の中で、唯一正面を向いている人物です。逃げず、避けず、真正面から向き合う姿勢がキングの最大の特徴です。</div>
+              <div class="symbol-point">→ 「人・物事に正面から対処する」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">⚔️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">やや傾いた剣</div>
+              <div class="symbol-meaning"><span class="symbol-tag">決断・判断</span><span class="symbol-tag">先に進むための判断</span><span class="symbol-tag">どちらかを選ぶ力</span></div>
+              <div class="symbol-desc">まっすぐ垂直ではなく、わずかに傾いた剣は「どちらかを選ぶ決断」を象徴しています。単純な正義・正論ではなく、現実の中で「どちらへ進むか」を選び取る力です。</div>
+              <div class="symbol-point">→ 「先に進むための判断・決断」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🔵</div>
+            <div class="symbol-body">
+              <div class="symbol-name">青いローブ × 赤いマント</div>
+              <div class="symbol-meaning"><span class="symbol-tag">青＝知性・冷静</span><span class="symbol-tag">赤＝情熱</span><span class="symbol-tag">理性と情熱のバランス</span></div>
+              <div class="symbol-desc">青は知性と冷静さ、赤は情熱と行動力を象徴します。両方を身にまとうことで、感情ではなく理性が主体でありながら、情熱も内側に持っているバランスの取れた状態を示しています。</div>
+              <div class="symbol-point">→ 「理性と情熱のバランス」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏛️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">高い玉座（強い象徴）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">権威・支配力</span><span class="symbol-tag">ソードの中で最も強い思考力</span><span class="symbol-tag">トップの判断者</span></div>
+              <div class="symbol-desc">高く威厳のある玉座は権威と支配力の象徴です。ソードのスートの中で最も強い思考力と判断力を持つ存在として、組織や状況のトップに立つ判断者を表しています。</div>
+              <div class="symbol-point">→ 「トップの判断者」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🐦</div>
+            <div class="symbol-body">
+              <div class="symbol-name">2羽の鳥（選択）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">選択肢</span><span class="symbol-tag">どちらかを選ぶ必要</span><span class="symbol-tag">決断の象徴</span></div>
+              <div class="symbol-desc">2羽の鳥は2つの選択肢を象徴します。クイーンの1羽（孤独・理解）とは異なり、キングには「どちらかを選ぶ決断」が求められています。判断の責任を担う存在です。</div>
+              <div class="symbol-point">→ 「どちらかを選ぶ決断が必要」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">☁️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">足元の雲</div>
+              <div class="symbol-meaning"><span class="symbol-tag">現実の問題が迫っている</span><span class="symbol-tag">決断を求められている状態</span></div>
+              <div class="symbol-desc">玉座の足元に漂う雲は、現実の問題・感情の変化が迫っていることを示しています。高みにいながらも現実の課題と向き合わなければならない状況、決断を迫られている場面を表しています。</div>
+              <div class="symbol-point">→ 「現実の問題が迫り、決断を求められている」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Swords / ソードのスート</div>
+            <div class="meta-tags"><span class="meta-tag">思考・判断</span><span class="meta-tag">決断・情報</span><span class="meta-tag">論理的決断</span></div>
+            <p class="meta-note">弁護士・医師・政治家など責任ある立場の人物として現れることが多いカードです。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">King / キングの意味</div>
+            <div class="meta-tags"><span class="meta-tag">権力・責任</span><span class="meta-tag">完成・統率</span><span class="meta-tag">支配力・権威</span></div>
+            <p class="meta-note">コートカードの最高位。ソードのキングはスートの流れの完成形であり、最終的な判断者を象徴します。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「決めることから逃げないカード」。判断は正しいか、感情ではなく理性で見ているか。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">その判断は正しいか？感情ではなく理性で見ているか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">決断を避けていないか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">正義（バランス）ではなく、前に進む決断が必要な場面か？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">アドバイスとして出た場合：迅速な決断が求められる局面です。大アルカナの正義（バランス）とは異なり、キングは「判断して決める」カード。クイーン（冷静な理解）の後にキング（最終判断）が入ることで、ソードの流れが完成します。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">冷静な判断</span><span class="position-kw">決断力・指導力</span><span class="position-kw">公平・論理的</span><span class="position-kw">権威・責任</span><span class="position-kw">頼れる人物</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>感情に流されず冷静に関係を判断する。または厳しいが信頼できる相手の存在を示す</td></tr>
+              <tr><td class="cat">人間関係</td><td>公平な立場から判断を下せる人物。頼れるリーダー・相談役として機能する</td></tr>
+              <tr><td class="cat">仕事</td><td>迅速な決断が求められる場面。弁護士・医師・管理職など責任ある立場での活躍</td></tr>
+              <tr><td class="cat">自己成長</td><td>決断の時。迷わず判断して前に進む段階。決めることから逃げないことが大切</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">独裁・支配</span><span class="position-kw">冷酷・無慈悲</span><span class="position-kw">権力の乱用</span><span class="position-kw">判断ミス</span><span class="position-kw">横暴・独善的</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>支配的・独裁的な相手。または感情を完全に切り捨てた冷酷な判断をしている状態</td></tr>
+              <tr><td class="cat">人間関係</td><td>権力の乱用・横暴な言動。自分の判断が絶対正しいと思い込んで他者を押しつぶす</td></tr>
+              <tr><td class="cat">仕事</td><td>独善的な判断による失敗。上司や権力者による不当な扱い・パワハラ的状況</td></tr>
+              <tr><td class="cat">自己成長</td><td>力が暴走している状態。正しいと思い込んだ判断を押し付けていないか見直す必要がある</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ソードのキングは「冷静な判断で物事を決断し、前に進める支配者」を表すカードです。ソードのコートカードで唯一正面を向く人物として、逃げず向き合う姿勢が最大の特徴です。</p>
+          <p>クイーン（冷静な理解）→キング（最終判断）という流れは「理解した上で決断を下す段階」を示しています。ここでソードの流れは完成します。大アルカナの正義（バランス）とは異なり、キングは「判断して前に進む」決断のカードです。</p>
+          <p>弁護士・医師・政治家など責任ある立場の人物として現れることが多く、スピード感ある迅速な決断も特徴の一つです。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>

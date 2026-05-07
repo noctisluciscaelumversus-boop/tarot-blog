@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ソードのナイト｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/Swords12.png" alt="ソードのナイト"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">ソードのナイト</div>
+          <div class="card-name-en">Knight of Swords</div>
+          <div class="card-summary">スピード・行動・突進を表すカード。<br>考えたらすぐ動く。強い意志と実行力でひたすら突き進む。<br>速さが武器にもリスクにもなることがこのカードの核心です。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">素早い行動</span><span class="keyword">決断力・実行力</span><span class="keyword">勇敢・挑戦</span><span class="keyword">スピード重視</span><span class="keyword">短期決戦</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">Ten</div><div class="flow-label">終わり・崩壊</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Page</div><div class="flow-label">情報収集・学習</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">Knight</div><div class="flow-label">行動・突進</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">Queen</div><div class="flow-label">知性・冷静な判断</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">⚔️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">剣を掲げて突進する騎士（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">目標に一直線</span><span class="symbol-tag">迷いなく進む</span><span class="symbol-tag">強い意志と行動力</span></div>
+              <div class="symbol-desc">剣を高く掲げ、躊躇なく突進する姿はソードのナイトの本質そのものです。ヒーロー的な存在感を放ちながら、勢いが強すぎる面も併せ持っています。迷いがない分、暴走するリスクも隣り合わせです。</div>
+              <div class="symbol-point">→ 「強い意志と行動力」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🔴</div>
+            <div class="symbol-body">
+              <div class="symbol-name">赤いマント（情熱）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">熱意・勇気・信念</span><span class="symbol-tag">感情ではなく信念で動く</span></div>
+              <div class="symbol-desc">赤いマントは情熱・熱意・信念を象徴します。感情に流されているのではなく、自分の信念に従って動いている状態です。だからこそ止まらない、止められない力があります。</div>
+              <div class="symbol-point">→ 「感情ではなく"信念で動く"」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🦅</div>
+            <div class="symbol-body">
+              <div class="symbol-name">鎧の鳥の模様（風の象徴）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">理想・信念</span><span class="symbol-tag">思考（ソードの性質）</span><span class="symbol-tag">理性×スピード</span></div>
+              <div class="symbol-desc">鎧に描かれた鳥はソードのスートに関連する風・思考・理性を象徴しています。感情的ではなく、思考・理性に基づいて高速で動く性質を示しています。</div>
+              <div class="symbol-point">→ 「理性×スピード」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🐎</div>
+            <div class="symbol-body">
+              <div class="symbol-name">白馬（重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">行動力・エネルギー</span><span class="symbol-tag">全力疾走</span><span class="symbol-tag">即行動・即決断</span></div>
+              <div class="symbol-desc">全力疾走する白馬は行動力とエネルギーを象徴します。止まる気配がなく、ためらいなく全力で突き進む状態です。そのエネルギーは圧倒的ですが、制御が難しくなる場合もあります。</div>
+              <div class="symbol-point">→ 「即行動・即決断」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌪️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">向かい風・激しい雲</div>
+              <div class="symbol-meaning"><span class="symbol-tag">風＝思考・情報</span><span class="symbol-tag">強風＝思考の強さ</span><span class="symbol-tag">スピードと思考が極端に強い状態</span></div>
+              <div class="symbol-desc">向かい風の中でも速度を落とさない姿は、困難があっても突き進む意志の強さを表しています。激しい雲は思考の強度と、状況の激しさを示しています。</div>
+              <div class="symbol-point">→ 「スピードと思考が極端に強い状態」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">←</div>
+            <div class="symbol-body">
+              <div class="symbol-name">左へ進む（内向きの方向）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">自分の考えに従って突き進む</span><span class="symbol-tag">周囲の意見を聞かない傾向</span></div>
+              <div class="symbol-desc">左方向（内向き）への突進は、外の状況よりも自分の内なる信念・考えに従って動いていることを示しています。周囲の意見を聞かずに突き進む独断的な傾向が出やすい方向です。</div>
+              <div class="symbol-point">→ 「自分の考えに従って突き進む」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Swords / ソードのスート</div>
+            <div class="meta-tags"><span class="meta-tag">思考・決断</span><span class="meta-tag">戦い・葛藤</span><span class="meta-tag">スピード</span></div>
+            <p class="meta-note">考えたことを即行動に移す性質。ソードの思考力とナイトの行動力が組み合わさると、スピードが最大化されます。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Knight / ナイトの意味</div>
+            <div class="meta-tags"><span class="meta-tag">行動・実行</span><span class="meta-tag">突進・挑戦</span><span class="meta-tag">短期決戦</span></div>
+            <p class="meta-note">コートカードの中で最も行動力が高い存在。ただしヒーロー的だが未完成で、勢いで失敗することもあります。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：「速さが武器にもリスクにもなる」。そのスピードは本当に必要か。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">そのスピードは本当に必要か？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">冷静な判断ができているか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">周囲の意見を無視していないか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">アドバイスとして出た場合：短期決戦タイプで長期戦には弱いため、スピードを活かすべき場面かどうかを見極めることが大切です。状況ではなく「本人が急いでいる」ケースも多く、自分の焦りに気づくことが重要です。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">素早い行動</span><span class="position-kw">決断力・実行力</span><span class="position-kw">勇敢・挑戦</span><span class="position-kw">スピード重視</span><span class="position-kw">短期決戦</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>気持ちが固まったら即アプローチ。スピーディな展開。ただし相手のペースを無視しやすい</td></tr>
+              <tr><td class="cat">人間関係</td><td>問題に真正面からぶつかっていく。解決は早いが、強引な印象を与えることもある</td></tr>
+              <tr><td class="cat">仕事</td><td>即決即断で物事を動かす。スピード勝負の場面で強みを発揮する。短期プロジェクト向き</td></tr>
+              <tr><td class="cat">自己成長</td><td>決断して迷わず進む段階。考えすぎず行動することが今は正解</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">早とちり・暴走</span><span class="position-kw">無計画・無謀</span><span class="position-kw">自滅・失敗</span><span class="position-kw">押し付け・独善的</span><span class="position-kw">焦り・空回り</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>焦って空回り。相手の気持ちを無視した強引な行動が関係を壊す</td></tr>
+              <tr><td class="cat">人間関係</td><td>自分の意見を押し付け、周囲と衝突する。独善的な行動が孤立を招く</td></tr>
+              <tr><td class="cat">仕事</td><td>無計画な突進で自滅。勢いだけで動いて失敗するパターン</td></tr>
+              <tr><td class="cat">自己成長</td><td>焦りが判断を曇らせている。立ち止まって冷静になる必要がある段階</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>ソードのナイトは「強い意志とスピードで突き進むが、暴走しやすい状態」を表すカードです。コートカードの中で最もエネルギーが高く、考えたらすぐ動く即断即決の実行力が最大の特徴です。</p>
+          <p>ペイジ（情報収集）→ナイト（即行動）という流れで、ここで一気にエネルギーが最大化します。短期決戦タイプで、長期戦には弱い面があります。状況ではなく「本人が急いでいる」ケースも多く、自分の焦りに気づくことが大切です。</p>
+          <p>速さは武器にもリスクにもなります。そのスピードが本当に必要な場面かどうかを見極めることが、このカードを読む上でのポイントです。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>

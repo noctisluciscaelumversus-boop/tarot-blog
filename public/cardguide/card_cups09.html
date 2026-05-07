@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カップの9｜タロットカード解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .card-hero { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: 3rem; }
+    .card-hero-img { flex-shrink: 0; width: 200px; position: relative; z-index: 1; }
+    .card-hero-img img { width: 100%; border: 2px solid rgba(201,168,76,0.3); display: block; transition: transform 0.4s ease, box-shadow 0.4s ease; transform-origin: left top; cursor: zoom-in; }
+    .card-hero-img img:hover { transform: scale(2.2); box-shadow: 0 12px 40px rgba(0,0,0,0.3); z-index: 10; position: relative; }
+    .card-hero-info { flex: 1; }
+    .card-category { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 0.8rem; }
+    .card-name-ja { font-size: 1.6rem; font-weight: 500; color: var(--text-dark); line-height: 1.4; margin-bottom: 0.3rem; }
+    .card-name-en { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 1.5rem; }
+    .card-summary { font-size: 0.92rem; line-height: 2.2; color: var(--text-mid); font-weight: 300; background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1rem 1.2rem; margin-bottom: 1.5rem; }
+    .keyword-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .keyword { font-size: 0.72rem; color: var(--deep-blue); border: 1px solid rgba(44,74,110,0.3); padding: 0.3rem 0.8rem; background: rgba(44,74,110,0.05); }
+
+    .wish-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: #fff; font-size: 0.72rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
+
+    .article-body { font-size: 0.95rem; line-height: 2.4; color: var(--text-mid); font-weight: 300; }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-size: 1rem; font-weight: 500; color: var(--deep-blue); margin: 2.5rem 0 1.2rem; padding: 0.7rem 1rem; background: rgba(44,74,110,0.06); border-left: 3px solid var(--deep-blue); }
+
+    .symbol-list { list-style: none; margin-bottom: 1.5rem; }
+    .symbol-item { display: flex; gap: 1rem; padding: 1rem 1.2rem; background: #fff; border: 1px solid rgba(201,168,76,0.2); margin-bottom: 0.5rem; }
+    .symbol-icon { flex-shrink: 0; font-size: 1.1rem; width: 28px; text-align: center; margin-top: 2px; }
+    .symbol-body { flex: 1; }
+    .symbol-name { font-size: 0.85rem; font-weight: 500; color: var(--deep-blue); margin-bottom: 0.4rem; }
+    .symbol-meaning { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.5rem; }
+    .symbol-tag { font-size: 0.68rem; color: var(--text-mid); background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); padding: 0.15rem 0.5rem; }
+    .symbol-desc { font-size: 0.85rem; line-height: 1.9; color: var(--text-mid); font-weight: 300; }
+    .symbol-point { font-size: 0.82rem; color: var(--deep-blue); margin-top: 0.4rem; font-weight: 500; }
+
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .meta-block { background: #fff; border: 1px solid rgba(201,168,76,0.2); padding: 1.2rem; }
+    .meta-block-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.8rem; }
+    .meta-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .meta-tag { font-size: 0.75rem; color: var(--text-mid); background: rgba(44,74,110,0.05); border: 1px solid rgba(44,74,110,0.15); padding: 0.3rem 0.7rem; }
+    .meta-note { font-size: 0.78rem; color: var(--text-mid); margin-top: 0.8rem; line-height: 1.8; }
+
+    .tip-block { background: rgba(44,74,110,0.05); border: 1px solid rgba(44,74,110,0.15); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .tip-title { font-size: 0.85rem; font-weight: 500; color: var(--deep-blue); margin-bottom: 1rem; line-height: 1.8; }
+    .tip-row { display: flex; gap: 1rem; margin-bottom: 0.6rem; align-items: baseline; }
+    .tip-check { flex-shrink: 0; font-size: 0.8rem; color: var(--deep-blue); }
+    .tip-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.8; }
+
+    .position-block { border: 1px solid rgba(201,168,76,0.2); margin-bottom: 1.5rem; }
+    .position-header { padding: 0.8rem 1.2rem; background: var(--deep-blue); }
+    .position-header.reverse { background: #4a3060; }
+    .position-title { font-family: 'Cinzel Decorative', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold-light); margin-bottom: 0.5rem; }
+    .position-keywords { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .position-kw { font-size: 0.7rem; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.3); padding: 0.15rem 0.6rem; }
+    .position-body { background: #fff; }
+    .reading-table { width: 100%; border-collapse: collapse; }
+    .reading-table th { background: rgba(44,74,110,0.06); font-size: 0.75rem; font-weight: 500; color: var(--deep-blue); padding: 0.6rem 1rem; text-align: left; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size: 0.85rem; color: var(--text-mid); padding: 0.8rem 1rem; border-bottom: 1px solid rgba(201,168,76,0.1); line-height: 1.8; vertical-align: top; }
+    .reading-table tr:last-child td { border-bottom: none; }
+    .reading-table .cat { font-weight: 500; color: var(--deep-blue); white-space: nowrap; width: 80px; }
+
+    .flow-note { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .flow-item { text-align: center; }
+    .flow-num { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+    .flow-label { font-size: 0.78rem; color: var(--text-mid); font-weight: 500; }
+    .flow-item.current .flow-label { color: var(--deep-blue); font-weight: 700; }
+    .flow-arrow { color: var(--gold); font-size: 1rem; }
+
+    .message-block { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
+    .message-block h2 { color: var(--gold-light); font-size: 0.9rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
+    .message-block p { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); margin-bottom: 0.8rem; }
+    .message-block p:last-child { margin-bottom: 0; }
+
+    .divider { display: flex; align-items: center; gap: 1rem; margin: 2rem 0; }
+    .divider-line { flex: 1; height: 1px; background: rgba(201,168,76,0.25); }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+      .card-hero { flex-direction: column; align-items: center; }
+      .card-hero-img { width: 160px; }
+      .card-hero-img img:hover { transform: scale(1.8); transform-origin: center top; }
+      .meta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="#">占い記事</a>
+      <a href="#">雑記</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+
+      <div class="card-hero">
+        <div class="card-hero-img">
+          <img src="../cards/Cups09.png" alt="カップの9">
+        </div>
+        <div class="card-hero-info">
+          <div class="card-category">Card Guide ✦ カード解説</div>
+          <div class="card-name-ja">カップの9</div>
+          <div class="card-name-en">Nine of Cups</div>
+          <div class="wish-badge">✦ Wish Card ／ 願いが叶うカード</div>
+          <div class="card-summary">
+            満足・成功・願望成就を表すカード。<br>
+            積み上げてきた努力が実を結び、望んだ状態が手に入る。<br>
+            精神的な充実だけでなく、物質的な成功も含む「ラッキーカード」。
+          </div>
+          <div class="keyword-wrap">
+            <span class="keyword">願いが叶う</span>
+            <span class="keyword">成功・勝利</span>
+            <span class="keyword">満足・幸福</span>
+            <span class="keyword">自信・充実</span>
+            <span class="keyword">安定</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-body">
+
+        <div class="flow-note">
+          <div class="flow-item">
+            <div class="flow-num">Four</div>
+            <div class="flow-label">停滞</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">
+            <div class="flow-num">Five</div>
+            <div class="flow-label">喪失</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">
+            <div class="flow-num">Six</div>
+            <div class="flow-label">過去・回想</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">
+            <div class="flow-num">Seven</div>
+            <div class="flow-label">幻想・迷い</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">
+            <div class="flow-num">Eight</div>
+            <div class="flow-label">手放し</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current">
+            <div class="flow-num">Nine</div>
+            <div class="flow-label">満足・達成</div>
+          </div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">😊</div>
+            <div class="symbol-body">
+              <div class="symbol-name">満足げな人物（最重要）</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">成功者・達成者</span>
+                <span class="symbol-tag">自信・満足感</span>
+              </div>
+              <div class="symbol-desc">腕を組んで満足そうに座る人物は「やり切った後の余裕」を体現しています。自信と達成感に満ちた表情が印象的です。</div>
+              <div class="symbol-point">→ 「やり切った後の余裕」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">👕</div>
+            <div class="symbol-body">
+              <div class="symbol-name">白い服＋赤い帽子</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">白：受動性・女性性</span>
+                <span class="symbol-tag">赤：能動性・男性性</span>
+              </div>
+              <div class="symbol-desc">白と赤の組み合わせは、受動性と能動性のバランスが取れている状態を表します。両方の性質を統合した完成形です。</div>
+              <div class="symbol-point">→ バランスが取れている状態</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🪑</div>
+            <div class="symbol-body">
+              <div class="symbol-name">粗末な椅子（重要ポイント）</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">最初から成功者ではない</span>
+                <span class="symbol-tag">積み上げてきた努力</span>
+              </div>
+              <div class="symbol-desc">豪華な椅子ではなく粗末な木の椅子に座っていることで、この満足は最初から与えられたものではなく、努力の結果として勝ち取ったものであることを示しています。</div>
+              <div class="symbol-point">→ 「努力の結果としての成功」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🏆</div>
+            <div class="symbol-body">
+              <div class="symbol-name">後ろに並んだ9つのカップ</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">願いが叶った証</span>
+                <span class="symbol-tag">精神的・感情的な満足</span>
+              </div>
+              <div class="symbol-desc">後ろに整然と並ぶ9つのカップは、成果や達成の象徴です。すべてが揃った状態で、何も欠けていません。</div>
+              <div class="symbol-point">→ 完全な満足・充実</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🔵</div>
+            <div class="symbol-body">
+              <div class="symbol-name">青いカーテン</div>
+              <div class="symbol-meaning">
+                <span class="symbol-tag">潜在意識・変化</span>
+              </div>
+              <div class="symbol-desc">青いカーテンは潜在意識を象徴し、内面からの変化と成長が背景にあることを示しています。満たされる方向への流れが続いていることを表します。</div>
+              <div class="symbol-point">→ 「満たされる方向への流れ」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② スートと数字の意味</h2>
+
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Cups / カップのスート</div>
+            <div class="meta-tags">
+              <span class="meta-tag">愛情</span>
+              <span class="meta-tag">共感</span>
+              <span class="meta-tag">幸福</span>
+              <span class="meta-tag">優しさ</span>
+              <span class="meta-tag">心のつながり</span>
+            </div>
+            <p class="meta-note">心の満足度を重視するスートです。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Nine / 9の意味</div>
+            <div class="meta-tags">
+              <span class="meta-tag">完成・到達</span>
+              <span class="meta-tag">充足</span>
+              <span class="meta-tag">満足</span>
+              <span class="meta-tag">次のステージの手前</span>
+            </div>
+            <p class="meta-note">10（完成）の一歩手前。ほぼ完成した充実の段階です。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+
+        <div class="tip-block">
+          <div class="tip-title">核心：「満たされること」と「満足できること」は別。シンプルにラッキーカードとして読んでOK。</div>
+          <div class="tip-row">
+            <span class="tip-check">✔</span>
+            <span class="tip-text">その願いは叶うのか？</span>
+          </div>
+          <div class="tip-row">
+            <span class="tip-check">✔</span>
+            <span class="tip-text">どんな形で満足するのか？</span>
+          </div>
+          <div class="tip-row">
+            <span class="tip-check">✔</span>
+            <span class="tip-text">満足している"つもり"ではないか？</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">精神面だけでなく物質的な成功も含みます。基本的にはポジティブに読んでよいカードです。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">願いが叶う</span>
+              <span class="position-kw">成功・勝利</span>
+              <span class="position-kw">満足・幸福</span>
+              <span class="position-kw">自信・充実</span>
+              <span class="position-kw">安定</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr>
+                <th class="cat">場面</th>
+                <th>リーディング例</th>
+              </tr>
+              <tr>
+                <td class="cat">恋愛</td>
+                <td>望む関係が実現する、相思相愛が成就する、幸せな関係が安定する</td>
+              </tr>
+              <tr>
+                <td class="cat">人間関係</td>
+                <td>良好な人間関係に恵まれる、周囲からの信頼を得る</td>
+              </tr>
+              <tr>
+                <td class="cat">仕事</td>
+                <td>目標達成・昇進・成功、努力が認められ満足できる結果を得る</td>
+              </tr>
+              <tr>
+                <td class="cat">自己成長</td>
+                <td>自信がつく、自分を信じて行動した結果が実を結ぶ</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords">
+              <span class="position-kw">自惚れ・傲慢</span>
+              <span class="position-kw">欲に溺れる</span>
+              <span class="position-kw">満たされない</span>
+              <span class="position-kw">不満・不完全</span>
+              <span class="position-kw">堕落</span>
+            </div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr>
+                <th class="cat">場面</th>
+                <th>リーディング例</th>
+              </tr>
+              <tr>
+                <td class="cat">恋愛</td>
+                <td>満たされているはずなのに不満を感じる、理想が高すぎて現実に不満</td>
+              </tr>
+              <tr>
+                <td class="cat">人間関係</td>
+                <td>自惚れて関係が崩れる、与えられることに慣れて感謝を忘れる</td>
+              </tr>
+              <tr>
+                <td class="cat">仕事</td>
+                <td>成功に慢心して努力をやめる、欲が出すぎて判断を誤る</td>
+              </tr>
+              <tr>
+                <td class="cat">自己成長</td>
+                <td>表面的な満足に留まる、本当の充実を見失っている</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>カップの9は「願いが叶い、満たされる状態」を表すカードです。ウィッシュカードとも呼ばれ、タロットの中で最もポジティブなカードの一つです。</p>
+          <p>しかしこの満足は、最初から与えられたものではありません。粗末な椅子が示すように、積み上げてきた努力の結果です。</p>
+          <p>停滞→喪失→回想→幻想→手放し→満足・達成。感情の整理と手放しを経て、ついに充足へと辿り着いた流れの終着点です。</p>
+        </div>
+
+      </div>
+
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>

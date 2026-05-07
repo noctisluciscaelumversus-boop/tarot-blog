@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>皇帝｜大アルカナ解説 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a84c; --gold-light:#e8d08a; --deep-blue:#2c4a6e; --parchment:#faf6ee; --text-dark:#2a1f0e; --text-mid:#4a3820; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Serif JP',serif; background:var(--parchment); color:var(--text-dark); }
+    .site-header { background:var(--deep-blue); padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-header a { font-family:'Cinzel Decorative',serif; font-size:0.75rem; color:var(--gold-light); text-decoration:none; letter-spacing:0.2em; }
+    .site-header nav { display:flex; gap:1.5rem; }
+    .site-header nav a { font-size:0.7rem; color:rgba(255,255,255,0.7); letter-spacing:0.08em; font-family:'Noto Serif JP',serif; }
+    .main-layout { display:flex; gap:2rem; max-width:1000px; margin:0 auto; padding:3rem 1.5rem 5rem; align-items:flex-start; }
+    .main-content { flex:1; min-width:0; }
+    .sidebar { width:220px; flex-shrink:0; }
+    .card-hero { display:flex; gap:2.5rem; align-items:flex-start; margin-bottom:3rem; }
+    .card-hero-img { flex-shrink:0; width:200px; position:relative; z-index:1; }
+    .card-hero-img img { width:100%; border:2px solid rgba(201,168,76,0.3); display:block; transition:transform 0.4s ease,box-shadow 0.4s ease; transform-origin:left top; cursor:zoom-in; }
+    .card-hero-img img:hover { transform:scale(2.2); box-shadow:0 12px 40px rgba(0,0,0,0.3); z-index:10; position:relative; }
+    .card-hero-info { flex:1; }
+    .card-category { font-family:'Cinzel Decorative',serif; font-size:0.55rem; letter-spacing:0.35em; color:var(--gold); margin-bottom:0.8rem; }
+    .card-name-ja { font-size:1.6rem; font-weight:500; color:var(--text-dark); line-height:1.4; margin-bottom:0.3rem; }
+    .card-name-en { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:1.5rem; }
+    .card-summary { font-size:0.92rem; line-height:2.2; color:var(--text-mid); font-weight:300; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .keyword-wrap { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .keyword { font-size:0.72rem; color:var(--deep-blue); border:1px solid rgba(44,74,110,0.3); padding:0.3rem 0.8rem; background:rgba(44,74,110,0.05); }
+    .article-body { font-size:0.95rem; line-height:2.4; color:var(--text-mid); font-weight:300; }
+    .article-body p { margin-bottom:1.5rem; }
+    .article-body h2 { font-size:1rem; font-weight:500; color:var(--deep-blue); margin:2.5rem 0 1.2rem; padding:0.7rem 1rem; background:rgba(44,74,110,0.06); border-left:3px solid var(--deep-blue); }
+    .flow-note { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .flow-item { text-align:center; }
+    .flow-num { font-family:'Cinzel Decorative',serif; font-size:0.6rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .flow-label { font-size:0.78rem; color:var(--text-mid); font-weight:500; }
+    .flow-item.current .flow-label { color:var(--deep-blue); font-weight:700; }
+    .flow-arrow { color:var(--gold); font-size:1rem; }
+    .symbol-list { list-style:none; margin-bottom:1.5rem; }
+    .symbol-item { display:flex; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid rgba(201,168,76,0.2); margin-bottom:0.5rem; }
+    .symbol-icon { flex-shrink:0; font-size:1.1rem; width:28px; text-align:center; margin-top:2px; }
+    .symbol-body { flex:1; }
+    .symbol-name { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.4rem; }
+    .symbol-meaning { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.5rem; }
+    .symbol-tag { font-size:0.68rem; color:var(--text-mid); background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:0.15rem 0.5rem; }
+    .symbol-desc { font-size:0.85rem; line-height:1.9; color:var(--text-mid); font-weight:300; }
+    .symbol-point { font-size:0.82rem; color:var(--deep-blue); margin-top:0.4rem; font-weight:500; }
+    .dual-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .dual-item { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1rem 1.2rem; }
+    .dual-item-title { font-size:0.78rem; font-weight:500; color:var(--deep-blue); margin-bottom:0.6rem; }
+    .dual-item-text { font-size:0.82rem; color:var(--text-mid); line-height:1.8; }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .meta-block { background:#fff; border:1px solid rgba(201,168,76,0.2); padding:1.2rem; }
+    .meta-block-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem; }
+    .meta-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .meta-tag { font-size:0.75rem; color:var(--text-mid); background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:0.3rem 0.7rem; }
+    .meta-note { font-size:0.78rem; color:var(--text-mid); margin-top:0.8rem; line-height:1.8; }
+    .tip-block { background:rgba(44,74,110,0.05); border:1px solid rgba(44,74,110,0.15); padding:1.5rem; margin-bottom:1.5rem; }
+    .tip-title { font-size:0.85rem; font-weight:500; color:var(--deep-blue); margin-bottom:1rem; line-height:1.8; }
+    .tip-row { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:baseline; }
+    .tip-check { flex-shrink:0; font-size:0.8rem; color:var(--deep-blue); }
+    .tip-text { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+    .position-block { border:1px solid rgba(201,168,76,0.2); margin-bottom:1.5rem; }
+    .position-header { padding:0.8rem 1.2rem; background:var(--deep-blue); }
+    .position-header.reverse { background:#4a3060; }
+    .position-title { font-family:'Cinzel Decorative',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:0.5rem; }
+    .position-keywords { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .position-kw { font-size:0.7rem; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); padding:0.15rem 0.6rem; }
+    .position-body { background:#fff; }
+    .reading-table { width:100%; border-collapse:collapse; }
+    .reading-table th { background:rgba(44,74,110,0.06); font-size:0.75rem; font-weight:500; color:var(--deep-blue); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(201,168,76,0.2); }
+    .reading-table td { font-size:0.85rem; color:var(--text-mid); padding:0.8rem 1rem; border-bottom:1px solid rgba(201,168,76,0.1); line-height:1.8; vertical-align:top; }
+    .reading-table tr:last-child td { border-bottom:none; }
+    .reading-table .cat { font-weight:500; color:var(--deep-blue); white-space:nowrap; width:80px; }
+    .message-block { background:var(--deep-blue); color:#fff; padding:1.8rem; margin:2rem 0; }
+    .message-block h2 { color:var(--gold-light); font-size:0.9rem; margin-bottom:1rem; font-family:'Cinzel Decorative',serif; letter-spacing:0.15em; }
+    .message-block p { font-size:0.92rem; line-height:2.2; color:rgba(255,255,255,0.85); margin-bottom:0.8rem; }
+    .message-block p:last-child { margin-bottom:0; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:2rem 0; }
+    .divider-line { flex:1; height:1px; background:rgba(201,168,76,0.25); }
+    .back-link { display:inline-block; margin-top:2.5rem; font-size:0.75rem; color:var(--gold); text-decoration:none; font-family:'Cinzel Decorative',serif; letter-spacing:0.1em; }
+    .sidebar-widget { background:#fff; border:1px solid rgba(201,168,76,0.22); padding:1.5rem 1.2rem; margin-bottom:1.5rem; text-align:center; }
+    .sidebar-name { font-family:'Cinzel Decorative',serif; font-size:0.8rem; color:var(--deep-blue); letter-spacing:0.2em; margin-bottom:0.7rem; }
+    .sidebar-bio { font-size:0.72rem; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:left; }
+    .sidebar-title { font-family:'Cinzel Decorative',serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem; text-align:left; }
+    .sidebar-cats { list-style:none; text-align:left; }
+    .sidebar-cats li { padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.15); font-size:0.75rem; color:var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom:none; }
+    .sidebar-cats li::before { content:'✦ '; color:var(--gold); font-size:0.55rem; }
+    .sidebar-cats a { color:inherit; text-decoration:none; }
+    .site-footer { border-top:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; }
+    .footer-text { font-family:'Cinzel Decorative',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; }
+    @media(max-width:768px) { .main-layout{flex-direction:column;padding:2rem 1.2rem 3rem;} .sidebar{width:100%;} .card-hero{flex-direction:column;align-items:center;} .card-hero-img{width:160px;} .card-hero-img img:hover{transform:scale(1.8);transform-origin:center top;} .meta-grid{grid-template-columns:1fr;} .dual-block{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav><a href="../index.html">ホーム</a><a href="#">占い記事</a><a href="#">雑記</a></nav>
+  </header>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="card-hero">
+        <div class="card-hero-img"><img src="../cards/04-TheEmperor.png" alt="皇帝"></div>
+        <div class="card-hero-info">
+          <div class="card-category">Major Arcana ✦ 大アルカナ</div>
+          <div class="card-name-ja">皇帝</div>
+          <div class="card-name-en">The Emperor</div>
+          <div class="card-summary">支配・権威・責任・社会的成功・父性・リーダーシップを表します。<br>女帝が母性・愛・豊かさを表していたのに対し、皇帝は父性・秩序・現実的な支配力を象徴します。<br>力が強いだけでなく、人を導く威厳・判断力・指導力が求められるカードです。</div>
+          <div class="keyword-wrap">
+            <span class="keyword">責任感・権威</span><span class="keyword">リーダーシップ</span><span class="keyword">社会的成功</span><span class="keyword">父性・指導者</span><span class="keyword">安定・秩序</span>
+          </div>
+        </div>
+      </div>
+      <div class="article-body">
+        <div class="flow-note">
+          <div class="flow-item"><div class="flow-num">II</div><div class="flow-label">女教皇</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">III</div><div class="flow-label">女帝</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item current"><div class="flow-num">IV</div><div class="flow-label">皇帝</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><div class="flow-num">V</div><div class="flow-label">法王</div></div>
+        </div>
+
+        <h2>① 絵の細部と象徴</h2>
+        <p>カーソルを画像に乗せると拡大して細部をご覧いただけます。</p>
+        <ul class="symbol-list">
+          <li class="symbol-item">
+            <div class="symbol-icon">🔴</div>
+            <div class="symbol-body">
+              <div class="symbol-name">赤い鎧と衣（最重要）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">情熱・欲望・闘争心</span><span class="symbol-tag">目的達成への積極的な行動力</span></div>
+              <div class="symbol-desc">赤は情熱・欲望・戦い・闘争心を表し、目的達成のために積極的に行動する力を示します。皇帝は感情で動くのではなく、意志と目的をもって行動する存在です。</div>
+              <div class="symbol-point">→ 「意志と行動力」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">👑</div>
+            <div class="symbol-body">
+              <div class="symbol-name">王冠・エジプト十字の王笏（右手）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">権威・権力・物質的支配</span><span class="symbol-tag">男性性・能動性</span></div>
+              <div class="symbol-desc">王冠は権威・権力・目的達成の象徴。右手のエジプト十字の王笏は支配・男性性・能動性を表し、人や物を自分のものにする現実的・物質的な支配の力を示します。</div>
+              <div class="symbol-point">→ 「権威と現実的な支配力」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🌍</div>
+            <div class="symbol-body">
+              <div class="symbol-name">黄金の地球儀（左手）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">物質の所有・世界の所有</span><span class="symbol-tag">女性性・愛で治める</span></div>
+              <div class="symbol-desc">右手の王笏が男性性・能動性なら、左手の地球儀は女性性・受動性にあたります。皇帝は力だけでなく、愛によっても世界を治めていると読めます。</div>
+              <div class="symbol-point">→ 「力と愛の両輪で世界を治める」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">🪨</div>
+            <div class="symbol-body">
+              <div class="symbol-name">石の椅子（牡羊のレリーフ）</div>
+              <div class="symbol-meaning"><span class="symbol-tag">物質的・世俗的な事柄</span><span class="symbol-tag">牡羊：男性性・行動力・指導力</span></div>
+              <div class="symbol-desc">石の椅子は物質的・世俗的な事柄を表します。牡羊のレリーフは火の性質を持ち、男性性・闘争心・行動力・指導力・物事を動かすエネルギーを象徴します。</div>
+              <div class="symbol-point">→ 「現実世界への支配と指導力」</div>
+            </div>
+          </li>
+          <li class="symbol-item">
+            <div class="symbol-icon">⛰️</div>
+            <div class="symbol-body">
+              <div class="symbol-name">背後の岩山</div>
+              <div class="symbol-meaning"><span class="symbol-tag">困難・障害</span><span class="symbol-tag">乗り越えた上に立つ存在</span></div>
+              <div class="symbol-desc">皇帝の座に就くためには、困難を乗り越える必要があることを示しています。皇帝は逆境を乗り越えてその地位にいる存在です。</div>
+              <div class="symbol-point">→ 「困難を乗り越えた権威」</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="dual-block">
+          <div class="dual-item">
+            <div class="dual-item-title">👑 女帝との対比</div>
+            <div class="dual-item-text">女帝が「愛と豊かさで満たすカード」なら、皇帝は秩序と責任で現実を守り動かすカードです。母性（感情・包容力）に対し、父性（理性・規律・指導力）を表します。</div>
+          </div>
+          <div class="dual-item">
+            <div class="dual-item-title">🪑 座っている意味</div>
+            <div class="dual-item-text">兵士のようにせわしなく動き回る必要はありませんが、何もしなくてよいわけでもありません。上に立つ者として方向性を決め、主導権を握る能動性が求められます。</div>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>② 数字「4」の意味</h2>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <div class="meta-block-title">Four / 4の意味</div>
+            <div class="meta-tags"><span class="meta-tag">安定・秩序</span><span class="meta-tag">現実世界・形あるもの</span><span class="meta-tag">四角・立方体</span></div>
+            <p class="meta-note">四角形や立方体のように、4は安定した形を連想させます。3次元の空間に時間を加えた現実世界を表すとも言われ、地位・肩書き・物質・組織・ルールなど形として捉えられるものに関係します。</p>
+          </div>
+          <div class="meta-block">
+            <div class="meta-block-title">Major Arcana / 大アルカナ</div>
+            <div class="meta-tags"><span class="meta-tag">魂の旅</span><span class="meta-tag">人生の大きなテーマ</span><span class="meta-tag">22枚の物語</span></div>
+            <p class="meta-note">愛と豊かさを体現した女帝の次として、現実世界を安定させ秩序を作る段階。支配したあと、その世界をルールや規則によって安定させる存在です。</p>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>③ リーディングのコツ</h2>
+        <div class="tip-block">
+          <div class="tip-title">核心：上に立つ者としての能動性。自分から方向性を決め、主導権を握り、現実を冷静に見て広い視野を持つリーダーシップが問われる。</div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">大きな判断・方向性の決定を自ら行えているか？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">感情よりも現実を優先すべき場面か？</span></div>
+          <div class="tip-row"><span class="tip-check">✔</span><span class="tip-text">責任を持ってリーダーとして動けているか？</span></div>
+          <p style="font-size:0.85rem;color:var(--text-mid);margin-top:0.8rem;line-height:1.9;">逆位置では、悪い王様・無能な上司・悪い父親のイメージで読むとわかりやすいです。権力が悪い方向に出て、傲慢・独裁・支配欲・実力不足につながります。</p>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>④ 正位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header">
+            <div class="position-title">Upright / 正位置</div>
+            <div class="position-keywords"><span class="position-kw">頼れる相手</span><span class="position-kw">社会的成功</span><span class="position-kw">責任感が強い</span><span class="position-kw">指導者・経営者</span><span class="position-kw">目的の達成</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>頼れる年上の相手、安定感のある男性、恋愛よりも仕事や社会的立場を優先する相手との関係。</td></tr>
+              <tr><td class="cat">人間関係</td><td>良い上司・父親への相談、男性的な視点で問題を解決する、理性的・論理的に判断する。</td></tr>
+              <tr><td class="cat">仕事</td><td>リーダーシップを発揮する時、昇進・部下ができる、ライバルに打ち勝つ、仕事や能力を認められる、経営者視点を持つ。</td></tr>
+              <tr><td class="cat">自己成長</td><td>障害を乗り越える、積極的な行動、責任感を持つ。形あるプレゼントや物質的なものを表す場合も。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <h2>⑤ 逆位置の意味</h2>
+        <div class="position-block">
+          <div class="position-header reverse">
+            <div class="position-title">Reversed / 逆位置</div>
+            <div class="position-keywords"><span class="position-kw">独断・傲慢</span><span class="position-kw">支配欲・束縛</span><span class="position-kw">無責任・実力不足</span><span class="position-kw">パワハラ</span><span class="position-kw">無能な指導者</span></div>
+          </div>
+          <div class="position-body">
+            <table class="reading-table">
+              <tr><th class="cat">場面</th><th>リーディング例</th></tr>
+              <tr><td class="cat">恋愛</td><td>わがままで自分本位、思いやりや優しさの欠如、見かけ倒しで中身が伴わない相手、支配的・束縛的な男性。</td></tr>
+              <tr><td class="cat">人間関係</td><td>パワハラ・セクハラ、権威や肩書きをひけらかす、傲慢な態度で周囲から孤立する。</td></tr>
+              <tr><td class="cat">仕事</td><td>自分の力不足に気づかず失敗する、メンツにこだわりすぎて損害が大きくなる、今までのやり方が通用しない、無能な上司・独裁的なリーダー。</td></tr>
+              <tr><td class="cat">自己成長</td><td>根拠のない自信、プレッシャーに負ける、経済力がない、現実から目を背ける。</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+        <div class="message-block">
+          <h2>まとめ</h2>
+          <p>皇帝は、現実世界を安定させ、責任を持って支配し、物事を形にしていくカードです。</p>
+          <p>正位置では、父性・責任感・権威・社会的成功・リーダーシップ・安定・目的達成。逆位置では、傲慢・支配欲・無責任・実力不足・独断・見栄・男性や上司とのトラブルが強調されます。</p>
+          <p>女帝が「愛と豊かさで満たすカード」なら、皇帝は秩序と責任で現実を守り、動かしていくカードとして読むと理解しやすいです。</p>
+        </div>
+      </div>
+      <a href="../cat_cardguide.html" class="back-link">← カード解説一覧に戻る</a>
+    </div>
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer"><div class="footer-text">✦ Zero Tarot ✦</div></footer>
+</body>
+</html>
