@@ -68,10 +68,11 @@ pushしないとサイトに反映されない。
 <img src="../cards/Wands04.png" alt="ワンドの4" class="reverse">
 ```
 
-### 記事追加時に更新するファイル（3つ）
+### 記事追加時に更新するファイル（4つ）
 1. `public/articles/article_kareshi_YYYY_MMDD.html`（新規作成）
 2. `public/cat_kareshi.html`（カテゴリ一覧に先頭追加）
 3. `public/index.html`（Recent Postsを5枚に保つよう調整）
+4. `CLAUDE.md`（「現在の記事一覧」と「ホームに表示中」を最新状態に更新）
 
 ---
 
