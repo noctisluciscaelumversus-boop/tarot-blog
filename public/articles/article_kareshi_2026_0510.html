@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元彼の私への気持ち｜カップ8正位置・ペンタクル9逆位置・月逆位置・カップ5逆位置 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .article-category { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .article-title { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 500; line-height: 1.7; color: var(--text-dark); margin-bottom: 0.8rem; }
+    .article-date { font-size: 0.68rem; color: #b0997e; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+
+    .lead { background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem; margin-bottom: 2rem; font-size: 0.95rem; line-height: 2.2; color: var(--text-mid); }
+
+    .toc { background: #fff; border: 1px solid rgba(201,168,76,0.3); padding: 1.5rem 1.8rem; margin-bottom: 2.5rem; }
+    .toc-title { font-family: 'Cinzel Decorative', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .toc a { color: var(--deep-blue); text-decoration: none; }
+    .toc a:hover { color: var(--gold); }
+
+    .article-body { font-size: 0.95rem; line-height: 2.4; color: var(--text-mid); font-weight: 300; }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-size: 1rem; font-weight: 500; color: var(--deep-blue); margin: 2.5rem 0 1rem; padding: 0.7rem 1rem; background: rgba(44,74,110,0.06); border-left: 3px solid var(--deep-blue); }
+
+    .card-spread { background: #fff; border: 1px solid rgba(201,168,76,0.25); padding: 1.5rem; margin-bottom: 2rem; }
+    .card-spread-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1.2rem; }
+    .spread-list { list-style: none; }
+    .spread-item { display: flex; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(201,168,76,0.1); font-size: 0.88rem; }
+    .spread-item:last-child { border-bottom: none; }
+    .spread-role { flex-shrink: 0; font-size: 0.72rem; color: #b0997e; width: 110px; }
+    .spread-card { color: var(--text-mid); font-weight: 400; }
+
+    .card-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: 0.88rem; }
+    .card-table th { background: rgba(44,74,110,0.08); color: var(--deep-blue); font-weight: 500; padding: 0.6rem 0.8rem; text-align: left; border-bottom: 2px solid rgba(201,168,76,0.3); }
+    .card-table td { padding: 0.7rem 0.8rem; border-bottom: 1px solid rgba(201,168,76,0.12); color: var(--text-mid); vertical-align: top; }
+    .card-table tr:last-child td { border-bottom: none; }
+
+    .card-block { background: #fff; border: 1px solid rgba(201,168,76,0.2); padding: 1.2rem 1.5rem; margin-bottom: 1rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .card-img-wrap { flex-shrink: 0; width: 90px; }
+    .card-img-wrap img { width: 100%; border: 1px solid rgba(201,168,76,0.25); display: block; }
+    .card-img-wrap img.reverse { transform: rotate(180deg); }
+    .card-block-body { flex: 1; min-width: 0; }
+    .card-block h3 { font-size: 0.88rem; font-weight: 500; color: var(--deep-blue); margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .card-block ul { padding-left: 1.2rem; }
+    .card-block ul li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .card-link { display: inline-block; margin-top: 0.8rem; font-size: 0.72rem; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4); }
+    .back-label { display: inline-block; font-size: 0.6rem; color: var(--gold); border: 1px solid var(--gold); padding: 0.1rem 0.4rem; letter-spacing: 0.1em; margin-left: 0.5rem; vertical-align: middle; }
+
+    .summary { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
+    .summary h2 { color: var(--gold-light); font-size: 0.95rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
+    .summary p { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); margin-top: 0.8rem; }
+
+    .divider { display: flex; align-items: center; gap: 1rem; margin: 2rem 0; }
+    .divider-line { flex: 1; height: 1px; background: rgba(201,168,76,0.25); }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .card-block { flex-direction: column; }
+      .card-img-wrap { width: 70px; }
+      .card-table { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="#">占い記事</a>
+      <a href="#">雑記</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+      <article>
+        <div class="article-category">元彼の気持ちを占ってみた</div>
+        <h1 class="article-title">元彼の私への気持ち｜カップ8正位置・ペンタクル9逆位置・月逆位置・カップ5逆位置</h1>
+        <div class="article-date">May 10, 2026</div>
+
+        <div class="lead">
+          元彼のあなたへの気持ちをルノルマンではなくタロットで占った結果、出たカードは カップ8正位置、ペンタクル9逆位置、月逆位置。<br>
+          バックカードは カップ5逆位置 です。<br><br>
+          この並びから見ると、元彼の気持ちは「完全に忘れた」「何も感じていない」というより、一度は離れようとしているけれど、あなたへの未練や後悔が少しずつ整理されてきている状態に見えます。<br><br>
+          ただし、今すぐ積極的に戻りたいという強さよりも、自分の中の不安・後悔・依存心をどう処理するかに意識が向いている印象です。
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol>
+            <li><a href="#cards">今回出たカード</a></li>
+            <li><a href="#cups8">カップ8正位置の意味</a></li>
+            <li><a href="#pent9">ペンタクル9逆位置の意味</a></li>
+            <li><a href="#moon">月逆位置の意味</a></li>
+            <li><a href="#back">バックカード・カップ5逆位置の意味</a></li>
+            <li><a href="#reading">全体のリーディング</a></li>
+            <li><a href="#contact">元彼はあなたに連絡してくるのか</a></li>
+            <li><a href="#howto">あなたはどう受け取ればいいのか</a></li>
+            <li><a href="#summary">まとめ</a></li>
+          </ol>
+        </div>
+
+        <div class="article-body">
+
+          <h2 id="cards">① 今回出たカード</h2>
+          <p>今回、元彼のあなたへの気持ちとして出たカードは次の通りです。</p>
+
+          <table class="card-table">
+            <tr>
+              <th>位置</th>
+              <th>カード</th>
+              <th>キーワード</th>
+            </tr>
+            <tr>
+              <td>1枚目</td>
+              <td>カップ8 正位置</td>
+              <td>離れる、気持ちの区切り、未練を抱えた撤退</td>
+            </tr>
+            <tr>
+              <td>2枚目</td>
+              <td>ペンタクル9 逆位置</td>
+              <td>自信のなさ、依存、満たされなさ、不安定な自己価値</td>
+            </tr>
+            <tr>
+              <td>3枚目</td>
+              <td>月 逆位置</td>
+              <td>不安が晴れる、真実が見えてくる、混乱からの回復</td>
+            </tr>
+            <tr>
+              <td>バックカード</td>
+              <td>カップ5 逆位置</td>
+              <td>後悔からの回復、過去を受け入れる、立ち直り</td>
+            </tr>
+          </table>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="cups8">② カップ8正位置の意味</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/Cups08.png" alt="カップ8">
+            </div>
+            <div class="card-block-body">
+              <h3>カップ8（正位置）｜1枚目</h3>
+              <ul>
+                <li>気持ちが残っていても、その場を離れようとする</li>
+                <li>感情があるからこそ、あえて距離を置く</li>
+                <li>過去の感情を壊すのではなく、そこに置いていく</li>
+              </ul>
+              <a href="../cardguide/card_cups08.html" class="card-link">✦ 詳しいカード解説はこちら</a>
+            </div>
+          </div>
+
+          <p>カップ8正位置は、気持ちが残っていても、その場を離れようとするカードです。</p>
+          <p>完全に嫌いになったというより、<br>
+          「このままでは前に進めない」<br>
+          「気持ちはあるけれど、距離を置くしかない」<br>
+          「自分の中で区切りをつけたい」<br>
+          という心理を表します。</p>
+          <p>元彼の気持ちとして読むなら、あなたへの感情がゼロになったというより、感情があるからこそ、あえて離れようとしている可能性があります。</p>
+          <p>カップ8は、カップを置いて旅立つカードです。<br>
+          つまり、過去の感情や思い出を完全に壊すのではなく、そこに置いていくようなイメージです。</p>
+          <p>元彼は、あなたとの関係を振り返りながらも、今は「戻る」より「離れて整理する」方向に気持ちが向いているようです。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="pent9">③ ペンタクル9逆位置の意味</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/Pentacles09.png" alt="ペンタクル9" class="reverse">
+            </div>
+            <div class="card-block-body">
+              <h3>ペンタクル9（逆位置）｜2枚目</h3>
+              <ul>
+                <li>自信のなさ、満たされなさ</li>
+                <li>精神的な依存、不安定な自己価値</li>
+                <li>相手への甘えや依存が混ざる</li>
+              </ul>
+              <a href="../cardguide/card_pentacles09.html" class="card-link">✦ 詳しいカード解説はこちら</a>
+            </div>
+          </div>
+
+          <p>ペンタクル9逆位置は、自信のなさ、満たされなさ、精神的な依存、不安定な自己価値を表します。</p>
+          <p>本来のペンタクル9は、自立・余裕・満足を表すカードです。<br>
+          しかし逆位置になると、その自立が崩れます。</p>
+          <p>元彼の気持ちとしては、あなたに対して</p>
+          <p>「自分はちゃんと向き合えなかった」<br>
+          「自信がない」<br>
+          「自分だけでは満たされない」<br>
+          「あなたに甘えていた部分があった」</p>
+          <p>というような感情があるかもしれません。</p>
+          <p>また、ペンタクル9逆位置は、相手に対して愛情がある一方で、健全な愛情というより依存や甘えが混ざることもあります。</p>
+          <p>つまり元彼は、あなたを思い出す時に、純粋な愛情だけではなく、<br>
+          「寂しい」<br>
+          「満たされない」<br>
+          「自分を認めてほしかった」<br>
+          という気持ちも一緒に出てきている可能性があります。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="moon">④ 月逆位置の意味</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/18-TheMoon.png" alt="月" class="reverse">
+            </div>
+            <div class="card-block-body">
+              <h3>月（逆位置）｜3枚目</h3>
+              <ul>
+                <li>不安や迷いが少しずつ晴れてくる</li>
+                <li>真実が明るみに出始める</li>
+                <li>混乱からの回復・整理の始まり</li>
+              </ul>
+              <a href="../cardguide/card_major18.html" class="card-link">✦ 詳しいカード解説はこちら</a>
+            </div>
+          </div>
+
+          <p>月逆位置は、不安や迷いが少しずつ晴れてくるカードです。</p>
+          <p>正位置の月は、混乱・不安・見えないもの・疑心暗鬼を表します。<br>
+          逆位置になると、それらがだんだん明るみに出てきます。</p>
+          <p>元彼の気持ちとして読むなら、以前はあなたとの関係について混乱していたけれど、今は少しずつ</p>
+          <p>「自分は何が怖かったのか」<br>
+          「何を誤解していたのか」<br>
+          「本当はどう感じていたのか」</p>
+          <p>が見え始めている状態です。</p>
+          <p>ただし、月逆位置は「完全に答えが出た」というより、霧が晴れ始めた段階です。</p>
+          <p>そのため、元彼はあなたへの気持ちを整理しつつあるものの、まだすぐ行動に移せるほど強く決意しているとは言い切れません。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="back">⑤ バックカード・カップ5逆位置の意味</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/Cups05.png" alt="カップ5" class="reverse">
+            </div>
+            <div class="card-block-body">
+              <h3>カップ5（逆位置）<span class="back-label">BACK</span></h3>
+              <ul>
+                <li>後悔・喪失感から少しずつ立ち直る</li>
+                <li>過去を受け入れ始める</li>
+                <li>前向きな気持ちを取り戻そうとする</li>
+              </ul>
+              <a href="../cardguide/card_cups05.html" class="card-link">✦ 詳しいカード解説はこちら</a>
+            </div>
+          </div>
+
+          <p>バックカードのカップ5逆位置は、今回のリーディング全体の背景にある気持ちです。</p>
+          <p>カップ5は、後悔・喪失感・失ったものへの悲しみを表します。<br>
+          それが逆位置で出ているため、元彼は過去の後悔や悲しみから、少しずつ立ち直ろうとしているようです。</p>
+          <p>あなたとの関係について、元彼の中には後悔があった可能性があります。</p>
+          <p>「もっと違う対応をすればよかった」<br>
+          「失ってから気づいたことがある」<br>
+          「でも、いつまでも引きずっていても仕方ない」</p>
+          <p>このような気持ちが見えます。</p>
+          <p>カップ5逆位置は、復縁の可能性を完全に否定するカードではありません。<br>
+          むしろ、過去を見直して、前向きな気持ちを取り戻そうとするカードです。</p>
+          <p>ただし、それは「あなたのところへ戻る」と決めたというより、まずは自分の中の後悔を癒そうとしている段階です。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="reading">⑥ 全体のリーディング</h2>
+          <p>この3枚とバックカードをまとめると、元彼のあなたへの気持ちは、かなり複雑です。</p>
+          <p>一言で言うなら、<br>
+          「あなたへの未練や後悔はある。でも今は、戻るよりも自分の気持ちを整理して離れようとしている」<br>
+          という状態です。</p>
+          <p>カップ8正位置が出ているため、元彼は今、あなたとの関係から一歩離れようとしています。<br>
+          けれど、それは冷たい拒絶というより、感情を抱えたままの撤退です。</p>
+          <p>ペンタクル9逆位置があるので、元彼の中にはまだ自信のなさや満たされなさがあります。<br>
+          あなたに対して、どこか甘えや依存のような気持ちも残っていそうです。</p>
+          <p>そして月逆位置は、そんな曖昧な気持ちが少しずつ整理されてきていることを示します。<br>
+          元彼は、あなたとの関係について「何が問題だったのか」「自分は本当はどうしたかったのか」を見つめ始めているのかもしれません。</p>
+          <p>バックカードのカップ5逆位置から見ると、元彼は過去の後悔から立ち直ろうとしています。<br>
+          あなたを完全に忘れたというより、あなたとのことを思い出しながらも、前を向こうとしている印象です。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="contact">⑦ 元彼はあなたに連絡してくるのか</h2>
+          <p>今回のカードだけで見ると、今すぐ勢いよく連絡してくる可能性は高くないように見えます。</p>
+          <p>理由は、カップ8正位置が「離れる」「距離を置く」方向を示しているからです。<br>
+          また、ペンタクル9逆位置も、相手がまだ自信を持って行動できない状態を表します。</p>
+          <p>ただし、月逆位置とカップ5逆位置があるため、完全に閉ざされているわけではありません。</p>
+          <p>むしろ、時間が経つにつれて元彼の中で</p>
+          <p>「やっぱり気になっている」<br>
+          「自分にも悪いところがあった」<br>
+          「もう少し素直になればよかった」</p>
+          <p>という気づきが出てくる可能性があります。</p>
+          <p>連絡があるとしたら、感情的な勢いというより、少し時間を置いてから、様子を見るような連絡になりそうです。</p>
+          <p>たとえば、急に深い話をしてくるというより、<br>
+          「元気？」<br>
+          「最近どうしてる？」<br>
+          のような、探るような連絡かもしれません。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="howto">⑧ あなたはどう受け取ればいいのか</h2>
+          <p>この結果は、元彼にまだ気持ちがある可能性を示しています。<br>
+          ただし、その気持ちはまっすぐな愛情だけではなく、後悔・寂しさ・依存・自信のなさも混ざっています。</p>
+          <p>そのため、あなたがこの結果を受け取るなら、<br>
+          「彼にはまだ未練や後悔がある。でも、今の彼は復縁に向けて堂々と動ける状態ではない」<br>
+          と見るのが自然です。</p>
+          <p>あなたから無理に追いかけると、カップ8の「離れたい」「整理したい」という流れを強めてしまう可能性があります。</p>
+          <p>今は、彼の気持ちを急かすより、あなた自身が落ち着いて、自分の価値を下げないことが大切です。</p>
+          <p>ペンタクル9逆位置が出ているため、相手の不安定さにあなたが巻き込まれすぎると、関係が再び不安定になる可能性もあります。</p>
+          <p>もし復縁を望むとしても、彼の寂しさを埋めるためだけの関係ではなく、お互いが自立した状態で向き合えるかを大切にした方がよさそうです。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <div class="summary" id="summary">
+            <h2>まとめ</h2>
+            <p>今回のカードは、元彼があなたを完全に忘れているとは読みにくい結果です。</p>
+            <p>カップ8正位置は、気持ちを残しながらも離れようとする姿。<br>
+            ペンタクル9逆位置は、自信のなさや満たされなさ。<br>
+            月逆位置は、不安や迷いが少しずつ晴れていく流れ。<br>
+            そしてバックカードのカップ5逆位置は、過去の後悔から回復しようとする気持ちを表しています。</p>
+            <p>全体として、元彼の気持ちは</p>
+            <p>「あなたへの未練や後悔はあるけれど、今は距離を置いて自分の気持ちを整理している」</p>
+            <p>という印象です。</p>
+            <p>復縁の可能性が完全にないわけではありません。<br>
+            ただし、今すぐ積極的に戻ってくるというより、彼の中で後悔や不安が整理された後に、何らかの動きが出る可能性があります。</p>
+            <p>あなたは彼の気持ちに振り回されすぎず、まずは自分自身を整えること。<br>
+            そのうえで、彼が本当に向き合える状態になった時に、関係をどうするかを判断していくのがよさそうです。</p>
+          </div>
+
+        </div>
+
+        <a href="../index.html" class="back-link">← ホームに戻る</a>
+      </article>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li>ルノルマンで占ってみた</li>
+          <li>タロット初心者ガイド</li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+          <li>雑記</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>
