@@ -33,14 +33,14 @@
 
 ## 作業ルール
 
-### 必須：作業後は必ずgit push
+### 必須：作業後は必ずgit pushまで実行する
 ```bash
 cd ~/public/tarot-blog
 git add <ファイル>
 git commit -m "メッセージ"
 git push
 ```
-pushしないとサイトに反映されない。
+pushしないとサイトに反映されない。ユーザーに確認を求めず、作業完了時に自動でpushまで実行すること。
 
 ### ホームのRecent Posts：常に5枚キープ
 - 「はじめに」カード：**固定・削除しない**
