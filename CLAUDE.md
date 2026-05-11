@@ -90,30 +90,7 @@ pushしないとサイトに反映されない。
 ## カード画像ファイル名
 
 ### 大アルカナ（`../cards/`）
-| カード名 | ファイル名 |
-|---------|-----------|
-| 愚者 | 00-TheFool.png |
-| 魔術師 | 01-TheMagician.png |
-| 女教皇 | 02-TheHighPriestess.png |
-| 女帝 | 03-TheEmpress.png |
-| 皇帝 | 04-TheEmperor.png |
-| 法王 | 05-TheHierophant.png |
-| 恋人 | 06-TheLovers.png |
-| 戦車 | 07-TheChariot.png |
-| 力 | 08-Strength.png |
-| 隠者 | 09-TheHermit.png |
-| 運命の輪 | 10-WheelOfFortune.png |
-| 正義 | 11-Justice.png |
-| 吊られた男 | 12-TheHangedMan.png |
-| 死神 | 13-Death.png |
-| 節制 | 14-Temperance.png |
-| 悪魔 | 15-TheDevil.png |
-| 塔 | 16-TheTower.png |
-| 星 | 17-TheStar.png |
-| 月 | 18-TheMoon.png |
-| 太陽 | 19-TheSun.png |
-| 審判 | 20-Judgement.png |
-| 世界 | 21-TheWorld.png |
+`00-TheFool.png` 〜 `21-TheWorld.png`（英語正式名、2桁番号）。不明なファイル名は `ls ~/public/tarot-blog/public/cards/` で確認。
 
 ### 小アルカナ（`../cards/`）
 - カップ：`Cups01.png` 〜 `Cups14.png`
@@ -128,6 +105,9 @@ pushしないとサイトに反映されない。
 
 | 日付 | ファイル名 | タイトル |
 |------|-----------|---------|
+| 2026/5/12 | article_kareshi_2026_0512c.html | 元彼は私のことをもう諦めた？タロットで世界逆・カップ2逆・カップ7逆・女教皇逆が出た意味 |
+| 2026/5/12 | article_kareshi_2026_0512b.html | 元彼から連絡は来る？ルノルマンで手紙が2枚目・ジャンピングで太陽が出た意味 |
+| 2026/5/12 | article_kareshi_2026_0512.html | 元彼の気持ちをタロットで占った結果｜ペンタクル2逆・ソード2逆・ペンタクル6正 |
 | 2026/5/10 | article_kareshi_2026_0510.html | 元彼の私への気持ち｜カップ8正位置・ペンタクル9逆位置・月逆位置・カップ5逆位置 |
 | 2026/5/4 | article_kareshi_2026_0504.html | 音信不通の元彼の今の状況は？タロットで見えた現在の彼の状態 |
 | 2026/5/3 | article_kareshi_2026_0503.html | 音信不通の元彼の気持ちは？後悔と再評価が見えるタロット結果 |
@@ -138,7 +118,7 @@ pushしないとサイトに反映されない。
 
 **ホームに表示中（5枚）：**
 - はじめに（固定）
-- article_kareshi_2026_0510（最新）
-- article_kareshi_2026_0504
-- article_kareshi_2026_0503
-- article_kareshi_2026_0502 ← 次回新記事追加時に削除
+- article_kareshi_2026_0512c（最新）
+- article_kareshi_2026_0512b
+- article_kareshi_2026_0512
+- article_kareshi_2026_0510 ← 次回新記事追加時に削除
