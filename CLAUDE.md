@@ -128,6 +128,8 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 **ホームに表示中（5枚）：**
 - はじめに（固定）
 - article_kareshi_2026_0512c（最新）
-- article_kareshi_2026_0512b
 - article_kareshi_2026_0512
-- article_kareshi_2026_0510 ← 次回新記事追加時に削除
+- article_kareshi_2026_0510
+- article_kareshi_2026_0504 ← 次回新記事追加時に削除
+
+**注意：ルノルマン記事はホームのRecent Postsに含めない（cat_lenormandのみに掲載）**
