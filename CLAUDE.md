@@ -81,7 +81,7 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 
 ### 記事追加時に更新するファイル（4つ）
 1. `public/articles/article_kareshi_YYYY_MMDD.html`（新規作成）
-2. `public/cat_kareshi.html`（カテゴリ一覧に先頭追加）
+2. `public/cat_kareshi.html` または `public/cat_lenormand.html`（カテゴリ一覧に先頭追加）
 3. `public/index.html`（Recent Postsを5枚に保つよう調整）
 4. `CLAUDE.md`（「現在の記事一覧」と「ホームに表示中」を最新状態に更新）
 
@@ -98,6 +98,15 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 - ソード：`Swords01.png` 〜 `Swords14.png`
 - ワンド：`Wands01.png` 〜 `Wands14.png`
 - 11=ペイジ、12=ナイト、13=クイーン、14=キング
+
+---
+
+## 現在の記事一覧（cat_lenormand）
+
+| 日付 | ファイル名 | タイトル |
+|------|-----------|---------|
+| 2026/5/12 | article_kareshi_2026_0512b.html | 元彼から連絡は来る？ルノルマンで手紙が2枚目・ジャンピングで太陽が出た意味 |
+| 2026/4/26 | article_lenormand_2026_gw.html | 2026年ゴールデンウィークに連絡は来る？音信不通の元彼をルノルマンで占った結果 |
 
 ---
 
