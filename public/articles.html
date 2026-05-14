@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>元彼の気持ちを占ってみた | ゼロのタロット</title>
+  <title>占い記事一覧 | ゼロのタロット</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -26,14 +26,14 @@
     .main-content { flex: 1; min-width: 0; }
     .sidebar { width: 220px; flex-shrink: 0; }
 
-    /* カテゴリヘッダー */
     .cat-header { margin-bottom: 2.5rem; }
     .cat-label { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 0.8rem; }
     .cat-title { font-size: 1.3rem; font-weight: 500; color: var(--text-dark); line-height: 1.7; margin-bottom: 0.8rem; }
     .cat-divider { height: 1px; background: rgba(201,168,76,0.3); }
 
-    /* 記事一覧 */
-    .article-list { list-style: none; }
+    .section-label { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(201,168,76,0.3); }
+
+    .article-list { list-style: none; margin-bottom: 1rem; }
     .article-item { border-bottom: 1px solid rgba(201,168,76,0.15); }
     .article-item a {
       display: flex;
@@ -50,6 +50,8 @@
     .article-info { display: flex; flex-direction: column; gap: 0.3rem; }
     .article-subtitle { font-size: 0.95rem; font-weight: 400; color: var(--text-mid); line-height: 1.7; }
     .article-cards { font-size: 0.72rem; color: #b0997e; letter-spacing: 0.05em; }
+
+    .view-all { display: inline-block; margin-top: 0.5rem; font-size: 0.72rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
 
     .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
 
@@ -80,7 +82,7 @@
     <nav>
       <a href="index.html">ホーム</a>
       <a href="articles.html">占い記事</a>
-      <a href="cat_guide.html">タロット初心者ガイド</a>
+      <a href="cat_cardguide.html">カード解説</a>
     </nav>
   </header>
 
@@ -88,11 +90,13 @@
     <div class="main-content">
 
       <div class="cat-header">
-        <div class="cat-label">Category</div>
-        <h1 class="cat-title">元彼の気持ちを占ってみた</h1>
+        <div class="cat-label">Articles</div>
+        <h1 class="cat-title">占い記事一覧</h1>
         <div class="cat-divider"></div>
       </div>
 
+      <!-- 元彼の気持ちを占ってみた -->
+      <div class="section-label">元彼の気持ちを占ってみた</div>
       <ul class="article-list">
         <li class="article-item">
           <a href="articles/article_kareshi_2026_0512c.html">
@@ -176,6 +180,45 @@
           </a>
         </li>
       </ul>
+      <a href="cat_kareshi.html" class="view-all">カテゴリページへ →</a>
+
+      <!-- ルノルマンで占ってみた -->
+      <div class="section-label">ルノルマンで占ってみた</div>
+      <ul class="article-list">
+        <li class="article-item">
+          <a href="articles/article_kareshi_2026_0512b.html">
+            <span class="article-date-tag">2026/5/12</span>
+            <div class="article-info">
+              <span class="article-subtitle">元彼から連絡は来る？ルノルマンで手紙が2枚目・ジャンピングで太陽が出た意味</span>
+              <span class="article-cards">手紙・太陽</span>
+            </div>
+          </a>
+        </li>
+        <li class="article-item">
+          <a href="articles/article_lenormand_2026_gw.html">
+            <span class="article-date-tag">2026/4/26</span>
+            <div class="article-info">
+              <span class="article-subtitle">2026年ゴールデンウィークに連絡は来る？音信不通の元彼をルノルマンで占った結果</span>
+              <span class="article-cards">ルノルマン</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <a href="cat_lenormand.html" class="view-all">カテゴリページへ →</a>
+
+      <!-- 今日の運勢を占ってみた -->
+      <div class="section-label">今日の運勢を占ってみた</div>
+      <ul class="article-list">
+        <li class="article-item">
+          <a href="articles/article_fortune_2026_0426.html">
+            <span class="article-date-tag">2026/4/26</span>
+            <div class="article-info">
+              <span class="article-subtitle">今日の運勢をタロットで占ってみた｜新しい流れと気づきの1日</span>
+              <span class="article-cards">タロット・運勢</span>
+            </div>
+          </a>
+        </li>
+      </ul>
 
       <a href="index.html" class="back-link">← ホームに戻る</a>
     </div>
@@ -192,9 +235,8 @@
           <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
           <li>今日の運勢を占ってみた</li>
           <li><a href="cat_lenormand.html">ルノルマンで占ってみた</a></li>
-          <li>タロット初心者ガイド</li>
-          <li>カード解説</li>
           <li><a href="cat_guide.html">タロット初心者ガイド</a></li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
         </ul>
       </div>
     </aside>
