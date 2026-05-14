@@ -79,11 +79,11 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 <img src="../cards/Wands04.png" alt="ワンドの4" class="reverse">
 ```
 
-### 記事追加時に更新するファイル（4つ）
-1. `public/articles/article_kareshi_YYYY_MMDD.html`（新規作成）
-2. `public/cat_kareshi.html` または `public/cat_lenormand.html`（カテゴリ一覧に先頭追加）
-3. `public/index.html`（Recent Postsを5枚に保つよう調整）
-4. `CLAUDE.md`（「現在の記事一覧」と「ホームに表示中」を最新状態に更新）
+### 記事追加時に更新するファイル
+- 新規記事HTML（articles/内に作成）
+- 対応カテゴリページ（cat_kareshi.html / cat_lenormand.html / cat_guide.html）に先頭追加
+- `public/index.html`：元彼・ルノルマン以外のカテゴリはRecent Postsに含めない。元彼記事は5枚キープ
+- `CLAUDE.md`：各記事一覧を最新状態に更新
 
 ---
 
@@ -98,6 +98,14 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 - ソード：`Swords01.png` 〜 `Swords14.png`
 - ワンド：`Wands01.png` 〜 `Wands14.png`
 - 11=ペイジ、12=ナイト、13=クイーン、14=キング
+
+---
+
+## 現在の記事一覧（cat_guide）
+
+| 日付 | ファイル名 | タイトル |
+|------|-----------|---------|
+| 2026/5/14 | article_guide_2026_0514.html | 逆位置の読み方のコツ｜正位置の反対ではなく、別の角度から見る |
 
 ---
 
