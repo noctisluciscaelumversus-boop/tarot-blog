@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シンボルを上下で読む｜逆位置の解釈が変わる「天と地」の考え方 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .article-category { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .article-title { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 500; line-height: 1.7; color: var(--text-dark); margin-bottom: 0.8rem; }
+    .article-date { font-size: 0.68rem; color: #b0997e; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+
+    .lead { background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem; margin-bottom: 2rem; font-size: 0.95rem; line-height: 2.2; color: var(--text-mid); }
+
+    .toc { background: #fff; border: 1px solid rgba(201,168,76,0.3); padding: 1.5rem 1.8rem; margin-bottom: 2.5rem; }
+    .toc-title { font-family: 'Cinzel Decorative', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .toc a { color: var(--deep-blue); text-decoration: none; }
+    .toc a:hover { color: var(--gold); }
+
+    .article-body { font-size: 0.95rem; line-height: 2.4; color: var(--text-mid); font-weight: 300; }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-size: 1rem; font-weight: 500; color: var(--deep-blue); margin: 2.5rem 0 1rem; padding: 0.7rem 1rem; background: rgba(44,74,110,0.06); border-left: 3px solid var(--deep-blue); }
+    .article-body h3 { font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin: 1.8rem 0 0.8rem; }
+
+    .point-box { background: #fff; border: 1px solid rgba(201,168,76,0.25); padding: 1.2rem 1.5rem; margin: 1.5rem 0 2rem; }
+    .point-box-title { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 0.8rem; }
+    .point-box ul { padding-left: 1.2rem; }
+    .point-box ul li { font-size: 0.9rem; line-height: 2.2; color: var(--text-mid); }
+
+    .summary { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
+    .summary h2 { color: var(--gold-light); font-size: 0.95rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
+    .summary p { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); margin-top: 0.8rem; }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="#">占い記事</a>
+      <a href="../cat_guide.html">タロット初心者ガイド</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+      <article>
+        <div class="article-category">タロット初心者ガイド</div>
+        <h1 class="article-title">シンボルを上下で読む｜逆位置の解釈が変わる「天と地」の考え方</h1>
+        <div class="article-date">May 14, 2026</div>
+
+        <div class="lead">
+          カードの「上にあるもの」と「下にあるもの」は、それぞれ意味が違う。<br>
+          この上下の考え方を使うと、正位置と逆位置の違いがかなり読みやすくなる。前回の左右に続いて、上下の見方をまとめておく。
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol>
+            <li><a href="#updown">上と下の意味づけ</a></li>
+            <li><a href="#up">「天」としての上</a></li>
+            <li><a href="#down">「地」としての下</a></li>
+            <li><a href="#tower">塔の正位置と逆位置</a></li>
+            <li><a href="#conscious">上は意識、下は無意識</a></li>
+            <li><a href="#swords9">ソード9の例</a></li>
+            <li><a href="#summary">まとめ</a></li>
+          </ol>
+        </div>
+
+        <div class="article-body">
+
+          <h2 id="updown">上と下の意味づけ</h2>
+          <p>カードの上下には、それぞれ異なる意味を当てはめることができる。</p>
+
+          <div class="point-box">
+            <div class="point-box-title">上と下の読み方</div>
+            <ul>
+              <li>上：精神・感覚・スピリチュアル・予期せぬこと・意識（顕在意識）</li>
+              <li>下：物質・事実・現実・予期できること・無意識（潜在意識・深層心理）</li>
+            </ul>
+          </div>
+
+          <p>同じシンボルでも、カードのどの位置に描かれているかで読み方が変わる。これが上下の考え方の基本。</p>
+
+          <h2 id="up">「天」としての上</h2>
+          <p>カードの上部は、精神的なもの・感覚的なもの・予想外に起こることとして読む。</p>
+          <p>恋人のカードでは、上部に太陽と天使ラファエルが描かれている。これは祝福や精神的な満足として読める。「予期せぬ祝福」として読むなら、偶然好きな人と出会う・偶然の出来事から恋が始まる、といった解釈もできる。</p>
+          <p>ペンタクル3では上部にグレーのペンタクルが描かれているため、精神的・感覚的には自然体、ニュートラルな状態で物事に取り組める、という読み方ができる。</p>
+
+          <h2 id="down">「地」としての下</h2>
+          <p>カードの下部は、現実・事実・物質的なこと・予期できることとして読む。</p>
+          <p>隠者のカードでは、人物が氷山の上に立っている。そのため「地に足がついている」「現実や事実を受け止めている」と読むことができる。</p>
+          <p>戦車のカードでは、下部に白と黒のスフィンクスがいる。白黒の対比を現実的な判断材料として見れば、「メリットとデメリットをきちんと見極めながら進む必要がある」という読み方になる。</p>
+
+          <h2 id="tower">塔の正位置と逆位置</h2>
+          <p>塔のカードは、上下の考え方で正位置と逆位置の違いがはっきり読み取れる。</p>
+          <p>塔の正位置では、稲妻が上から落ちて王冠が吹き飛ぶ。上は「予期せぬこと」を表すため、予想外のハプニングによって、自分の立場や権威、築いてきたものが崩れると読める。</p>
+          <p>逆位置になると、稲妻が下側に来る。下は「予期できること」を表すため、薄々まずいと感じていたこと・予想できていた問題が実際に起こる、という読みになる。</p>
+          <p>同じ「崩壊」でも、「突然なのか」「薄々分かっていたのか」で受け取り方がかなり変わる。これが上下を意識することの実用的な意味だと思う。</p>
+
+          <h2 id="conscious">上は意識、下は無意識</h2>
+          <p>もう一つの読み方として、上を意識・顕在意識、下を無意識・潜在意識・深層心理として見る方法がある。</p>
+          <p>月のカードでは、月そのものが不安を表すシンボル。正位置では月が上にあるため、自分でも不安を意識している・不安が表に出ていると読める。</p>
+          <p>逆位置になると月が下に来るため、不安が深層心理に隠れている・本人が気づかないところで不安を抱えていると読める。こう整理すると、月の逆位置が「意識できない不安」を表すことがすっきり理解できる。</p>
+
+          <h2 id="swords9">ソード9の例</h2>
+          <p>ソード9では、下の方にベッドの彫刻が描かれている。そこには争いや恐怖、トラウマのような象徴が含まれているため、下＝潜在意識として読むと、本人の深層心理に恐怖やトラウマがあると解釈できる。</p>
+          <p>逆位置になると、その彫刻が上に来る。上＝意識として読むなら、不安や恐怖の原因を本人が認識できるようになる・向き合い始めている、という読み方もできる。</p>
+
+          <div class="summary" id="summary">
+            <h2>まとめ</h2>
+            <p>上下の見方は、絶対に当てはめるルールではなく、リーディングの幅を広げるためのフック。</p>
+            <p>上は精神・感覚・予期せぬこと・意識。下は現実・事実・予期できること・無意識。この見方を使うと、逆位置の解釈や、正位置との違いが読みやすくなる。特に「正位置と逆位置で何が変わるか分からないカード」を読むときに役立つ。</p>
+          </div>
+
+        </div>
+
+        <a href="../cat_guide.html" class="back-link">← タロット初心者ガイドに戻る</a>
+      </article>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li><a href="../cat_lenormand.html">ルノルマンで占ってみた</a></li>
+          <li><a href="../cat_guide.html">タロット初心者ガイド</a></li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>
