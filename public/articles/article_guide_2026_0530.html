@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カードの左右で読む｜象徴の位置が示す「過去・未来・内面・行動」の方向 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .article-category { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .article-title { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 500; line-height: 1.7; color: var(--text-dark); margin-bottom: 0.8rem; }
+    .article-date { font-size: 0.68rem; color: #b0997e; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+
+    .lead { background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem; margin-bottom: 2rem; font-size: 0.95rem; line-height: 2.2; color: var(--text-mid); }
+
+    .toc { background: #fff; border: 1px solid rgba(201,168,76,0.3); padding: 1.5rem 1.8rem; margin-bottom: 2.5rem; }
+    .toc-title { font-family: 'Cinzel Decorative', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .toc a { color: var(--deep-blue); text-decoration: none; }
+    .toc a:hover { color: var(--gold); }
+
+    .article-body { font-size: 0.95rem; line-height: 2.4; color: var(--text-mid); font-weight: 300; }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-size: 1rem; font-weight: 500; color: var(--deep-blue); margin: 2.5rem 0 1rem; padding: 0.7rem 1rem; background: rgba(44,74,110,0.06); border-left: 3px solid var(--deep-blue); }
+
+    .point-box { background: #fff; border: 1px solid rgba(201,168,76,0.25); padding: 1.2rem 1.5rem; margin: 1.5rem 0 2rem; }
+    .point-box-title { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 0.8rem; }
+    .point-box ul { padding-left: 1.2rem; }
+    .point-box ul li { font-size: 0.9rem; line-height: 2.2; color: var(--text-mid); }
+
+    .direction-box { background: #fff; border: 1px solid rgba(201,168,76,0.25); padding: 1.2rem 1.5rem; margin: 1.5rem 0 2rem; display: flex; gap: 1.5rem; }
+    .direction-side { flex: 1; }
+    .direction-label { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 0.6rem; }
+    .direction-side ul { padding-left: 1.2rem; }
+    .direction-side ul li { font-size: 0.88rem; line-height: 2.1; color: var(--text-mid); }
+    .direction-divider { width: 1px; background: rgba(201,168,76,0.25); flex-shrink: 0; }
+
+    .summary { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
+    .summary h2 { color: var(--gold-light); font-size: 0.95rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
+    .summary p { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); margin-top: 0.8rem; }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+      .direction-box { flex-direction: column; gap: 1rem; }
+      .direction-divider { width: 100%; height: 1px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="../articles.html">占い記事</a>
+      <a href="../cat_guide.html">タロット初心者ガイド</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+      <article>
+        <div class="article-category">タロット初心者ガイド</div>
+        <h1 class="article-title">カードの左右で読む｜象徴の位置が示す「過去・未来・内面・行動」の方向</h1>
+        <div class="article-date">May 30, 2026</div>
+
+        <div class="lead">
+          カードを読むとき、「どこに何が描かれているか」を意識すると解釈の幅が広がる。上下の読み方と同じように、左右にも基本的な意味の方向がある。絶対的なルールではなく、リーディングを深めるためのヒントとして使う考え方。
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol>
+            <li><a href="#basic">左と右の基本的な捉え方</a></li>
+            <li><a href="#reverse">逆位置にすると左右も変わる</a></li>
+            <li><a href="#how">リーディングでの使い方</a></li>
+            <li><a href="#summary">まとめ</a></li>
+          </ol>
+        </div>
+
+        <div class="article-body">
+
+          <h2 id="basic">左と右の基本的な捉え方</h2>
+          <p>カードの左側と右側には、それぞれ違う意味の方向が割り当てられていることが多い。</p>
+
+          <div class="direction-box">
+            <div class="direction-side">
+              <div class="direction-label">Left ／ 左</div>
+              <ul>
+                <li>過去</li>
+                <li>内面</li>
+                <li>受け身</li>
+                <li>女性性</li>
+                <li>感情</li>
+                <li>無意識</li>
+              </ul>
+            </div>
+            <div class="direction-divider"></div>
+            <div class="direction-side">
+              <div class="direction-label">Right ／ 右</div>
+              <ul>
+                <li>未来</li>
+                <li>外側への行動</li>
+                <li>能動性</li>
+                <li>男性性</li>
+                <li>意志</li>
+                <li>これから向かう方向</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>この考え方を使うと、カードの人物がどちらを向いているか、どちら側に象徴があるかを見ることで読み方が変わってくる。</p>
+          <p>たとえば人物が右を向いていれば「未来を見ている」「外へ向かおうとしている」。左を向いていれば「過去に意識が向いている」「まだ引きずっているものがある」といった方向で読める。また、剣や花などの象徴が左側に描かれていれば「過去に関係する要素」、右側にあれば「これから影響してくる要素」として読むこともできる。</p>
+
+          <h2 id="reverse">逆位置にすると左右も変わる</h2>
+          <p>カードを逆位置にすると、上下だけでなく左右の関係も反転する。</p>
+          <p>正位置で右側にあったものが、逆位置では左側に来る。つまり、未来や行動として読んでいた象徴が、過去や内面の問題として読めるようになる場合がある。</p>
+          <p>この捉え方は「逆位置だから悪い」という単純な読み方とは異なる。象徴の位置が変わったことで、その意味がどこに移動したのかを考えるという視点になる。</p>
+
+          <div class="point-box">
+            <div class="point-box-title">例</div>
+            <ul>
+              <li>正位置：右側の象徴 → 未来・これからの行動として読む</li>
+              <li>逆位置：同じ象徴が左側へ → 過去のこと・内面の問題として読める</li>
+            </ul>
+          </div>
+
+          <h2 id="how">リーディングでの使い方</h2>
+          <p>左右の意味は、絶対的なルールとして覚えるものではない。解釈のフックとして使うのが自然な使い方になる。</p>
+          <p>カードの人物が左を向いていれば、「過去に意識が向いている」「内面を見つめている」「まだ過去の出来事を引きずっている」と読める。右を向いていれば、「未来を見ている」「これから行動しようとしている」「外側に意識が向いている」という方向で読める。</p>
+          <p>象徴の位置についても同じように考えられる。左にある象徴なら「過去に関係するもの」「内側から来ているもの」、右にある象徴なら「これから影響してくるもの」「外へ向かう力」として読むことができる。</p>
+          <p>ただし、すべてのカードで左右を厳密に当てはめる必要はない。全体の絵柄の印象や、スプレッド内での他のカードとの関係と合わせて、ひとつの読み解きのヒントとして使う程度がちょうどよい。</p>
+
+          <div class="summary" id="summary">
+            <h2>まとめ</h2>
+            <p>カードの左側は過去・内面・受け身、右側は未来・行動・能動性という方向で読める。</p>
+            <p>逆位置にすると左右が反転するため、象徴の意味がどちらに移動したかを考えることで、単純な「逆位置＝悪い」という読み方を超えた解釈ができるようになる。</p>
+            <p>カードのキーワードだけに頼らず、絵柄の配置や構図からも意味を拾っていくことで、リーディングはより自由で深いものになる。</p>
+          </div>
+
+        </div>
+
+        <a href="../cat_guide.html" class="back-link">← タロット初心者ガイドに戻る</a>
+      </article>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li><a href="../cat_lenormand.html">ルノルマンで占ってみた</a></li>
+          <li><a href="../cat_guide.html">タロット初心者ガイド</a></li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>
