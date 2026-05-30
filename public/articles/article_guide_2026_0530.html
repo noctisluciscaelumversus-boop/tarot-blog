@@ -54,6 +54,13 @@
     .direction-side ul { padding-left: 1.2rem; }
     .direction-side ul li { font-size: 0.88rem; line-height: 2.1; color: var(--text-mid); }
     .direction-divider { width: 1px; background: rgba(201,168,76,0.25); flex-shrink: 0; }
+    .direction-images { display: flex; gap: 1rem; margin: 1rem 0 1.5rem; }
+    .direction-images img { flex: 1; width: 0; border-radius: 4px; }
+
+    @media (max-width: 480px) {
+      .direction-images { flex-direction: column; }
+      .direction-images img { width: 100%; }
+    }
 
     .summary { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
     .summary h2 { color: var(--gold-light); font-size: 0.95rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
@@ -143,6 +150,11 @@
                 <li>これから向かう方向</li>
               </ul>
             </div>
+          </div>
+
+          <div class="direction-images">
+            <img src="../2C4A472D-4E10-44A0-93C6-2877040E7FDF.png" alt="左のイメージ">
+            <img src="../8A8E8C6F-B156-4C82-B737-613FACB38737.png" alt="右のイメージ">
           </div>
 
           <p>この考え方を使うと、カードの人物がどちらを向いているか、どちら側に象徴があるかを見ることで読み方が変わってくる。</p>
