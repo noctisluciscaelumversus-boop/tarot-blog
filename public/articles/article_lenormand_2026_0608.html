@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【ルノルマン占い】6月中に連絡は来る？「庭・蛇・熊・雲」から読み解く相手の本音 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .article-category { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .article-title { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 500; line-height: 1.7; color: var(--text-dark); margin-bottom: 0.8rem; }
+    .article-date { font-size: 0.68rem; color: #b0997e; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+
+    .lead { background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem; margin-bottom: 2rem; font-size: 0.95rem; line-height: 2.2; color: var(--text-mid); }
+
+    .toc { background: #fff; border: 1px solid rgba(201,168,76,0.3); padding: 1.5rem 1.8rem; margin-bottom: 2.5rem; }
+    .toc-title { font-family: 'Cinzel Decorative', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .toc a { color: var(--deep-blue); text-decoration: none; }
+    .toc a:hover { color: var(--gold); }
+
+    .article-body { font-size: 0.95rem; line-height: 2.4; color: var(--text-mid); font-weight: 300; }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-size: 1rem; font-weight: 500; color: var(--deep-blue); margin: 2.5rem 0 1rem; padding: 0.7rem 1rem; background: rgba(44,74,110,0.06); border-left: 3px solid var(--deep-blue); }
+
+    .card-spread { background: #fff; border: 1px solid rgba(201,168,76,0.25); padding: 1.5rem; margin-bottom: 2rem; }
+    .card-spread-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1.2rem; }
+    .spread-list { list-style: none; }
+    .spread-item { display: flex; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(201,168,76,0.1); font-size: 0.88rem; }
+    .spread-item:last-child { border-bottom: none; }
+    .spread-role { flex-shrink: 0; font-size: 0.72rem; color: #b0997e; width: 110px; }
+    .spread-card { color: var(--text-mid); font-weight: 400; }
+
+    .card-block { background: #fff; border: 1px solid rgba(201,168,76,0.2); padding: 1.2rem 1.5rem; margin-bottom: 1rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .card-img-wrap { flex-shrink: 0; width: 90px; }
+    .card-img-wrap img { width: 100%; border: 1px solid rgba(201,168,76,0.25); display: block; }
+    .card-block-body { flex: 1; min-width: 0; }
+    .card-block h3 { font-size: 0.88rem; font-weight: 500; color: var(--deep-blue); margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .card-block p { font-size: 0.88rem; line-height: 2; color: var(--text-mid); margin-bottom: 0.8rem; }
+    .card-block ul { padding-left: 1.2rem; }
+    .card-block ul li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .back-label { display: inline-block; font-size: 0.6rem; color: var(--gold); border: 1px solid var(--gold); padding: 0.1rem 0.4rem; letter-spacing: 0.1em; margin-left: 0.5rem; vertical-align: middle; }
+
+    .summary { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
+    .summary h2 { color: var(--gold-light); font-size: 0.95rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
+    .summary p { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); margin-top: 0.8rem; }
+    .summary ul { padding-left: 1.4rem; margin-top: 0.8rem; }
+    .summary ul li { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); }
+
+    .divider { display: flex; align-items: center; gap: 1rem; margin: 2rem 0; }
+    .divider-line { flex: 1; height: 1px; background: rgba(201,168,76,0.25); }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .card-block { flex-direction: column; }
+      .card-img-wrap { width: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="../cat_lenormand.html">ルノルマン記事</a>
+      <a href="../cat_guide.html">タロット初心者ガイド</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+      <article>
+        <div class="article-category">ルノルマンで占ってみた</div>
+        <h1 class="article-title">【ルノルマン占い】6月中に連絡は来る？「庭・蛇・熊・雲」から読み解く相手の本音</h1>
+        <div class="article-date">June 8, 2026</div>
+
+        <div class="lead">
+          「今月中にあの人から連絡は来る？」<br><br>
+          気になる相手との関係が停滞していると、不安な気持ちになりますよね。<br><br>
+          今回引いたルノルマンカードは「庭」「蛇」「熊」、そしてバックカードに「雲」。<br><br>
+          この組み合わせからは、相手を取り巻く複雑な事情や強いプレッシャー、そしてまだ定まっていない未来が見えてきます。<br><br>
+          6月中の連絡の可能性と相手の状況について詳しく読み解いていきましょう。
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol>
+            <li><a href="#result">6月中に連絡は来る？カード結果</a></li>
+            <li><a href="#meaning">庭・蛇・熊・雲の意味</a></li>
+            <li><a href="#feelings">相手の気持ちと現状</a></li>
+            <li><a href="#reason">連絡が遅れている理由</a></li>
+            <li><a href="#future">今後の展開予想</a></li>
+            <li><a href="#summary">まとめ</a></li>
+          </ol>
+        </div>
+
+        <div class="article-body">
+
+          <h2 id="result">① 6月中に連絡は来る？カード結果</h2>
+
+          <div class="card-spread">
+            <div class="card-spread-title">Card Reading</div>
+            <ul class="spread-list">
+              <li class="spread-item">
+                <span class="spread-role">1枚目</span>
+                <span class="spread-card">庭</span>
+              </li>
+              <li class="spread-item">
+                <span class="spread-role">2枚目</span>
+                <span class="spread-card">蛇</span>
+              </li>
+              <li class="spread-item">
+                <span class="spread-role">3枚目</span>
+                <span class="spread-card">熊</span>
+              </li>
+              <li class="spread-item">
+                <span class="spread-role">バックカード</span>
+                <span class="spread-card">雲</span>
+              </li>
+            </ul>
+          </div>
+
+          <p>今回のカードは「連絡そのものは途切れていないが、相手側の事情によって停滞している状態」を示しています。</p>
+          <p>完全な終了を示すカードは見当たりません。</p>
+          <p>しかし、スムーズに進展する流れでもなく、複雑な状況の中で相手が動きづらくなっている印象があります。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="meaning">② 庭・蛇・熊・雲の意味</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../lenormand_cards/20_Garden.png" alt="庭">
+            </div>
+            <div class="card-block-body">
+              <h3>庭｜人とのつながりは残っている</h3>
+              <p>庭は交流や人間関係を表すカードです。連絡や再会、コミュニケーションとも関係が深く、「ご縁そのものは続いている」ことを示しています。</p>
+              <p>連絡の可能性を否定するカードではありません。</p>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../lenormand_cards/07_Snake.png" alt="蛇">
+            </div>
+            <div class="card-block-body">
+              <h3>蛇｜素直に進まない事情</h3>
+              <p>蛇は複雑さや遠回りを意味します。相手が迷っている、何か障害がある、あるいは第三者が関係している可能性もあります。</p>
+              <p>連絡したい気持ちはあっても、すぐに行動へ移せない事情がありそうです。</p>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../lenormand_cards/15_Bear.png" alt="熊">
+            </div>
+            <div class="card-block-body">
+              <h3>熊｜強い責任やプレッシャー</h3>
+              <p>熊は責任感や権力、仕事上の重圧を表します。相手は現在、自分の問題よりも優先しなければならないことを抱えている可能性があります。</p>
+              <p>恋愛より仕事や立場を優先している状態とも読めます。</p>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../lenormand_cards/06_Clouds.png" alt="雲">
+            </div>
+            <div class="card-block-body">
+              <h3>雲｜まだ結果は決まっていない<span class="back-label">BACK</span></h3>
+              <p>バックカードの雲は不透明な状況を示します。先が見えず、相手自身もどう動くべきか迷っている様子がうかがえます。</p>
+              <p>ただし雲は永続的なカードではありません。時間の経過とともに状況が変化することも示しています。</p>
+            </div>
+          </div>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="feelings">③ 相手の気持ちと現状</h2>
+
+          <p>カード全体からは、「連絡を完全に断とうとしている」という印象は受けません。</p>
+          <p>むしろ、忙しい・考え事が多い・人間関係が複雑・優先すべき問題があるといった事情が見えてきます。</p>
+          <p>相手の意識は自分の課題に向いており、恋愛や連絡が後回しになっている可能性が高そうです。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="reason">④ 連絡が遅れている理由</h2>
+
+          <p>今回のキーカードは蛇です。蛇は一直線ではなく、回り道を意味します。</p>
+          <p>そのため、「今連絡してもいいのだろうか」「もう少し状況が落ち着いてからにしよう」と考えている可能性があります。</p>
+          <p>気持ちがないというよりも、タイミングを見計らっている状態に近いでしょう。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="future">⑤ 今後の展開予想</h2>
+
+          <p>庭が出ていることから、人とのつながりは維持されています。そのため、今後まったく動きがないというよりは、状況が整理されたタイミングで連絡が入る可能性があります。</p>
+          <p>ただし、蛇と雲があるため予定通りには進みにくく、時期のズレや予想外の展開も考えられます。</p>
+          <p>6月中については「可能性あり。ただし相手都合で遅れる可能性も高い」という読みになります。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <div class="summary" id="summary">
+            <h2>まとめ</h2>
+            <p>「庭・蛇・熊・雲」の組み合わせは、以下のメッセージを伝えています。</p>
+            <ul>
+              <li>ご縁は続いている</li>
+              <li>相手は複雑な事情を抱えている</li>
+              <li>強い責任やプレッシャーがある</li>
+              <li>現状は不透明</li>
+              <li>連絡の可能性は残されている</li>
+            </ul>
+            <p>焦って結論を出す時期ではなく、相手の状況が整理されるのを待つ流れです。</p>
+            <p>雲はやがて晴れるカードでもあります。今は未来を決めつけず、状況の変化を静かに見守ることが大切なのかもしれません。</p>
+          </div>
+
+        </div>
+
+        <a href="../index.html" class="back-link">← ホームに戻る</a>
+      </article>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li><a href="../cat_lenormand.html">ルノルマンで占ってみた</a></li>
+          <li><a href="../cat_guide.html">タロット初心者ガイド</a></li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>
