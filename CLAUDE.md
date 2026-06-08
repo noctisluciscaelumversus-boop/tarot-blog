@@ -82,7 +82,7 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 ### 記事追加時に更新するファイル
 - 新規記事HTML（articles/内に作成）
 - 対応カテゴリページ（cat_kareshi.html / cat_lenormand.html / cat_guide.html）に先頭追加
-- `public/index.html`：元彼・ルノルマン以外のカテゴリはRecent Postsに含めない。元彼記事は5枚キープ
+- `public/index.html`：元彼・ルノルマン以外のカテゴリはRecent Postsに含めない。元彼・ルノルマン記事合わせて5枚キープ
 - `CLAUDE.md`：各記事一覧を最新状態に更新
 
 ---
@@ -142,10 +142,8 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 
 **ホームに表示中（6枚）：**
 - はじめに（固定）
-- article_kareshi_2026_0606（最新）
+- article_lenormand_2026_0608（最新）
+- article_kareshi_2026_0606
 - article_kareshi_2026_0529
 - article_kareshi_2026_0523
-- article_kareshi_2026_0512c
-- article_kareshi_2026_0512 ← 次回新記事追加時に削除
-
-**注意：ルノルマン記事はホームのRecent Postsに含めない（cat_lenormandのみに掲載）**
+- article_kareshi_2026_0512c ← 次回新記事追加時に削除
