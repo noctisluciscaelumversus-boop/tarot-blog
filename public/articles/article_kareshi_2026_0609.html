@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元彼の今の気持ちは？ソード5・愚者逆・隠者正から読み解く本音 | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .article-category { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+    .article-title { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 500; line-height: 1.7; color: var(--text-dark); margin-bottom: 0.8rem; }
+    .article-date { font-size: 0.68rem; color: #b0997e; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+
+    .lead { background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem; margin-bottom: 2rem; font-size: 0.95rem; line-height: 2.2; color: var(--text-mid); }
+
+    .toc { background: #fff; border: 1px solid rgba(201,168,76,0.3); padding: 1.5rem 1.8rem; margin-bottom: 2.5rem; }
+    .toc-title { font-family: 'Cinzel Decorative', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .toc a { color: var(--deep-blue); text-decoration: none; }
+    .toc a:hover { color: var(--gold); }
+
+    .article-body { font-size: 0.95rem; line-height: 2.4; color: var(--text-mid); font-weight: 300; }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-size: 1rem; font-weight: 500; color: var(--deep-blue); margin: 2.5rem 0 1rem; padding: 0.7rem 1rem; background: rgba(44,74,110,0.06); border-left: 3px solid var(--deep-blue); }
+
+    .card-spread { background: #fff; border: 1px solid rgba(201,168,76,0.25); padding: 1.5rem; margin-bottom: 2rem; }
+    .card-spread-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1.2rem; }
+    .spread-list { list-style: none; }
+    .spread-item { display: flex; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(201,168,76,0.1); font-size: 0.88rem; }
+    .spread-item:last-child { border-bottom: none; }
+    .spread-role { flex-shrink: 0; font-size: 0.72rem; color: #b0997e; width: 110px; }
+    .spread-card { color: var(--text-mid); font-weight: 400; }
+
+    .card-block { background: #fff; border: 1px solid rgba(201,168,76,0.2); padding: 1.2rem 1.5rem; margin-bottom: 1rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .card-img-wrap { flex-shrink: 0; width: 90px; }
+    .card-img-wrap img { width: 100%; border: 1px solid rgba(201,168,76,0.25); display: block; }
+    .card-img-wrap img.reverse { transform: rotate(180deg); }
+    .card-block-body { flex: 1; min-width: 0; }
+    .card-block h3 { font-size: 0.88rem; font-weight: 500; color: var(--deep-blue); margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .card-block p { font-size: 0.88rem; line-height: 2; color: var(--text-mid); margin-bottom: 0.8rem; }
+    .card-block ul { padding-left: 1.2rem; margin-bottom: 0.8rem; }
+    .card-block ul li { font-size: 0.88rem; line-height: 2; color: var(--text-mid); }
+    .back-label { display: inline-block; font-size: 0.6rem; color: var(--gold); border: 1px solid var(--gold); padding: 0.1rem 0.4rem; letter-spacing: 0.1em; margin-left: 0.5rem; vertical-align: middle; }
+
+    .summary { background: var(--deep-blue); color: #fff; padding: 1.8rem; margin: 2rem 0; }
+    .summary h2 { color: var(--gold-light); font-size: 0.95rem; margin-bottom: 1rem; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.15em; }
+    .summary p { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); margin-top: 0.8rem; }
+    .summary ul { padding-left: 1.4rem; margin-top: 0.8rem; }
+    .summary ul li { font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.85); }
+
+    .divider { display: flex; align-items: center; gap: 1rem; margin: 2rem 0; }
+    .divider-line { flex: 1; height: 1px; background: rgba(201,168,76,0.25); }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .card-block { flex-direction: column; }
+      .card-img-wrap { width: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="../cat_kareshi.html">占い記事</a>
+      <a href="../cat_guide.html">タロット初心者ガイド</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+      <article>
+        <div class="article-category">元彼の気持ちを占ってみた</div>
+        <h1 class="article-title">元彼の今の気持ちは？ソード5・愚者逆・隠者正から読み解く本音</h1>
+        <div class="article-date">June 9, 2026</div>
+
+        <div class="lead">
+          「元彼は今、私のことをどう思っているのだろう？」<br><br>
+          別れた後も気になる相手の気持ち。連絡がない期間が続くほど、相手の本心が分からなくなってしまうこともあります。<br><br>
+          今回、元彼の今の気持ちを占ったところ、ソード5正位置、愚者逆位置、隠者正位置が現れました。さらにバックカードには星正位置。<br><br>
+          表面には葛藤や迷いが見えますが、その奥にはまだ希望を感じさせるメッセージも隠されています。<br><br>
+          カードから読み解ける元彼の現在の心理を詳しく見ていきましょう。
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol>
+            <li><a href="#result">今回のカード展開</a></li>
+            <li><a href="#swords5">ソード5正位置が示す元彼の気持ち</a></li>
+            <li><a href="#fool">愚者逆位置が示す元彼の気持ち</a></li>
+            <li><a href="#hermit">隠者正位置が示す元彼の気持ち</a></li>
+            <li><a href="#star">バックカード「星正位置」の意味</a></li>
+            <li><a href="#total">元彼の今の気持ち・総合リーディング</a></li>
+            <li><a href="#summary">まとめ</a></li>
+          </ol>
+        </div>
+
+        <div class="article-body">
+
+          <h2 id="result">① 今回のカード展開</h2>
+
+          <div class="card-spread">
+            <div class="card-spread-title">Card Reading</div>
+            <ul class="spread-list">
+              <li class="spread-item">
+                <span class="spread-role">1枚目</span>
+                <span class="spread-card">ソード5 正位置</span>
+              </li>
+              <li class="spread-item">
+                <span class="spread-role">2枚目</span>
+                <span class="spread-card">愚者 逆位置</span>
+              </li>
+              <li class="spread-item">
+                <span class="spread-role">3枚目</span>
+                <span class="spread-card">隠者 正位置</span>
+              </li>
+              <li class="spread-item">
+                <span class="spread-role">バックカード</span>
+                <span class="spread-card">星 正位置</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="swords5">② ソード5正位置が示す元彼の気持ち</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/Swords05.png" alt="ソード5">
+            </div>
+            <div class="card-block-body">
+              <h3>ソード5｜葛藤とわだかまり</h3>
+              <p>ソード5は葛藤や対立、心のわだかまりを表すカードです。元彼は現在、過去の出来事や別れに関する何らかの複雑な感情を抱えている可能性があります。</p>
+              <ul>
+                <li>別れ方に後悔がある</li>
+                <li>当時の出来事を思い出す</li>
+                <li>素直になれない</li>
+                <li>傷つきたくない</li>
+              </ul>
+              <p>このような気持ちが心のどこかに残っているのかもしれません。あなたを嫌っているというよりも、自分自身の感情とうまく向き合えていない印象を受けます。</p>
+            </div>
+          </div>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="fool">③ 愚者逆位置が示す元彼の気持ち</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/00-TheFool.png" alt="愚者" class="reverse">
+            </div>
+            <div class="card-block-body">
+              <h3>愚者 逆位置｜行動への迷いと不安</h3>
+              <p>愚者逆位置は、行動への不安や迷いを表します。元彼の中には、「連絡したらどうなるだろう」「今さら連絡してもいいのだろうか」という気持ちがありそうです。</p>
+              <p>本来なら自由に動ける場面でも、失敗を恐れて慎重になりすぎている状態。気持ちが全くないというよりも、自信のなさやタイミングへの迷いが行動を止めているように見えます。</p>
+            </div>
+          </div>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="hermit">④ 隠者正位置が示す元彼の気持ち</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/09-TheHermit.png" alt="隠者">
+            </div>
+            <div class="card-block-body">
+              <h3>隠者 正位置｜一人で内省している</h3>
+              <p>隠者は一人で考える時間や内省を意味します。現在の元彼は、自分の気持ちを整理している・過去を振り返っている・自分なりの答えを探している状態でしょう。</p>
+              <p>恋愛よりもまず、自分自身と向き合うことを優先している可能性があります。そのため、今は積極的な行動よりも静観を選んでいるようです。</p>
+            </div>
+          </div>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="star">⑤ バックカード「星正位置」の意味</h2>
+
+          <div class="card-block">
+            <div class="card-img-wrap">
+              <img src="../cards/17-TheStar.png" alt="星">
+            </div>
+            <div class="card-block-body">
+              <h3>星 正位置<span class="back-label">BACK</span>｜心の奥の希望</h3>
+              <p>バックカードの星正位置は、とても前向きなエネルギーを持っています。星は希望・信頼・癒やし・未来への期待を表すカードです。</p>
+              <p>表面上は迷いや葛藤が見えるものの、心の奥では「いつかまた話せたらいいな」「良い関係になれたらいいな」という希望を抱いている可能性があります。少なくとも、完全に関係を切り捨てている印象は受けません。</p>
+            </div>
+          </div>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <h2 id="total">⑥ 元彼の今の気持ち・総合リーディング</h2>
+
+          <p>今回のカードから見えてくるのは、「まだ気持ちは残っているが、自分から動く勇気や自信が持てない状態」という心理です。</p>
+          <p>ソード5で葛藤し、愚者逆で行動をためらい、隠者で一人考え込んでいる元彼。しかし、バックカードの星正位置は、この関係に対する希望や前向きな感情が心の奥に残っていることを示しています。</p>
+          <p>今は動き出す時期というよりも、自分の気持ちを整理する時間を過ごしている段階なのでしょう。</p>
+
+          <div class="divider"><div class="divider-line"></div><span style="color:var(--gold)">✦</span><div class="divider-line"></div></div>
+
+          <div class="summary" id="summary">
+            <h2>まとめ</h2>
+            <p>今回のカードから読み取れる元彼の気持ちは、</p>
+            <ul>
+              <li>過去への葛藤やわだかまりがある</li>
+              <li>行動したい気持ちはあるが迷いが強い</li>
+              <li>一人で気持ちを整理している</li>
+              <li>心の奥では関係への希望を失っていない</li>
+            </ul>
+            <p>表面的には距離を置いているように見えても、内面ではさまざまな思いが動いている様子がうかがえます。</p>
+            <p>「今は静かに考えている最中。でも心の奥では、この縁にまだ希望を抱いている。」</p>
+            <p>それが今回のカードから伝わってくる元彼の本音と言えるでしょう。</p>
+          </div>
+
+        </div>
+
+        <a href="../index.html" class="back-link">← ホームに戻る</a>
+      </article>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="../hajimeni.html">はじめに</a></li>
+          <li><a href="../cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li>今日の運勢を占ってみた</li>
+          <li><a href="../cat_lenormand.html">ルノルマンで占ってみた</a></li>
+          <li><a href="../cat_guide.html">タロット初心者ガイド</a></li>
+          <li><a href="../cat_cardguide.html">カード解説</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>
