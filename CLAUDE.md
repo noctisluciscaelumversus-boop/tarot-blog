@@ -16,6 +16,9 @@
 ├── 404.html
 ├── hajimeni.html           はじめにページ
 ├── cat_kareshi.html        カテゴリ：元彼の気持ちを占ってみた
+├── cat_unsei.html          カテゴリ：今日の運勢を占ってみた
+├── cat_lenormand.html      カテゴリ：ルノルマンで占ってみた
+├── cat_guide.html          カテゴリ：タロット初心者ガイド
 ├── cat_cardguide.html      カテゴリ：カード解説
 ├── google4480c465297673ad.html  Search Console認証ファイル
 ├── cards/                  タロット画像（PNG）
@@ -53,8 +56,11 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 ## ブログ記事の作成手順
 
 ### ファイル名規則
-- ブログ記事：`articles/article_kareshi_YYYY_MMDD.html`
-- 日付は記事の投稿日に合わせる
+- 元彼カテゴリ：`articles/article_kareshi_YYYY_MMDD.html`
+- 今日の運勢カテゴリ：`articles/article_unsei_YYYY_MMDD.html`
+- ルノルマンカテゴリ：`articles/article_lenormand_YYYY_MMDD.html`
+- ガイドカテゴリ：`articles/article_guide_YYYY_MMDD.html`
+- 日付は記事の投稿日（公開日）に合わせる
 
 ### 記事HTMLのフォーマット
 - 参照ファイル：`public/articles/article_kareshi_2026_0502.html`
@@ -81,9 +87,9 @@ pushしないとサイトに反映されない。ユーザーに確認を求め�
 
 ### 記事追加時に更新するファイル
 - 新規記事HTML（articles/内に作成）
-- 対応カテゴリページ（cat_kareshi.html / cat_lenormand.html / cat_guide.html）に先頭追加
+- 対応カテゴリページ（cat_kareshi.html / cat_unsei.html / cat_lenormand.html / cat_guide.html）に先頭追加
 - `public/index.html`：元彼・ルノルマン以外のカテゴリはRecent Postsに含めない。元彼・ルノルマン記事合わせて5枚キープ
-- `CLAUDE.md`：各記事一覧を最新状態に更新
+- `CLAUDE.md`：各記事一覧・ホーム表示中リストを最新状態に更新
 
 ---
 
