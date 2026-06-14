@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日の運勢を占ってみた | ゼロのタロット</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --deep-blue: #2c4a6e;
+      --parchment: #faf6ee;
+      --text-dark: #2a1f0e;
+      --text-mid: #4a3820;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Serif JP', serif; background: var(--parchment); color: var(--text-dark); }
+
+    .site-header { background: var(--deep-blue); padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-header a { font-family: 'Cinzel Decorative', serif; font-size: 0.75rem; color: var(--gold-light); text-decoration: none; letter-spacing: 0.2em; }
+    .site-header nav { display: flex; gap: 1.5rem; }
+    .site-header nav a { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; font-family: 'Noto Serif JP', serif; }
+
+    .main-layout { display: flex; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; align-items: flex-start; }
+    .main-content { flex: 1; min-width: 0; }
+    .sidebar { width: 220px; flex-shrink: 0; }
+
+    .cat-header { margin-bottom: 2.5rem; }
+    .cat-label { font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 0.8rem; }
+    .cat-title { font-size: 1.3rem; font-weight: 500; color: var(--text-dark); line-height: 1.7; margin-bottom: 0.8rem; }
+    .cat-divider { height: 1px; background: rgba(201,168,76,0.3); }
+
+    .article-list { list-style: none; }
+    .article-item { border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .article-item a {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: 1.2rem 0.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+    .article-item a:hover { background: rgba(201,168,76,0.06); }
+    .article-item a:hover .article-subtitle { color: var(--deep-blue); }
+    .article-date-tag { flex-shrink: 0; font-size: 0.75rem; color: #b0997e; letter-spacing: 0.05em; min-width: 80px; padding-top: 0.2rem; }
+    .article-info { display: flex; flex-direction: column; gap: 0.3rem; }
+    .article-subtitle { font-size: 0.95rem; font-weight: 400; color: var(--text-mid); line-height: 1.7; }
+    .article-cards { font-size: 0.72rem; color: #b0997e; letter-spacing: 0.05em; }
+
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.75rem; color: var(--gold); text-decoration: none; font-family: 'Cinzel Decorative', serif; letter-spacing: 0.1em; }
+
+    .sidebar-widget { background: #fff; border: 1px solid rgba(201,168,76,0.22); padding: 1.5rem 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .sidebar-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--deep-blue); letter-spacing: 0.2em; margin-bottom: 0.7rem; }
+    .sidebar-bio { font-size: 0.72rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; text-align: left; }
+    .sidebar-title { font-family: 'Cinzel Decorative', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; text-align: left; }
+    .sidebar-cats { list-style: none; text-align: left; }
+    .sidebar-cats li { padding: 0.45rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); font-size: 0.75rem; color: var(--text-mid); }
+    .sidebar-cats li:last-child { border-bottom: none; }
+    .sidebar-cats li::before { content: '✦ '; color: var(--gold); font-size: 0.55rem; }
+    .sidebar-cats a { color: inherit; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 1.5rem; text-align: center; }
+    .footer-text { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; padding: 2rem 1.2rem 3rem; }
+      .sidebar { width: 100%; }
+      .article-item a { flex-direction: column; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html">✦ Zero Tarot</a>
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="cat_kareshi.html">占い記事</a>
+      <a href="cat_guide.html">タロット初心者ガイド</a>
+    </nav>
+  </header>
+
+  <div class="main-layout">
+    <div class="main-content">
+
+      <div class="cat-header">
+        <div class="cat-label">Category</div>
+        <h1 class="cat-title">今日の運勢を占ってみた</h1>
+        <div class="cat-divider"></div>
+      </div>
+
+      <ul class="article-list">
+        <li class="article-item">
+          <a href="articles/article_unsei_2026_0613.html">
+            <span class="article-date-tag">2026/6/13</span>
+            <div class="article-info">
+              <span class="article-subtitle">日本一のバンジーを飛んだ翌日に占う｜これから私の人生は変わる？審判正位置が示すこと</span>
+              <span class="article-cards">ソード5逆・カップ6正・審判正・皇帝逆（バック）</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <a href="index.html" class="back-link">← ホームに戻る</a>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-name">Zero / ゼロ</div>
+        <p class="sidebar-bio">タロットとルノルマンを学び中。カードを通じて感じたことを、正直に綴っています。</p>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-cats">
+          <li><a href="hajimeni.html">はじめに</a></li>
+          <li><a href="cat_kareshi.html">元彼の気持ちを占ってみた</a></li>
+          <li><a href="cat_unsei.html">今日の運勢を占ってみた</a></li>
+          <li><a href="cat_lenormand.html">ルノルマンで占ってみた</a></li>
+          <li><a href="cat_cardguide.html">カード解説</a></li>
+          <li><a href="cat_guide.html">タロット初心者ガイド</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-text">✦ Zero Tarot ✦</div>
+  </footer>
+
+</body>
+</html>
